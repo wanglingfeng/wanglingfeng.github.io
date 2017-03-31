@@ -58,6 +58,199 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-swap配置笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/31/swap配置笔记/" class="article-date">
+  <time datetime="2017-03-31T11:11:13.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="设置swap"><a href="#设置swap" class="headerlink" title="设置swap"></a>设置swap</h3><ol>
+<li><code>dd if=/dev/zero of=/root/swap/tmp.swap bs=1M count=5120</code></li>
+<li><code>mkswap /root/swap/tmp.swap</code></li>
+<li><code>swapon /root/swap/tmp.swap</code></li>
+<li>修改/etc/fstab文件，添加如下内容<br><code>/root/swap/tmp.swap swap swap defaults 0 0</code></li>
+<li><code>swapon -s</code>或<code>free</code>或<code>cat /proc/swaps</code>查看</li>
+</ol>
+<h3 id="关闭swap"><a href="#关闭swap" class="headerlink" title="关闭swap"></a>关闭swap</h3><ol>
+<li><code>swapoff /root/swap/tmp.swap</code></li>
+<li>修改/etc/fstab文件</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/03/31/swap配置笔记/" data-id="cj0xqd8an002ksps616lv1wst" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-配置linux并发连接最大连接数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/31/配置linux并发连接最大连接数/" class="article-date">
+  <time datetime="2017-03-31T11:07:41.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>linux机器默认的并发连接数大概为1000左右，高并发是难以支持的，所以要修改linux系统的各项参数</p>
+<h3 id="设置open-files"><a href="#设置open-files" class="headerlink" title="设置open files"></a>设置open files</h3><p>查看open files：<code>unlimit -a</code></p>
+<p>临时设置open files数：<code>ulimit -n [期望最大的open files数值]</code></p>
+<p>永久设置open files数：/etc/security/limits.conf文件中添加如下两行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">* soft nofile 50000</div><div class="line">* hard nofile 50000</div></pre></td></tr></table></figure></p>
+<p>PS：ubuntu系统不能用*，必须指定用户</p>
+<h3 id="设置tcp优化"><a href="#设置tcp优化" class="headerlink" title="设置tcp优化"></a>设置tcp优化</h3><p>/etc/sysctl.conf文件中添加如下内容之后，执行sysctl -p启用配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">net.core.rmem_default = 256960</div><div class="line">net.core.rmem_max = 513920</div><div class="line">net.core.wmem_default = 256960</div><div class="line">net.core.wmem_max = 513920</div><div class="line">net.core.netdev_max_backlog = 2000</div><div class="line">net.core.somaxconn = 2048</div><div class="line">net.core.optmem_max = 81920</div><div class="line"></div><div class="line">net.ipv4.tcp_mem = 131072  262144  524288</div><div class="line">net.ipv4.tcp_rmem = 8760  256960  4088000</div><div class="line">net.ipv4.tcp_wmem = 8760  256960  4088000</div><div class="line">net.ipv4.tcp_keepalive_time = 1800</div><div class="line">net.ipv4.tcp_keepalive_intvl = 30</div><div class="line">net.ipv4.tcp_keepalive_probes = 3</div><div class="line">net.ipv4.tcp_sack = 1</div><div class="line">net.ipv4.tcp_fack = 1</div><div class="line">net.ipv4.tcp_timestamps = 1</div><div class="line">net.ipv4.tcp_window_scaling = 1</div><div class="line">net.ipv4.tcp_syncookies = 1</div><div class="line">net.ipv4.tcp_tw_reuse = 1</div><div class="line">net.ipv4.tcp_tw_recycle = 1</div><div class="line">net.ipv4.tcp_fin_timeout = 30</div><div class="line">net.ipv4.ip_local_port_range = 1024  65000</div><div class="line">net.ipv4.tcp_max_syn_backlog = 2048</div></pre></td></tr></table></figure></p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>使用这个<a href="https://github.com/ideawu/c1000k" target="_blank" rel="external">c1000k</a>工具来测试你的系统最多支持多少并发连接.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/03/31/配置linux并发连接最大连接数/" data-id="cj0xqd8ar002usps6fkm2iqrw" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-elasticsearch使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/31/elasticsearch使用笔记/" class="article-date">
+  <time datetime="2017-03-31T11:04:04.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/elasticsearch/">elasticsearch</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/elasticsearch使用笔记/">elasticsearch使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用url"><a href="#使用url" class="headerlink" title="使用url"></a>使用url</h3><p>查询logstash信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://[your-node-name]:[your-port]/[your-index]/_search?pretty</div></pre></td></tr></table></figure></p>
+<p>PS：url中的索引可以使用*号匹配</p>
+<h3 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h3><p>curl命令取得指定index的统计结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl --user [your-admin]:[your-password] http://[your-node-name]:[your-port]/[your-index]/_count?pretty</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/03/31/elasticsearch使用笔记/" data-id="cj0xqd894000csps64u8n7szq" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-screen命令使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/31/screen命令使用笔记/" class="article-date">
+  <time datetime="2017-03-31T10:55:25.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/命令行/">命令行</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="screen使用"><a href="#screen使用" class="headerlink" title="screen使用"></a>screen使用</h3><p>新建会话: screen<br>显示全部会话：screen -ls<br>通过screen列表中的pid重新登陆到分离的screen：screen -r [pid]</p>
+<p>处于screen中，按Ctrl + a后,接</p>
+<ul>
+<li>d: 退出当前screen</li>
+<li>w: 左下角显示有哪些会话</li>
+<li>c: 新建会话</li>
+<li>n: 移到下一个窗口</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/03/31/screen命令使用笔记/" data-id="cj0xqd8ab001tsps6nguzhcpb" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-item2-oh-my-zsh配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/31/item2-oh-my-zsh配置/" class="article-date">
@@ -90,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cj0xpfd6d0017iys6jjs7asm0" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cj0xqd89y0019sps65rqfvbhz" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -181,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cj0xpfd4w0000iys6qsi5uf65" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cj0xqd8860000sps61fv5ojax" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -229,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cj0xpfd63000siys64764vmjc" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cj0xqd89k000usps6pqmsyyq1" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -289,7 +482,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cj0xpfd6i001ciys6cgeqjqnw" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cj0xqd8a2001esps6mudlamt9" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -352,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cj0xpfd76002kiys63x5n6tvu" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cj0xqd8ar002ssps6eizy786z" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -394,233 +587,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cj0xpfd720028iys65h3nl5o3" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-boot构成" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/spring-boot构成/" class="article-date">
-  <time datetime="2016-12-15T05:47:18.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/spring-boot构成/">spring-boot构成</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自动配置-auto-configuration"><a href="#自动配置-auto-configuration" class="headerlink" title="自动配置(auto-configuration)"></a>自动配置(auto-configuration)</h3><p>一项简化配置的功能，比如在classpath中发现有spring security的jar包，则自动创建相关的bean等</p>
-<h3 id="starters-简化依赖"><a href="#starters-简化依赖" class="headerlink" title="starters(简化依赖)"></a>starters(简化依赖)</h3><p>这个比较关键，方便spring去集成各类组件，比如redis、mongodb等等。</p>
-<ul>
-<li>core(<code>security</code>、<code>aop</code>)</li>
-<li>web(<code>web</code>、<code>websocket</code>、<code>ws</code>、<code>vaadin</code>、<code>rest</code>、<code>mobile</code>)</li>
-<li>template(<code>freemarker</code>、<code>velocity</code>、<code>groovy templates</code>、<code>thymeleaf</code>)</li>
-<li>data(<code>jdbc</code>、<code>jpa</code>、<code>mongodb</code>、<code>redis</code>、<code>gemfire</code>、<code>solr</code>、<code>elasticsearch</code>)</li>
-<li>database(<code>h2</code>、<code>hsqldb</code>、<code>mysql</code>、<code>postgresql</code>)</li>
-<li>social(<code>facebook</code>、<code>linkedin</code>、<code>twitter</code>)</li>
-<li>io(<code>batch</code>、<code>integration</code>、<code>jms</code>、<code>amqp</code>)</li>
-<li>ops(<code>actuator</code>、<code>remote shell</code>)</li>
-<li>CLI(<code>command-line interface</code>),支持groovy开发</li>
-</ul>
-<h3 id="Actuator-对应用系统本身的自省功能"><a href="#Actuator-对应用系统本身的自省功能" class="headerlink" title="Actuator(对应用系统本身的自省功能)"></a>Actuator(对应用系统本身的自省功能)</h3><p>这个有点devops的味道，使得应用程序本身可以做到自省，比如查看系统运行了多少线程，gc的情况，运行的基本参数等等</p>
-<ul>
-<li>/beans: 这个endpoint列出所有由Spring Boot创建的bean</li>
-<li>/mappings: 这个endpoint显示当前应用支持的URL映射</li>
-<li>/info: 这个endpoint显示应用程序的基本描述</li>
-<li>/health: 这个endpoint提供应用程序的健康状态</li>
-<li>/env: 这个endpoint提供应用程序的环境变量</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cj0xpfd6s001riys6d6044apt" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-boot配置属性字典-others" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/spring-boot配置属性字典-others/" class="article-date">
-  <time datetime="2016-12-15T05:29:24.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-others/">spring-boot配置属性字典-others</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="aop"><a href="#aop" class="headerlink" title="aop"></a>aop</h3><ul>
-<li>spring.aop.auto: 是否支持@EnableAspectJAutoProxy，默认为: true</li>
-<li>spring.aop.proxy-target-class: true为使用CGLIB代理，false为JDK代理，默认为false</li>
-</ul>
-<h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><ul>
-<li>spring.application.admin.enabled: 是否启用admin特性，默认为: false</li>
-<li>spring.application.admin.jmx-name: 指定admin MBean的名称，默认为: org.springframework.boot:type=Admin,name=SpringApplication</li>
-</ul>
-<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><ul>
-<li>logging.file: 指定日志输出位置，比如：log/spring.log</li>
-<li>logging.level.[package]：指定package的日志输出级别(ERROR &gt; WARN &gt; INFO &gt; DEBUG)</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/15/spring-boot配置属性字典-others/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-others/" data-id="cj0xpfd6y001yiys696du2aqe" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-boot配置属性字典-security" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/spring-boot配置属性字典-security/" class="article-date">
-  <time datetime="2016-12-15T05:25:00.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-security/">spring-boot配置属性字典-security</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="security"><a href="#security" class="headerlink" title="security"></a>security</h3><ul>
-<li>security.sessions: 指定Session的创建策略(always, never, if_required, stateless)</li>
-<li>security.user.name: 指定默认的用户名，默认为user</li>
-<li>security.user.password: 默认的用户密码</li>
-<li>security.user.role: 默认用户的授权角色</li>
-<li>security.basic.authorize-mode: 要使用权限控制模式.</li>
-<li>security.basic.enabled: 是否开启基本的鉴权，默认为true</li>
-<li>security.basic.path: 需要鉴权的path，多个的话以逗号分隔，默认为[/**]</li>
-<li>security.basic.realm: HTTP basic realm 的名字，默认为Spring</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/15/spring-boot配置属性字典-security/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-security/" data-id="cj0xpfd700023iys6fcqqthp5" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-boot配置属性字典-mq" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/spring-boot配置属性字典-mq/" class="article-date">
-  <time datetime="2016-12-15T05:21:29.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-mq/">spring-boot配置属性字典-mq</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="activemq"><a href="#activemq" class="headerlink" title="activemq"></a>activemq</h3><ul>
-<li>spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成</li>
-<li>spring.activemq.in-memory: 是否是内存模式，默认为true</li>
-<li>spring.activemq.password: 指定broker的密码</li>
-<li>spring.activemq.pooled: 是否创建PooledConnectionFactory，而非ConnectionFactory，默认false</li>
-<li>spring.activemq.user: 指定broker的用户</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/15/spring-boot配置属性字典-mq/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/" data-id="cj0xpfd6x001wiys6fmqips1k" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cj0xqd8aj002dsps6v2gmhtel" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -645,7 +612,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
     </div>
   </div>
 
@@ -673,23 +640,23 @@
       <ul>
         
           <li>
+            <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/elasticsearch使用笔记/">elasticsearch使用笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/15/jvm原理/">jvm原理</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
           </li>
         
       </ul>

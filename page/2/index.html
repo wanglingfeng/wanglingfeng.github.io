@@ -58,6 +58,232 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-spring-boot构成" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot构成/" class="article-date">
+  <time datetime="2016-12-15T05:47:18.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot构成/">spring-boot构成</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="自动配置-auto-configuration"><a href="#自动配置-auto-configuration" class="headerlink" title="自动配置(auto-configuration)"></a>自动配置(auto-configuration)</h3><p>一项简化配置的功能，比如在classpath中发现有spring security的jar包，则自动创建相关的bean等</p>
+<h3 id="starters-简化依赖"><a href="#starters-简化依赖" class="headerlink" title="starters(简化依赖)"></a>starters(简化依赖)</h3><p>这个比较关键，方便spring去集成各类组件，比如redis、mongodb等等。</p>
+<ul>
+<li>core(<code>security</code>、<code>aop</code>)</li>
+<li>web(<code>web</code>、<code>websocket</code>、<code>ws</code>、<code>vaadin</code>、<code>rest</code>、<code>mobile</code>)</li>
+<li>template(<code>freemarker</code>、<code>velocity</code>、<code>groovy templates</code>、<code>thymeleaf</code>)</li>
+<li>data(<code>jdbc</code>、<code>jpa</code>、<code>mongodb</code>、<code>redis</code>、<code>gemfire</code>、<code>solr</code>、<code>elasticsearch</code>)</li>
+<li>database(<code>h2</code>、<code>hsqldb</code>、<code>mysql</code>、<code>postgresql</code>)</li>
+<li>social(<code>facebook</code>、<code>linkedin</code>、<code>twitter</code>)</li>
+<li>io(<code>batch</code>、<code>integration</code>、<code>jms</code>、<code>amqp</code>)</li>
+<li>ops(<code>actuator</code>、<code>remote shell</code>)</li>
+<li>CLI(<code>command-line interface</code>),支持groovy开发</li>
+</ul>
+<h3 id="Actuator-对应用系统本身的自省功能"><a href="#Actuator-对应用系统本身的自省功能" class="headerlink" title="Actuator(对应用系统本身的自省功能)"></a>Actuator(对应用系统本身的自省功能)</h3><p>这个有点devops的味道，使得应用程序本身可以做到自省，比如查看系统运行了多少线程，gc的情况，运行的基本参数等等</p>
+<ul>
+<li>/beans: 这个endpoint列出所有由Spring Boot创建的bean</li>
+<li>/mappings: 这个endpoint显示当前应用支持的URL映射</li>
+<li>/info: 这个endpoint显示应用程序的基本描述</li>
+<li>/health: 这个endpoint提供应用程序的健康状态</li>
+<li>/env: 这个endpoint提供应用程序的环境变量</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cj0xqd8ac001vsps6wy54b3kk" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-boot配置属性字典-others" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-others/" class="article-date">
+  <time datetime="2016-12-15T05:29:24.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-others/">spring-boot配置属性字典-others</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="aop"><a href="#aop" class="headerlink" title="aop"></a>aop</h3><ul>
+<li>spring.aop.auto: 是否支持@EnableAspectJAutoProxy，默认为: true</li>
+<li>spring.aop.proxy-target-class: true为使用CGLIB代理，false为JDK代理，默认为false</li>
+</ul>
+<h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><ul>
+<li>spring.application.admin.enabled: 是否启用admin特性，默认为: false</li>
+<li>spring.application.admin.jmx-name: 指定admin MBean的名称，默认为: org.springframework.boot:type=Admin,name=SpringApplication</li>
+</ul>
+<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><ul>
+<li>logging.file: 指定日志输出位置，比如：log/spring.log</li>
+<li>logging.level.[package]：指定package的日志输出级别(ERROR &gt; WARN &gt; INFO &gt; DEBUG)</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/15/spring-boot配置属性字典-others/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-others/" data-id="cj0xqd8ah0028sps6fr427wjk" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-boot配置属性字典-security" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-security/" class="article-date">
+  <time datetime="2016-12-15T05:25:00.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-security/">spring-boot配置属性字典-security</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="security"><a href="#security" class="headerlink" title="security"></a>security</h3><ul>
+<li>security.sessions: 指定Session的创建策略(always, never, if_required, stateless)</li>
+<li>security.user.name: 指定默认的用户名，默认为user</li>
+<li>security.user.password: 默认的用户密码</li>
+<li>security.user.role: 默认用户的授权角色</li>
+<li>security.basic.authorize-mode: 要使用权限控制模式.</li>
+<li>security.basic.enabled: 是否开启基本的鉴权，默认为true</li>
+<li>security.basic.path: 需要鉴权的path，多个的话以逗号分隔，默认为[/**]</li>
+<li>security.basic.realm: HTTP basic realm 的名字，默认为Spring</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/15/spring-boot配置属性字典-security/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-security/" data-id="cj0xqd8ag0025sps6cncj305h" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-boot配置属性字典-mq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-mq/" class="article-date">
+  <time datetime="2016-12-15T05:21:29.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-mq/">spring-boot配置属性字典-mq</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="activemq"><a href="#activemq" class="headerlink" title="activemq"></a>activemq</h3><ul>
+<li>spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成</li>
+<li>spring.activemq.in-memory: 是否是内存模式，默认为true</li>
+<li>spring.activemq.password: 指定broker的密码</li>
+<li>spring.activemq.pooled: 是否创建PooledConnectionFactory，而非ConnectionFactory，默认false</li>
+<li>spring.activemq.user: 指定broker的用户</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/15/spring-boot配置属性字典-mq/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/" data-id="cj0xqd8ae0020sps6wgps9gdo" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-spring-boot配置属性字典-database" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/15/spring-boot配置属性字典-database/" class="article-date">
@@ -108,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-database/" data-id="cj0xpfd6v001tiys69u7z26qo" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-database/" data-id="cj0xqd8ad001ysps65ce4o357" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -168,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-server/" data-id="cj0xpfd710026iys65jj93gcn" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-server/" data-id="cj0xqd8ai002asps6b8q4wfoj" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -225,7 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mvc/" data-id="cj0xpfd700021iys6r6cdkgtk" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mvc/" data-id="cj0xqd8af0023sps6m2jlnoq6" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -280,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/08/hexo域名和github绑定/" data-id="cj0xpfd6b0012iys62d5bfz1m" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/08/hexo域名和github绑定/" data-id="cj0xqd89u0014sps6sopv4ovy" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -326,7 +552,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/断路器模式/" data-id="cj0xpfd76002iiys6v3ydzhh1" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/断路器模式/" data-id="cj0xqd8ap002psps6xehaf8a7" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -369,221 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/window命令笔记/" data-id="cj0xpfd75002fiys617rmcrbj" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-squirrel-sql笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/squirrel-sql笔记/" class="article-date">
-  <time datetime="2016-12-06T10:01:21.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/存储/">存储</a>►<a class="article-category-link" href="/categories/技术/存储/可视化工具/">可视化工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/squirrel-sql笔记/">squirrel sql笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="配置Drivers"><a href="#配置Drivers" class="headerlink" title="配置Drivers"></a>配置Drivers</h3><p>选定指定的drivers点击修改操作，在Extra Class Path中指定对应的jar驱动文件</p>
-<h3 id="连接对应的数据库"><a href="#连接对应的数据库" class="headerlink" title="连接对应的数据库"></a>连接对应的数据库</h3><p>选定对应的driver，输入对应的url、账户和密码，连接即可。<br><br>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">url：jdbc:h2:tcp://localhost:9999/mem:dev</div><div class="line">密码：sa</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/squirrel-sql笔记/" data-id="cj0xpfd74002diys66ctoauu3" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-security笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/spring-security笔记/" class="article-date">
-  <time datetime="2016-12-06T10:00:11.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/spring-security笔记/">spring security笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="登录核心"><a href="#登录核心" class="headerlink" title="登录核心"></a>登录核心</h3><p><code>AbstractUserDetailsAuthenticationProvider</code>类的<code>authenticate</code>方法</p>
-<h3 id="配置文件定义用户名和密码原理"><a href="#配置文件定义用户名和密码原理" class="headerlink" title="配置文件定义用户名和密码原理"></a>配置文件定义用户名和密码原理</h3><h4 id="初始化过程"><a href="#初始化过程" class="headerlink" title="初始化过程"></a>初始化过程</h4><ol>
-<li><code>SecurityProperties</code>创建<code>security</code>默认配置项数据，yml中如果有，会覆盖对应项的值</li>
-<li>启动时，首先执行<code>AuthenticationManagerConfiguration</code>类的静态内部类<code>DefaultInMemoryUserDetailsManagerConfigurer</code>初始化方法<code>configure</code>方法，读取<code>securityProperties</code>中的用户信息</li>
-<li><code>AuthenticationManagerConfiguration</code>调用父类<code>UserDetailsManagerConfigurer</code>的<code>withUser</code>方法将<code>securityProperties</code>中的用户信息添加到<code>UserDetailsManagerConfigurer</code>的<code>userBuilders</code>对象</li>
-<li><code>UserDetailsManagerConfigurer</code>的初始化方法<code>initUserDetailsService</code>方法调用<code>InMemoryUserDetailsManager</code>的<code>createUser</code>方法将<code>userBuilders</code>对象添加到<code>InMemoryUserDetailsManager</code>的<code>users</code>对象中</li>
-</ol>
-<h4 id="登录过程"><a href="#登录过程" class="headerlink" title="登录过程"></a>登录过程</h4><p>执行方法：<code>AbstractUserDetailsAuthenticationProvider</code>的<code>authenticate</code>方法</p>
-<ol>
-<li>现在usercache中查询是否有传入的<code>username</code>对应的<code>user</code>对象<ul>
-<li>如果缓存中没有执行<ol>
-<li>调用<code>DaoAuthenticationProvider</code>的<code>retrieveUser</code>方法</li>
-<li>主要通过<code>retrieveUser</code>方法中的<code>loadUserByUsername</code>方法取得<code>user</code>对象,因为是配置文件定义的用户名和密码，所以<code>loadUserByUsername</code>方法由<code>InMemoryUserDetailsManager</code>提供实现,在users中查找</li>
-<li><code>InMemoryUserDetailsManager</code>的<code>loadUserByUsername</code>方法就是从<code>InMemoryUserDetailsManager</code>的的<code>users</code>对象中获取<code>username</code>对应的<code>user</code>对象</li>
-</ol>
-</li>
-<li>如果缓存中有，则继续执行</li>
-</ul>
-</li>
-<li><p><code>AbstractUserDetailsAuthenticationProvider</code>的内部类<code>DefaultPreAuthenticationChecks</code>校验<code>user</code></p>
-<ol>
-<li><code>isAccountNonLocked</code>：判断用户是否被锁，如果被锁抛异常</li>
-<li><code>isEnabled</code>：判断用户是否被禁用，如果被禁用抛异常</li>
-<li><code>isAccountNonExpired</code>：判断用户是否过期，如果过期抛异常</li>
-</ol>
-</li>
-<li><p>调用<code>DaoAuthenticationProvider</code>类的<code>additionalAuthenticationChecks</code>方法，校验密码</p>
-</li>
-<li><p><code>AbstractUserDetailsAuthenticationProvider</code>的内部类<code>DefaultPostAuthenticationChecks</code>校验<code>user</code></p>
-<ol>
-<li><code>isCredentialsNonExpired</code>：判断用户的认证(密码)是否过期，如果过期抛异常</li>
-</ol>
-</li>
-<li><p>缓存如果不存在，则将用户添加到缓存中</p>
-</li>
-<li><p>调用<code>createSuccessAuthentication</code>方法，将用户状态设置为登录成功状态</p>
-</li>
-</ol>
-<h3 id="各个类的位置"><a href="#各个类的位置" class="headerlink" title="各个类的位置"></a>各个类的位置</h3><h4 id="spring-security-corejar包"><a href="#spring-security-corejar包" class="headerlink" title="spring-security-corejar包"></a>spring-security-corejar包</h4><p>AbstractUserDetailsAuthenticationProvider：org.springframework.security.authentication.dao</p>
-<h4 id="spring-boot-autoconfigure包"><a href="#spring-boot-autoconfigure包" class="headerlink" title="spring-boot-autoconfigure包"></a>spring-boot-autoconfigure包</h4><p>SecurityProperties：org.springframework.boot.autoconfigure.security<br>AuthenticationManagerConfiguration：org.springframework.boot.autoconfigure.security</p>
-<h4 id="spring-security-config包"><a href="#spring-security-config包" class="headerlink" title="spring-security-config包"></a>spring-security-config包</h4><p>UserDetailsManagerConfigurer：org.springframework.security.config.annotation.authentication.configurers.provisioning</p>
-<h4 id="spring-security-core包"><a href="#spring-security-core包" class="headerlink" title="spring-security-core包"></a>spring-security-core包</h4><p>DaoAuthenticationProvider: org.springframework.security.authentication.dao<br>InMemoryUserDetailsManager：org.springframework.security.provisioning</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/spring-security笔记/" data-id="cj0xpfd73002aiys6m5915ks3" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-pageable对象传入笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/pageable对象传入笔记/" class="article-date">
-  <time datetime="2016-12-06T09:57:14.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/对象使用/">对象使用</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/pageable对象传入笔记/">pageable对象传入笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8765/api/enterprises/query?page=&lt;第几页&gt;&amp;size=&lt;页量&gt;&amp;sort=&lt;排序[排序字段, DESC or ASC]&gt;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/pageable对象传入笔记/" data-id="cj0xpfd6p001jiys6chfa04uz" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-linux配置ssh笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/linux配置ssh笔记/" class="article-date">
-  <time datetime="2016-12-06T09:53:54.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/linux配置ssh笔记/">linux配置ssh笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装ssh服务"><a href="#安装ssh服务" class="headerlink" title="安装ssh服务"></a>安装ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
-<h3 id="查看ssh服务是否启动"><a href="#查看ssh服务是否启动" class="headerlink" title="查看ssh服务是否启动"></a>查看ssh服务是否启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ps <span class="_">-e</span> |grep ssh</div></pre></td></tr></table></figure>
-<h3 id="支持root用户登录"><a href="#支持root用户登录" class="headerlink" title="支持root用户登录"></a>支持root用户登录</h3><p>  修改/etc/ssh/sshd_config文件,添加PermitRootLogin yes, 如果存在PermitRootLogin配置项, 将其注释掉</p>
-<h3 id="重启ssh服务"><a href="#重启ssh服务" class="headerlink" title="重启ssh服务"></a>重启ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/ssh restart</div></pre></td></tr></table></figure>
-<h3 id="添加公钥"><a href="#添加公钥" class="headerlink" title="添加公钥"></a>添加公钥</h3><p>  在对应的用户文件夹下的.ssh文件夹内的authorized_keys文件中添加公钥.<br>  如果.ssh文件夹或者authorized_keys文件不存在, 手动添加<br>  (如果是手动添加的文件需要改文件权限, 执行命令: chmod 600  authorized_keys)</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux配置ssh笔记/" data-id="cj0xpfd6m001hiys6xyse6vu1" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/window命令笔记/" data-id="cj0xqd8ao002nsps68lj8s2qd" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -608,7 +620,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
     </div>
   </div>
 
@@ -636,23 +648,23 @@
       <ul>
         
           <li>
+            <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/elasticsearch使用笔记/">elasticsearch使用笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/15/jvm原理/">jvm原理</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
           </li>
         
       </ul>

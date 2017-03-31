@@ -58,6 +58,220 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-squirrel-sql笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/squirrel-sql笔记/" class="article-date">
+  <time datetime="2016-12-06T10:01:21.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/存储/">存储</a>►<a class="article-category-link" href="/categories/技术/存储/可视化工具/">可视化工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/squirrel-sql笔记/">squirrel sql笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="配置Drivers"><a href="#配置Drivers" class="headerlink" title="配置Drivers"></a>配置Drivers</h3><p>选定指定的drivers点击修改操作，在Extra Class Path中指定对应的jar驱动文件</p>
+<h3 id="连接对应的数据库"><a href="#连接对应的数据库" class="headerlink" title="连接对应的数据库"></a>连接对应的数据库</h3><p>选定对应的driver，输入对应的url、账户和密码，连接即可。<br><br>例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">url：jdbc:h2:tcp://localhost:9999/mem:dev</div><div class="line">密码：sa</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/squirrel-sql笔记/" data-id="cj0xqd8am002isps6ozio8elp" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-security笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/spring-security笔记/" class="article-date">
+  <time datetime="2016-12-06T10:00:11.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/spring-security笔记/">spring security笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="登录核心"><a href="#登录核心" class="headerlink" title="登录核心"></a>登录核心</h3><p><code>AbstractUserDetailsAuthenticationProvider</code>类的<code>authenticate</code>方法</p>
+<h3 id="配置文件定义用户名和密码原理"><a href="#配置文件定义用户名和密码原理" class="headerlink" title="配置文件定义用户名和密码原理"></a>配置文件定义用户名和密码原理</h3><h4 id="初始化过程"><a href="#初始化过程" class="headerlink" title="初始化过程"></a>初始化过程</h4><ol>
+<li><code>SecurityProperties</code>创建<code>security</code>默认配置项数据，yml中如果有，会覆盖对应项的值</li>
+<li>启动时，首先执行<code>AuthenticationManagerConfiguration</code>类的静态内部类<code>DefaultInMemoryUserDetailsManagerConfigurer</code>初始化方法<code>configure</code>方法，读取<code>securityProperties</code>中的用户信息</li>
+<li><code>AuthenticationManagerConfiguration</code>调用父类<code>UserDetailsManagerConfigurer</code>的<code>withUser</code>方法将<code>securityProperties</code>中的用户信息添加到<code>UserDetailsManagerConfigurer</code>的<code>userBuilders</code>对象</li>
+<li><code>UserDetailsManagerConfigurer</code>的初始化方法<code>initUserDetailsService</code>方法调用<code>InMemoryUserDetailsManager</code>的<code>createUser</code>方法将<code>userBuilders</code>对象添加到<code>InMemoryUserDetailsManager</code>的<code>users</code>对象中</li>
+</ol>
+<h4 id="登录过程"><a href="#登录过程" class="headerlink" title="登录过程"></a>登录过程</h4><p>执行方法：<code>AbstractUserDetailsAuthenticationProvider</code>的<code>authenticate</code>方法</p>
+<ol>
+<li>现在usercache中查询是否有传入的<code>username</code>对应的<code>user</code>对象<ul>
+<li>如果缓存中没有执行<ol>
+<li>调用<code>DaoAuthenticationProvider</code>的<code>retrieveUser</code>方法</li>
+<li>主要通过<code>retrieveUser</code>方法中的<code>loadUserByUsername</code>方法取得<code>user</code>对象,因为是配置文件定义的用户名和密码，所以<code>loadUserByUsername</code>方法由<code>InMemoryUserDetailsManager</code>提供实现,在users中查找</li>
+<li><code>InMemoryUserDetailsManager</code>的<code>loadUserByUsername</code>方法就是从<code>InMemoryUserDetailsManager</code>的的<code>users</code>对象中获取<code>username</code>对应的<code>user</code>对象</li>
+</ol>
+</li>
+<li>如果缓存中有，则继续执行</li>
+</ul>
+</li>
+<li><p><code>AbstractUserDetailsAuthenticationProvider</code>的内部类<code>DefaultPreAuthenticationChecks</code>校验<code>user</code></p>
+<ol>
+<li><code>isAccountNonLocked</code>：判断用户是否被锁，如果被锁抛异常</li>
+<li><code>isEnabled</code>：判断用户是否被禁用，如果被禁用抛异常</li>
+<li><code>isAccountNonExpired</code>：判断用户是否过期，如果过期抛异常</li>
+</ol>
+</li>
+<li><p>调用<code>DaoAuthenticationProvider</code>类的<code>additionalAuthenticationChecks</code>方法，校验密码</p>
+</li>
+<li><p><code>AbstractUserDetailsAuthenticationProvider</code>的内部类<code>DefaultPostAuthenticationChecks</code>校验<code>user</code></p>
+<ol>
+<li><code>isCredentialsNonExpired</code>：判断用户的认证(密码)是否过期，如果过期抛异常</li>
+</ol>
+</li>
+<li><p>缓存如果不存在，则将用户添加到缓存中</p>
+</li>
+<li><p>调用<code>createSuccessAuthentication</code>方法，将用户状态设置为登录成功状态</p>
+</li>
+</ol>
+<h3 id="各个类的位置"><a href="#各个类的位置" class="headerlink" title="各个类的位置"></a>各个类的位置</h3><h4 id="spring-security-corejar包"><a href="#spring-security-corejar包" class="headerlink" title="spring-security-corejar包"></a>spring-security-corejar包</h4><p>AbstractUserDetailsAuthenticationProvider：org.springframework.security.authentication.dao</p>
+<h4 id="spring-boot-autoconfigure包"><a href="#spring-boot-autoconfigure包" class="headerlink" title="spring-boot-autoconfigure包"></a>spring-boot-autoconfigure包</h4><p>SecurityProperties：org.springframework.boot.autoconfigure.security<br>AuthenticationManagerConfiguration：org.springframework.boot.autoconfigure.security</p>
+<h4 id="spring-security-config包"><a href="#spring-security-config包" class="headerlink" title="spring-security-config包"></a>spring-security-config包</h4><p>UserDetailsManagerConfigurer：org.springframework.security.config.annotation.authentication.configurers.provisioning</p>
+<h4 id="spring-security-core包"><a href="#spring-security-core包" class="headerlink" title="spring-security-core包"></a>spring-security-core包</h4><p>DaoAuthenticationProvider: org.springframework.security.authentication.dao<br>InMemoryUserDetailsManager：org.springframework.security.provisioning</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/spring-security笔记/" data-id="cj0xqd8ak002fsps6lwsawjjx" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-pageable对象传入笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/pageable对象传入笔记/" class="article-date">
+  <time datetime="2016-12-06T09:57:14.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/对象使用/">对象使用</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/pageable对象传入笔记/">pageable对象传入笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://localhost:8765/api/enterprises/query?page=&lt;第几页&gt;&amp;size=&lt;页量&gt;&amp;sort=&lt;排序[排序字段, DESC or ASC]&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/pageable对象传入笔记/" data-id="cj0xqd8a6001msps6rdafj10z" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-linux配置ssh笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/linux配置ssh笔记/" class="article-date">
+  <time datetime="2016-12-06T09:53:54.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/linux配置ssh笔记/">linux配置ssh笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装ssh服务"><a href="#安装ssh服务" class="headerlink" title="安装ssh服务"></a>安装ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
+<h3 id="查看ssh服务是否启动"><a href="#查看ssh服务是否启动" class="headerlink" title="查看ssh服务是否启动"></a>查看ssh服务是否启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ps <span class="_">-e</span> |grep ssh</div></pre></td></tr></table></figure>
+<h3 id="支持root用户登录"><a href="#支持root用户登录" class="headerlink" title="支持root用户登录"></a>支持root用户登录</h3><p>  修改/etc/ssh/sshd_config文件,添加PermitRootLogin yes, 如果存在PermitRootLogin配置项, 将其注释掉</p>
+<h3 id="重启ssh服务"><a href="#重启ssh服务" class="headerlink" title="重启ssh服务"></a>重启ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/ssh restart</div></pre></td></tr></table></figure>
+<h3 id="添加公钥"><a href="#添加公钥" class="headerlink" title="添加公钥"></a>添加公钥</h3><p>  在对应的用户文件夹下的.ssh文件夹内的authorized_keys文件中添加公钥.<br>  如果.ssh文件夹或者authorized_keys文件不存在, 手动添加<br>  (如果是手动添加的文件需要改文件权限, 执行命令: chmod 600  authorized_keys)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux配置ssh笔记/" data-id="cj0xqd8a3001hsps6ys54ca8q" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-linux命令笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/06/linux命令笔记/" class="article-date">
@@ -92,7 +306,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux命令笔记/" data-id="cj0xpfd6k001eiys62ph4ok66" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux命令笔记/" data-id="cj0xqd8a5001jsps6rlw3iv40" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -135,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cj0xpfd6f0019iys6rw6o900t" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cj0xqd8a1001csps6pawrqtrz" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -178,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cj0xpfd6c0014iys6v22acok3" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cj0xqd89x0017sps6f9wqwi3x" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -235,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cj0xpfd65000uiys64zccreby" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cj0xqd89m000xsps6m30h2zkr" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -291,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj0xpfd62000qiys6gsbvad14" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj0xqd89j000ssps6k26d58v1" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -339,185 +553,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cj0xpfd5y000liys60zwh2fs2" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-gradle插件本地docker配置片段" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/gradle插件本地docker配置片段/" class="article-date">
-  <time datetime="2016-12-06T09:24:25.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/gradle/">gradle</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/gradle插件本地docker配置片段/">gradle插件本地docker配置片段</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">docker &#123;</div><div class="line">    url = &apos;https://192.168.99.100:2376&apos;</div><div class="line">    certPath = new File(System.properties[&apos;user.home&apos;], &apos;.docker/machine/certs&apos;)</div><div class="line"></div><div class="line">    registryCredentials &#123;</div><div class="line">        url = &apos;https://index.docker.io/v1&apos;</div><div class="line">        username = &apos;backend&apos;</div><div class="line">        password = &apos;backend&apos;</div><div class="line">        email = &apos;backend@1yd.me&apos;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cj0xpfd60000niys6uexke7vw" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-git异常解决" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/git异常解决/" class="article-date">
-  <time datetime="2016-12-06T09:16:49.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/git异常解决/">git异常解决</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="出错场景："><a href="#出错场景：" class="headerlink" title="出错场景："></a>出错场景：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">协同开发时，我们从远程服务器上pull下代码的时候，出现以下提示信息：</div><div class="line">Auto Merge Failed; Fix Conflicts and Then Commit the Result.</div><div class="line">存在合并冲突</div></pre></td></tr></table></figure>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><h4 id="方法一：如果我们确定远程的分支正好是我们需要的，而本地的分支上的修改比较陈旧或者不正确，"><a href="#方法一：如果我们确定远程的分支正好是我们需要的，而本地的分支上的修改比较陈旧或者不正确，" class="headerlink" title="方法一：如果我们确定远程的分支正好是我们需要的，而本地的分支上的修改比较陈旧或者不正确，"></a>方法一：如果我们确定远程的分支正好是我们需要的，而本地的分支上的修改比较陈旧或者不正确，</h4><h4 id="那么可以直接丢弃本地分支内容，运行如下命令-看需要决定是否需要运行git-fetch取得远程分支-："><a href="#那么可以直接丢弃本地分支内容，运行如下命令-看需要决定是否需要运行git-fetch取得远程分支-：" class="headerlink" title="那么可以直接丢弃本地分支内容，运行如下命令(看需要决定是否需要运行git fetch取得远程分支)："></a>那么可以直接丢弃本地分支内容，运行如下命令(看需要决定是否需要运行git fetch取得远程分支)：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard origin/master</div><div class="line">or</div><div class="line">$ git reset --hard ORIG_HEAD</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git reset: Reset current HEAD to the specified state</div><div class="line">--hard: Resets the index and working tree. Any changes to tracked files in the working tree since are discarded.</div></pre></td></tr></table></figure>
-<h4 id="方法二：我们不能丢弃本地修改，因为其中的某些内容的确是我们需要的，此时需要对unmerged的文件进行手动修改，"><a href="#方法二：我们不能丢弃本地修改，因为其中的某些内容的确是我们需要的，此时需要对unmerged的文件进行手动修改，" class="headerlink" title="方法二：我们不能丢弃本地修改，因为其中的某些内容的确是我们需要的，此时需要对unmerged的文件进行手动修改，"></a>方法二：我们不能丢弃本地修改，因为其中的某些内容的确是我们需要的，此时需要对unmerged的文件进行手动修改，</h4><h4 id="删掉其中冲突的部分，然后执行"><a href="#删掉其中冲突的部分，然后执行" class="headerlink" title="删掉其中冲突的部分，然后执行"></a>删掉其中冲突的部分，然后执行</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git add filename</div><div class="line">$ git commit -m <span class="string">"message"</span></div></pre></td></tr></table></figure>
-<h4 id="方法三：如果我们觉得合并以后的文件内容比价混乱，想要废弃这次合并，回到合并之前的状态，那么可以运行如下命令"><a href="#方法三：如果我们觉得合并以后的文件内容比价混乱，想要废弃这次合并，回到合并之前的状态，那么可以运行如下命令" class="headerlink" title="方法三：如果我们觉得合并以后的文件内容比价混乱，想要废弃这次合并，回到合并之前的状态，那么可以运行如下命令"></a>方法三：如果我们觉得合并以后的文件内容比价混乱，想要废弃这次合并，回到合并之前的状态，那么可以运行如下命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard HEAD</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cj0xpfd5w000hiys6rgg24f1e" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-git基础配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/git基础配置/" class="article-date">
-  <time datetime="2016-12-06T09:15:06.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/git基础配置/">git基础配置</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">user.name=Your Name</div><div class="line"></div><div class="line">user.email=Your Email</div><div class="line"></div><div class="line">color.ui=auto</div><div class="line"></div><div class="line">core.editor=emacs -nw // 设置成你常用的命令行下编辑器，如vi</div><div class="line"></div><div class="line">* core.autocrlf=input // Windows环境下设置成true</div><div class="line"></div><div class="line">* push.default=simple</div><div class="line"></div><div class="line">alias.lg=log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit</div><div class="line"></div><div class="line">alias.tidy=rebase -i @&#123;upstream&#125;</div><div class="line"></div><div class="line">* pull.rebase=preserve</div><div class="line"></div><div class="line">标星号的为必须配置项。</div><div class="line"></div><div class="line">在命令行下执行 git confilg --global ... 进行配置，如配置user.name，则执行命令：（如果配置项的值含有空格，则用双引号括起来，如下所示）</div><div class="line"></div><div class="line">git config --global user.name &quot;Your Name&quot;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cj0xpfd5u000fiys644oe1lzo" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-git使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/git使用笔记/" class="article-date">
-  <time datetime="2016-12-06T09:01:08.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/git/">git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/git使用笔记/">git使用笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="分支："><a href="#分支：" class="headerlink" title="分支："></a>分支：</h3><h4 id="创建新本地分支"><a href="#创建新本地分支" class="headerlink" title="创建新本地分支"></a>创建新本地分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch &lt;新分支名称&gt;</div></pre></td></tr></table></figure>
-<h4 id="切换到新分支"><a href="#切换到新分支" class="headerlink" title="切换到新分支"></a>切换到新分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout &lt;新分支名称&gt;</div></pre></td></tr></table></figure>
-<h4 id="新分支推送到远程服务器："><a href="#新分支推送到远程服务器：" class="headerlink" title="新分支推送到远程服务器："></a>新分支推送到远程服务器：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push --set-upstream &lt;远程机器名称(一般默认为origin)&gt; &lt;远程新分支名称&gt;</div></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/06/git使用笔记/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cj0xpfd5r000ciys6wk5hikm9" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cj0xqd89f000nsps6jl5a9mht" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -542,7 +578,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
     </div>
   </div>
 
@@ -570,23 +606,23 @@
       <ul>
         
           <li>
+            <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/elasticsearch使用笔记/">elasticsearch使用笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/15/jvm原理/">jvm原理</a>
-          </li>
-        
-          <li>
-            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
           </li>
         
       </ul>

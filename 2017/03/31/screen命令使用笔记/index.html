@@ -3,30 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>spring-boot构成 | Coding Note</title>
+  <title>screen命令使用笔记 | Coding Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自动配置(auto-configuration)一项简化配置的功能，比如在classpath中发现有spring security的jar包，则自动创建相关的bean等
-starters(简化依赖)这个比较关键，方便spring去集成各类组件，比如redis、mongodb等等。
+  <meta name="description" content="screen使用新建会话: screen显示全部会话：screen -ls通过screen列表中的pid重新登陆到分离的screen：screen -r [pid]
+处于screen中，按Ctrl + a后,接
 
-core(security、aop)
-web(web、websocket、ws、vaadin、rest、mobile">
+d: 退出当前screen
+w: 左下角显示有哪些会话
+c: 新建会话
+n: 移到下一个窗口">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring-boot构成">
-<meta property="og:url" content="http://yoursite.com/2016/12/15/spring-boot构成/index.html">
+<meta property="og:title" content="screen命令使用笔记">
+<meta property="og:url" content="http://yoursite.com/2017/03/31/screen命令使用笔记/index.html">
 <meta property="og:site_name" content="Coding Note">
-<meta property="og:description" content="自动配置(auto-configuration)一项简化配置的功能，比如在classpath中发现有spring security的jar包，则自动创建相关的bean等
-starters(简化依赖)这个比较关键，方便spring去集成各类组件，比如redis、mongodb等等。
+<meta property="og:description" content="screen使用新建会话: screen显示全部会话：screen -ls通过screen列表中的pid重新登陆到分离的screen：screen -r [pid]
+处于screen中，按Ctrl + a后,接
 
-core(security、aop)
-web(web、websocket、ws、vaadin、rest、mobile">
-<meta property="og:updated_time" content="2016-12-15T06:01:52.000Z">
+d: 退出当前screen
+w: 左下角显示有哪些会话
+c: 新建会话
+n: 移到下一个窗口">
+<meta property="og:updated_time" content="2017-03-31T11:02:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring-boot构成">
-<meta name="twitter:description" content="自动配置(auto-configuration)一项简化配置的功能，比如在classpath中发现有spring security的jar包，则自动创建相关的bean等
-starters(简化依赖)这个比较关键，方便spring去集成各类组件，比如redis、mongodb等等。
+<meta name="twitter:title" content="screen命令使用笔记">
+<meta name="twitter:description" content="screen使用新建会话: screen显示全部会话：screen -ls通过screen列表中的pid重新登陆到分离的screen：screen -r [pid]
+处于screen中，按Ctrl + a后,接
 
-core(security、aop)
-web(web、websocket、ws、vaadin、rest、mobile">
+d: 退出当前screen
+w: 左下角显示有哪些会话
+c: 新建会话
+n: 移到下一个窗口">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -72,14 +78,14 @@ web(web、websocket、ws、vaadin、rest、mobile">
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-spring-boot构成" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-screen命令使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/15/spring-boot构成/" class="article-date">
-  <time datetime="2016-12-15T05:47:18.000Z" itemprop="datePublished">2016-12-15</time>
+    <a href="/2017/03/31/screen命令使用笔记/" class="article-date">
+  <time datetime="2017-03-31T10:55:25.000Z" itemprop="datePublished">2017-03-31</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/命令行/">命令行</a>
   </div>
 
   </div>
@@ -90,7 +96,7 @@ web(web、websocket、ws、vaadin、rest、mobile">
         
   
     <h1 class="article-title" itemprop="name">
-      spring-boot构成
+      screen命令使用笔记
     </h1>
   
 
@@ -98,32 +104,19 @@ web(web、websocket、ws、vaadin、rest、mobile">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="自动配置-auto-configuration"><a href="#自动配置-auto-configuration" class="headerlink" title="自动配置(auto-configuration)"></a>自动配置(auto-configuration)</h3><p>一项简化配置的功能，比如在classpath中发现有spring security的jar包，则自动创建相关的bean等</p>
-<h3 id="starters-简化依赖"><a href="#starters-简化依赖" class="headerlink" title="starters(简化依赖)"></a>starters(简化依赖)</h3><p>这个比较关键，方便spring去集成各类组件，比如redis、mongodb等等。</p>
+        <h3 id="screen使用"><a href="#screen使用" class="headerlink" title="screen使用"></a>screen使用</h3><p>新建会话: screen<br>显示全部会话：screen -ls<br>通过screen列表中的pid重新登陆到分离的screen：screen -r [pid]</p>
+<p>处于screen中，按Ctrl + a后,接</p>
 <ul>
-<li>core(<code>security</code>、<code>aop</code>)</li>
-<li>web(<code>web</code>、<code>websocket</code>、<code>ws</code>、<code>vaadin</code>、<code>rest</code>、<code>mobile</code>)</li>
-<li>template(<code>freemarker</code>、<code>velocity</code>、<code>groovy templates</code>、<code>thymeleaf</code>)</li>
-<li>data(<code>jdbc</code>、<code>jpa</code>、<code>mongodb</code>、<code>redis</code>、<code>gemfire</code>、<code>solr</code>、<code>elasticsearch</code>)</li>
-<li>database(<code>h2</code>、<code>hsqldb</code>、<code>mysql</code>、<code>postgresql</code>)</li>
-<li>social(<code>facebook</code>、<code>linkedin</code>、<code>twitter</code>)</li>
-<li>io(<code>batch</code>、<code>integration</code>、<code>jms</code>、<code>amqp</code>)</li>
-<li>ops(<code>actuator</code>、<code>remote shell</code>)</li>
-<li>CLI(<code>command-line interface</code>),支持groovy开发</li>
-</ul>
-<h3 id="Actuator-对应用系统本身的自省功能"><a href="#Actuator-对应用系统本身的自省功能" class="headerlink" title="Actuator(对应用系统本身的自省功能)"></a>Actuator(对应用系统本身的自省功能)</h3><p>这个有点devops的味道，使得应用程序本身可以做到自省，比如查看系统运行了多少线程，gc的情况，运行的基本参数等等</p>
-<ul>
-<li>/beans: 这个endpoint列出所有由Spring Boot创建的bean</li>
-<li>/mappings: 这个endpoint显示当前应用支持的URL映射</li>
-<li>/info: 这个endpoint显示应用程序的基本描述</li>
-<li>/health: 这个endpoint提供应用程序的健康状态</li>
-<li>/env: 这个endpoint提供应用程序的环境变量</li>
+<li>d: 退出当前screen</li>
+<li>w: 左下角显示有哪些会话</li>
+<li>c: 新建会话</li>
+<li>n: 移到下一个窗口</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cj0xqd8ac001vsps6wy54b3kk" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/screen命令使用笔记/" data-id="cj0xqd8ab001tsps6nguzhcpb" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -132,19 +125,19 @@ web(web、websocket、ws、vaadin、rest、mobile">
     
 <nav id="article-nav">
   
-    <a href="/2017/01/19/spring-mvc使用笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/31/elasticsearch使用笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          spring-mvc使用笔记
+          elasticsearch使用笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/12/15/spring-boot配置属性字典-others/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/31/item2-oh-my-zsh配置/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">spring-boot配置属性字典-others</div>
+      <div class="article-nav-title">item2+oh-my-zsh配置</div>
     </a>
   
 </nav>
