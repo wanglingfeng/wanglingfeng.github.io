@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JVM内存模型 | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="图解
+说明生命周期都与线程相同
+
+
+
+名称
+特征
+作用
+配置参数
+异常
+
+
+
+
+程序计数器
+占用内存小，线程私有
+大致为字节码信号指示器
+无
+无
+
+
+虚拟机栈
+线程私有，使用连续的内存空间
+Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息
+-Xss
+StackOverflowErrorOutOfMemoryError
+
+
+堆
+线程共享，可以不使用连续的内存地址
+保存对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JVM内存模型">
+<meta property="og:url" content="http://yoursite.com/2017/02/24/JVM内存模型/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="图解
+说明生命周期都与线程相同
+
+
+
+名称
+特征
+作用
+配置参数
+异常
+
+
+
+
+程序计数器
+占用内存小，线程私有
+大致为字节码信号指示器
+无
+无
+
+
+虚拟机栈
+线程私有，使用连续的内存空间
+Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息
+-Xss
+StackOverflowErrorOutOfMemoryError
+
+
+堆
+线程共享，可以不使用连续的内存地址
+保存对象">
+<meta property="og:image" content="http://yoursite.com/2017/02/24/JVM内存模型/jvm内存模型.jpg">
+<meta property="og:updated_time" content="2017-02-24T10:10:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JVM内存模型">
+<meta name="twitter:description" content="图解
+说明生命周期都与线程相同
+
+
+
+名称
+特征
+作用
+配置参数
+异常
+
+
+
+
+程序计数器
+占用内存小，线程私有
+大致为字节码信号指示器
+无
+无
+
+
+虚拟机栈
+线程私有，使用连续的内存空间
+Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息
+-Xss
+StackOverflowErrorOutOfMemoryError
+
+
+堆
+线程共享，可以不使用连续的内存地址
+保存对象">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/24/JVM内存模型/jvm内存模型.jpg">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-JVM内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/24/JVM内存模型/" class="article-date">
+  <time datetime="2017-02-24T09:57:09.000Z" itemprop="datePublished">2017-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JVM内存模型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><img src="/2017/02/24/JVM内存模型/jvm内存模型.jpg" alt="这是JVM内存模型" title="这是JVM内存模型">
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>生命周期都与线程相同</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:center">特征</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">配置参数</th>
+<th style="text-align:left">异常</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">程序计数器</td>
+<td style="text-align:center">占用内存小，线程私有</td>
+<td style="text-align:left">大致为字节码信号指示器</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">虚拟机栈</td>
+<td style="text-align:center">线程私有，使用连续的内存空间</td>
+<td style="text-align:left">Java方法执行的内存模型，<br>存储局部变量表、操作栈、<br>动态链接、方法出口等信息</td>
+<td style="text-align:left"><code>-Xss</code></td>
+<td style="text-align:left">StackOverflowError<br>OutOfMemoryError</td>
+</tr>
+<tr>
+<td style="text-align:left">堆</td>
+<td style="text-align:center">线程共享，可以不使用连续的内存地址</td>
+<td style="text-align:left">保存对象实例，所有对象实例<br>（包括数组）都要在堆上分配</td>
+<td style="text-align:left"><code>-Xms</code><br><code>-Xsx</code><br><code>-Xmn</code></td>
+<td style="text-align:left">OutOfMemoryError</td>
+</tr>
+<tr>
+<td style="text-align:left">方法区</td>
+<td style="text-align:center">线程共享，可以不使用连续的内存地址</td>
+<td style="text-align:left">存储已被虚拟机加载的<br>类信息、常量、静态变量、<br>编译器即时编译后的代码等数据</td>
+<td style="text-align:left"><code>-XX:PermSize:16M</code><br><code>-XX:MaxPermSize:64M</code></td>
+<td style="text-align:left">OutOfMemoryError</td>
+</tr>
+<tr>
+<td style="text-align:left">本地方法栈</td>
+<td style="text-align:center">线程私有，使用连续的内存空间</td>
+<td style="text-align:left">为虚拟机使用到的Native方法服务</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">StackOverflowError<br>OutOfMemoryError</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cj0xpfd4w0000iys6qsi5uf65" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/31/item2-oh-my-zsh配置/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          item2+oh-my-zsh配置
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/22/hashmap原理/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hashmap原理</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>

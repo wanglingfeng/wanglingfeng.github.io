@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>断路器模式 | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是常见的软件系统以使软件在不同的进程中运行，有可能在网络上不同的机器上调用。内存调用和远程调用之间的一个巨大差异是远程调用可能会失败，或者加载一个没有反应，直到达到一定的超时限制。更糟糕的是，如果你有一个无响应的供应商很多请求，那么你就会运行光关键资源造成多个系统间的级联故障的。在他的优秀著作Release It，Michael Nygard推广断路器模式以防止这种灾难性的级联。断路器背后的基本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="断路器模式">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/断路器模式/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="这是常见的软件系统以使软件在不同的进程中运行，有可能在网络上不同的机器上调用。内存调用和远程调用之间的一个巨大差异是远程调用可能会失败，或者加载一个没有反应，直到达到一定的超时限制。更糟糕的是，如果你有一个无响应的供应商很多请求，那么你就会运行光关键资源造成多个系统间的级联故障的。在他的优秀著作Release It，Michael Nygard推广断路器模式以防止这种灾难性的级联。断路器背后的基本">
+<meta property="og:image" content="http://yoursite.com/2016/12/06/断路器模式/circuitbreaker1.png">
+<meta property="og:image" content="http://yoursite.com/2016/12/06/断路器模式/circuitbreaker2.png">
+<meta property="og:updated_time" content="2016-12-06T10:34:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="断路器模式">
+<meta name="twitter:description" content="这是常见的软件系统以使软件在不同的进程中运行，有可能在网络上不同的机器上调用。内存调用和远程调用之间的一个巨大差异是远程调用可能会失败，或者加载一个没有反应，直到达到一定的超时限制。更糟糕的是，如果你有一个无响应的供应商很多请求，那么你就会运行光关键资源造成多个系统间的级联故障的。在他的优秀著作Release It，Michael Nygard推广断路器模式以防止这种灾难性的级联。断路器背后的基本">
+<meta name="twitter:image" content="http://yoursite.com/2016/12/06/断路器模式/circuitbreaker1.png">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-断路器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/断路器模式/" class="article-date">
+  <time datetime="2016-12-06T10:10:16.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/文章/">文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      断路器模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是常见的软件系统以使软件在不同的进程中运行，有可能在网络上不同的机器上调用。<br><br>内存调用和远程调用之间的一个巨大差异是远程调用可能会失败，或者加载一个没有反应，直到达到一定的超时限制。<br><br>更糟糕的是，如果你有一个无响应的供应商很多请求，那么你就会运行光关键资源造成多个系统间的级联故障的。<br><br>在他的优秀著作Release It，Michael Nygard推广断路器模式以防止这种灾难性的级联。<br><br><br><br>断路器背后的基本思想非常简单。你在一个断路器对象中封装一个protected方法调用，它监视故障保护功能调用。<br><br>一旦故障达到一定阈值时，断路器跳闸，并且所有进一步的调用到达断路器后返回一个错误，没有保护的调用将继续执行。<br><br>通常你还需要某种形式的监控警报如果断路器跳闸了。<br><br><a id="more"></a><br><br><br><img src="/2016/12/06/断路器模式/circuitbreaker1.png" alt="This is circuitbreaker1" title="This is circuitbreaker1"><br><br><br>下面是一个基于Ruby语言的简单例子，用来防止超时。<br><br>我设置了一个断路器块（Lambda）这是一个protected调用。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cb = CircuitBreaker.new &#123;<span class="params">|arg|</span> @supplier.func arg&#125;</div></pre></td></tr></table></figure></p>
+<p>断路器存储块，初始化各种参数（临界值，超时和监控），并重置断路器为关闭状态。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CircuitBreaker</span>...</span></div><div class="line">  <span class="keyword">attr_accessor</span> <span class="symbol">:invocation_timeout</span>, <span class="symbol">:failure_threshold</span>, <span class="symbol">:monitor</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">initialize</span> <span class="title">&amp;</span><span class="title">block</span></span></div><div class="line">    @circuit = block</div><div class="line">    @invocation_timeout = <span class="number">0</span>.<span class="number">01</span></div><div class="line">    @failure_threshold = <span class="number">5</span></div><div class="line">    @monitor = acquire_monitor</div><div class="line">    reset</div><div class="line">  <span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>调用断路器时，如果断路器是关闭状态将会调用一个底层块，但会返回一个异常如果断路器是打开状态。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># client code</span></div><div class="line">    aCircuitBreaker.call(<span class="number">5</span>)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CircuitBreaker</span>...</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">call</span> <span class="title">args</span></span></div><div class="line">    <span class="keyword">case</span> state</div><div class="line">    <span class="keyword">when</span> <span class="symbol">:closed</span></div><div class="line">      <span class="keyword">begin</span></div><div class="line">        do_call args</div><div class="line">      <span class="keyword">rescue</span> Timeout::Error</div><div class="line">        record_failure</div><div class="line">        raise $!</div><div class="line">      <span class="keyword">end</span></div><div class="line">    <span class="keyword">when</span> <span class="symbol">:open</span> <span class="keyword">then</span> raise CircuitBreaker::Open</div><div class="line">    <span class="keyword">else</span> raise <span class="string">"Unreachable Code"</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">do_call</span> <span class="title">args</span></span></div><div class="line">    result = Timeout::timeout(@invocation_timeout) <span class="keyword">do</span></div><div class="line">      @circuit.call args</div><div class="line">    <span class="keyword">end</span></div><div class="line">    reset</div><div class="line">    <span class="keyword">return</span> result</div><div class="line">  <span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>如果超时了，我们将自增故障计数器，成功的调用则将故障计数器重置为0。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CircuitBreaker</span>...</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">record_failure</span></span></div><div class="line">    @failure_count += <span class="number">1</span></div><div class="line">    @monitor.alert(<span class="symbol">:open_circuit</span>) <span class="keyword">if</span> <span class="symbol">:open</span> == state</div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">reset</span></span></div><div class="line">    @failure_count = <span class="number">0</span></div><div class="line">    @monitor.alert <span class="symbol">:reset_circuit</span></div><div class="line">  <span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>我定义断路器失败的次数和失败的次数的临界值进行比较。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CircuitBreaker</span>...</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">state</span></span></div><div class="line">     (@failure_count &gt;= @failure_threshold) ? <span class="symbol">:open</span> : <span class="symbol">:closed</span></div><div class="line">  <span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>这个简单的断路器避免了当断路器时打开状态时调用protected请求，但也需要一个外部干预来重置断路器当事情又变好了的时候。<br><br>这在建筑中的电路断路器上是一个合理的方法。但对于软件断路器我们可以有一个当底层调用又正常工作时对断路器自身的检测。<br><br>我们可以提供这个自身重置功能基于在一个适当的间隔后再次尝试protected调用，并且重置断路器必须成功。<br><br><br><br><img src="/2016/12/06/断路器模式/circuitbreaker2.png" alt="This is circuitbreaker2" title="This is circuitbreaker2"><br><br><br>创建这种断路器意味着为了尝试重置添加一个临界值并且设置一个变量来保存最后一次故障的时间。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResetCircuitBreaker</span>...</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">initialize</span> <span class="title">&amp;</span><span class="title">block</span></span></div><div class="line">    @circuit = block</div><div class="line">    @invocation_timeout = <span class="number">0</span>.<span class="number">01</span></div><div class="line">    @failure_threshold = <span class="number">5</span></div><div class="line">    @monitor = BreakerMonitor.new</div><div class="line">    @reset_timeout = <span class="number">0</span>.<span class="number">1</span></div><div class="line">    reset</div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">reset</span></span></div><div class="line">    @failure_count = <span class="number">0</span></div><div class="line">    @last_failure_time = <span class="literal">nil</span></div><div class="line">    @monitor.alert <span class="symbol">:reset_circuit</span></div><div class="line">  <span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>现在有第三个状态“half open”意味着断路器准备执行一个真正的请求来判断查看问题是否已修复。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResetCircuitBreaker</span>...</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">state</span></span></div><div class="line">    <span class="keyword">case</span></div><div class="line">    <span class="keyword">when</span> (@failure_count &gt;= @failure_threshold) &amp;&amp;</div><div class="line">        (Time.now - @last_failure_time) &gt; @reset_timeout</div><div class="line">      <span class="symbol">:half_open</span></div><div class="line">    <span class="keyword">when</span> (@failure_count &gt;= @failure_threshold)</div><div class="line">      <span class="symbol">:open</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">      <span class="symbol">:closed</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">  <span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>当在half-open状态时调用会以判断调用形式为结果，要么在成功时重置断路器、否则在不成功时重置超时。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ResetCircuitBreaker</span>...</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">call</span> <span class="title">args</span></span></div><div class="line">    <span class="keyword">case</span> state</div><div class="line">    <span class="keyword">when</span> <span class="symbol">:closed</span>, <span class="symbol">:half_open</span></div><div class="line">      <span class="keyword">begin</span></div><div class="line">        do_call args</div><div class="line">      <span class="keyword">rescue</span> Timeout::Error</div><div class="line">        record_failure</div><div class="line">        raise $!</div><div class="line">      <span class="keyword">end</span></div><div class="line">    <span class="keyword">when</span> <span class="symbol">:open</span></div><div class="line">      raise CircuitBreaker::Open</div><div class="line">    <span class="keyword">else</span></div><div class="line">      raise <span class="string">"Unreachable"</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">  <span class="keyword">end</span></div><div class="line">  <span class="function"><span class="keyword">def</span> <span class="title">record_failure</span></span></div><div class="line">    @failure_count += <span class="number">1</span></div><div class="line">    @monitor.alert(<span class="symbol">:open_circuit</span>) <span class="keyword">if</span> <span class="symbol">:open</span> == state</div><div class="line">    @last_failure_time = Time.now</div><div class="line">  <span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>这个示例是一个简单的解释之一，在实践中断路器提供了更多好一点的功能和参数。<br><br>他们往往针对一个故障范围进行保护来提高protected调用，比如网络连接故障。<br><br>不是所有的故障都该是断路器断路，一些应该反映正常的故障并且按照正常的逻辑处理。<br>在大量操作的情况下，你可能有问题是在很多请求仅仅是等待初始超时。<br><br>由于远程请求往往是很慢的，往往有一个好的想法是将各个请求放入不同的进程使用future or promise<br><br>当他们返回时处理来处理结果。在线程池中提取线程时，你能部署一个回路当线程池耗尽时打破回路。<br>这个示例说明了一个简单方法来跳闸断路器 — 一个重置到成功调用的计数器。<br><br>一个更复杂的方法可以查看故障的频率，一旦你跳闸，说明50%的失败率。<br><br>你也可以给不同的故障设置不同的临界值，比如一个临界值超时为10，但连接失败为3。<br><br>这个示例我展示的是一个同步调用的断路器，但断路器也适用于异步通信。<br><br>这有一个普遍的方法是讲所有的请求放入队列，供应商来消耗它的速度 — 一个有用的方法来避免过载的服务器。<br><br>在这种情况下断路器在队列填满时跳闸。<br><br>在他们内部，断路器帮助减少绑定在操作很有可能失败的资源。<br><br>你避免在客户端等待超时，和一个断开的回路避免加载一个挣扎的服务器。<br><br>我在这里谈谈关于远程调用，这是一个常见的断路器，但他们可以适用于任何当你想要保护的故障系统中其他的部分。<br><br>断路器是在监控领域中的黄金地带。任何断路器状态的改变都将在log中记录并且断路器会揭露它们状态的详情进行更深入的监控。<br><br>断路器行为往往会有一个好的来源警告关于环境中更深层次的麻烦。操作人员能跳闸或者重置断路器。<br><br>断路器对于他们自己是很有价值的，但使用他们的客户需要应对断路器故障。<br><br>对于任何远程实现你必须考虑在故障时该做什么。在你操作完成的时候是否会失败，或者还有什么解决方法你能做？<br><br>一个信用卡授权可能放在队列中稍后处理，取得一些数据失败可以通过展示一些陈旧的数据来缓解，对于显示来说已经足够好了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/断路器模式/" data-id="cj0xpfd76002iiys6v3ydzhh1" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/08/hexo域名和github绑定/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hexo域名和github绑定
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/06/window命令笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">window命令笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>

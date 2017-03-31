@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring-boot配置属性字典-server | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="server配置
+server.address: 指定server绑定的地址
+server.port: 设定http监听端口
+server.context-path: 设定应用的context-path
+server.context-parameters.[param name]: 设置servlet context 参数
+server.display-name: 设定应用的展示名称，默认: ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot配置属性字典-server">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/spring-boot配置属性字典-server/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="server配置
+server.address: 指定server绑定的地址
+server.port: 设定http监听端口
+server.context-path: 设定应用的context-path
+server.context-parameters.[param name]: 设置servlet context 参数
+server.display-name: 设定应用的展示名称，默认: ap">
+<meta property="og:updated_time" content="2016-12-15T05:55:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot配置属性字典-server">
+<meta name="twitter:description" content="server配置
+server.address: 指定server绑定的地址
+server.port: 设定http监听端口
+server.context-path: 设定应用的context-path
+server.context-parameters.[param name]: 设置servlet context 参数
+server.display-name: 设定应用的展示名称，默认: ap">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-spring-boot配置属性字典-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-server/" class="article-date">
+  <time datetime="2016-12-15T04:06:29.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot配置属性字典-server
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="server配置"><a href="#server配置" class="headerlink" title="server配置"></a>server配置</h3><ul>
+<li>server.address: 指定server绑定的地址</li>
+<li>server.port: 设定http监听端口</li>
+<li>server.context-path: 设定应用的context-path</li>
+<li>server.context-parameters.[param name]: 设置servlet context 参数</li>
+<li>server.display-name: 设定应用的展示名称，默认: application</li>
+<li>server.servlet-path: 设定dispatcher servlet的监听路径，默认为: /</li>
+<li>server.compression.enabled: 是否开启压缩，默认为false</li>
+<li>server.compression.excluded-user-agents: 指定不压缩的user-agent，多个以逗号分隔，默认值为:text/html,text/xml,text/plain,text/css</li>
+<li>server.compression.mime-types: 指定要压缩的MIME type，多个以逗号分隔</li>
+<li>server.compression.min-response-size: 执行压缩的阈值，默认为2048</li>
+<li>server.jsp-servlet.class-name: 设定编译JSP用的servlet，默认: org.apache.jasper.servlet.JspServlet</li>
+<li>server.jsp-servlet.init-parameters.[param name]: 设置JSP servlet 初始化参数.</li>
+<li>server.jsp-servlet.registered: 设定JSP servlet是否注册到内嵌的servlet容器，默认true</li>
+</ul>
+<a id="more"></a>
+<h3 id="cookie、session配置"><a href="#cookie、session配置" class="headerlink" title="cookie、session配置"></a>cookie、session配置</h3><ul>
+<li>server.session.cookie.comment: 指定session cookie的comment</li>
+<li>server.session.cookie.domainv指定session cookie的domain</li>
+<li>server.session.cookie.http-only: 是否开启HttpOnly</li>
+<li>server.session.cookie.max-age: 设定session cookie的最大age</li>
+<li>server.session.cookie.name: 设定Session cookie 的名称</li>
+<li>server.session.cookie.path: 设定session cookie的路径</li>
+<li>server.session.cookie.secure: 设定session cookie的“Secure” flag</li>
+<li>server.session.persistent: 重启时是否持久化session，默认false</li>
+<li>server.session.timeoutsession: 的超时时间</li>
+<li>server.session.tracking-modes: 设定Session的追踪模式(cookie, url, ssl)</li>
+</ul>
+<h3 id="ssl配置"><a href="#ssl配置" class="headerlink" title="ssl配置"></a>ssl配置</h3><ul>
+<li>server.ssl.ciphers: 是否支持SSL ciphers</li>
+<li>server.ssl.client-auth: 设定client authentication是wanted 还是needed</li>
+<li>server.ssl.enabled: 是否开启ssl，默认: true</li>
+<li>server.ssl.key-alias: 设定key store中key的别名</li>
+<li>server.ssl.key-password: 访问key store中key的密码</li>
+<li>server.ssl.key-store: 设定持有SSL certificate的key store的路径，通常是一个.jks文件</li>
+<li>server.ssl.key-store-password: 设定访问key store的密码</li>
+<li>server.ssl.key-store-provider: 设定key store的提供者</li>
+<li>server.ssl.key-store-type: 设定key store的类型</li>
+<li>server.ssl.protocol: 使用的SSL协议，默认: TLS</li>
+<li>server.ssl.trust-store: 持有SSL certificates的Trust store</li>
+<li>server.ssl.trust-store-password: 访问trust store的密码</li>
+<li>server.ssl.trust-store-provider: 设定trust store的提供者</li>
+<li>server.ssl.trust-store-type: 指定trust store的类型</li>
+</ul>
+<h3 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h3><ul>
+<li>server.tomcat.access-log-enabled: 是否开启access log ，默认: false)</li>
+<li>server.tomcat.access-log-pattern: 设定access logs的格式，默认: common</li>
+<li>server.tomcat.accesslog.directory: 设定log的目录，默认: logs</li>
+<li>server.tomcat.accesslog.enabled: 是否开启access log，默认: false</li>
+<li>server.tomcat.accesslog.pattern: 设定access logs的格式，默认: common</li>
+<li>server.tomcat.accesslog.prefix: 设定Log 文件的前缀，默认: access_log</li>
+<li>server.tomcat.accesslog.suffix: 设定Log 文件的后缀，默认: .log</li>
+<li>server.tomcat.background-processor-delay: 后台线程方法的Delay大小: 30</li>
+<li>server.tomcat.basedir: 设定Tomcat的base 目录，如果没有指定则使用临时目录.</li>
+<li>server.tomcat.internal-proxies: 设定信任的正则表达式</li>
+<li>server.tomcat.max-http-header-size: 设定http header的最小值，默认: 0</li>
+<li>server.tomcat.max-threads: 设定tomcat的最大工作线程数，默认为: 0</li>
+<li>server.tomcat.port-header: 设定http header使用的，用来覆盖原来port的value</li>
+<li>server.tomcat.protocol-header: 设定Header包含的协议，通常是 X-Forwarded-Proto，如果remoteIpHeader有值，则将设置为RemoteIpValve</li>
+<li>server.tomcat.protocol-header-https-value: 设定使用SSL的header的值，默认https</li>
+<li>server.tomcat.remote-ip-header: 设定remote IP的header，如果remoteIpHeader有值，则设置为RemoteIpValve</li>
+<li>server.tomcat.uri-encoding: 设定URI的解码字符集</li>
+</ul>
+<h3 id="undertow"><a href="#undertow" class="headerlink" title="undertow"></a>undertow</h3><ul>
+<li>server.undertow.access-log-dir: 设定Undertow access log 的目录，默认: logs</li>
+<li>server.undertow.access-log-enabled: 是否开启access log，默认: false</li>
+<li>server.undertow.access-log-pattern: 设定access logs的格式，默认: common</li>
+<li>server.undertow.accesslog.dir: 设定access log 的目录</li>
+<li>server.undertow.buffer-size: 设定buffer的大小</li>
+<li>server.undertow.buffers-per-region: 设定每个region的buffer数</li>
+<li>server.undertow.direct-buffers: 设定堆外内存</li>
+<li>server.undertow.io-threads: 设定I/O线程数</li>
+<li>server.undertow.worker-threads: 设定工作线程数</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-server/" data-id="cj0xpfd710026iys65jj93gcn" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/15/spring-boot配置属性字典-database/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          spring-boot配置属性字典-database
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/15/spring-boot配置属性字典-mvc/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spring-boot配置属性字典-mvc</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>

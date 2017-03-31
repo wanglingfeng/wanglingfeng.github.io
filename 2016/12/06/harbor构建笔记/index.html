@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>harbor构建笔记 | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装Harbor
+安装Python v2.7以上版本，安装docker v1.10以上版本，安装docker-compose v1.6.0以上版本
+
+下载在线安装版tar包，解压tar包
+1tar xvf harbor-online-installer-&amp;lt;version&amp;gt;.tgz
+
+修改harbor.cfg文件。hostname必须修改，修改为ip或域名。(一定不能使用localhos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="harbor构建笔记">
+<meta property="og:url" content="http://yoursite.com/2016/12/06/harbor构建笔记/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="安装Harbor
+安装Python v2.7以上版本，安装docker v1.10以上版本，安装docker-compose v1.6.0以上版本
+
+下载在线安装版tar包，解压tar包
+1tar xvf harbor-online-installer-&amp;lt;version&amp;gt;.tgz
+
+修改harbor.cfg文件。hostname必须修改，修改为ip或域名。(一定不能使用localhos">
+<meta property="og:updated_time" content="2016-12-07T04:08:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="harbor构建笔记">
+<meta name="twitter:description" content="安装Harbor
+安装Python v2.7以上版本，安装docker v1.10以上版本，安装docker-compose v1.6.0以上版本
+
+下载在线安装版tar包，解压tar包
+1tar xvf harbor-online-installer-&amp;lt;version&amp;gt;.tgz
+
+修改harbor.cfg文件。hostname必须修改，修改为ip或域名。(一定不能使用localhos">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-harbor构建笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/harbor构建笔记/" class="article-date">
+  <time datetime="2016-12-06T09:29:39.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/harbor/">harbor</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      harbor构建笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装Harbor"><a href="#安装Harbor" class="headerlink" title="安装Harbor"></a>安装Harbor</h1><ol>
+<li><p>安装Python v2.7以上版本，安装docker v1.10以上版本，安装docker-compose v1.6.0以上版本</p>
+</li>
+<li><p>下载在线安装版tar包，解压tar包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf harbor-online-installer-&lt;version&gt;.tgz</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改harbor.cfg文件。hostname必须修改，修改为ip或域名。(一定不能使用localhost或127.0.0.1)<br>ui_url_protocol表示使用http还是https<br>Email settings设置的是密码重置时，发送邮件的smtp邮件服务器<br>harbor_admin_password是初始的管理员用户的用户名/密码</p>
+</li>
+<li><p>执行<code>sudo ./install.sh</code>后，即可通过<a href="http://reg.yourdomain.com访问可视化界面" target="_blank" rel="external">http://reg.yourdomain.com访问可视化界面</a></p>
+</li>
+</ol>
+<a id="more"></a>
+<h1 id="修改为https访问"><a href="#修改为https访问" class="headerlink" title="修改为https访问"></a>修改为https访问</h1><ol>
+<li><p>创建你自己的CA认证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ openssl req \</div><div class="line">-newkey rsa:4096 -nodes -sha256 -keyout ca.key \</div><div class="line">-x509 -days 365 -out ca.crt</div></pre></td></tr></table></figure>
+</li>
+<li><p>生成认证签名请求yourdomain.com即为你的域名，如果使用的是ip则可以为任何值</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ openssl req \</div><div class="line">-newkey rsa:4096 -nodes -sha256 -keyout yourdomain.com.key \</div><div class="line">-out yourdomain.com.csr</div></pre></td></tr></table></figure>
+</li>
+<li><p>给你的主机生成认证</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ mkdir demoCA</div><div class="line">$ <span class="built_in">cd</span> demoCA</div><div class="line">$ touch index.txt</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'01'</span> &gt; serial</div><div class="line">$ <span class="built_in">cd</span> ..</div></pre></td></tr></table></figure>
+<p>3.1 使用域名的情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ openssl ca -in yourdomain.com.csr -out yourdomain.com.crt -cert ca.crt -keyfile ca.key -outdir .</div></pre></td></tr></table></figure>
+<p>3.2 使用ip的情况</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> subjectAltName = IP:[你的ip] &gt; extfile.cnf</div><div class="line">$ openssl ca -in yourdomain.com.csr -out yourdomain.com.crt -cert ca.crt -keyfile ca.key -extfile extfile.cnf -outdir .</div></pre></td></tr></table></figure>
+</li>
+<li><p>移动到nginx目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> Deploy/config/nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p>将刚才生成的认证文件复制到nginx的cert文件夹中，如果不存在cert文件夹，创建一个</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cp yourdomain.com.crt cert/</div><div class="line">$ cp yourdomain.com.key cert/</div></pre></td></tr></table></figure>
+</li>
+<li><p>备份原nginx.conf文件，并使用nginx.https.conf做为nginx.conf文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mv nginx.conf nginx.conf.bak</div><div class="line">$ cp nginx.https.conf nginx.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>替换nginx.conf中的两处harbordomain.com(server的server_name项对应的值)为ip或域名;<br><br>ssl_certificate和ssl_certificate_key项的认证文件的名称修改为刚复制到cert文件夹中的文件名</p>
+</li>
+<li><p>修改harbor.cfg文件，ui_url_protocol项修改为https</p>
+</li>
+<li><p>执行<code>sudo ./prepare</code></p>
+</li>
+<li><p>停止并删除docker container</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker-compose stop</div><div class="line">$ docker-compose rm</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启docker container</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker-compose up <span class="_">-d</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>PS：如果使用ip，认证证书需导入到机器中；将ca.crt文件复制到<br>/etc/docker/certs.d/yourdomain.com(or your registry host IP)文件内(如果没有该文件夹，则创建)</p>
+</li>
+<li><p>然后即可登录上传images</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ docker login reg.yourdomain.com</div><div class="line">$ docker push reg.yourdomain.com/myproject/myrepo:mytag</div></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj0xpfd62000qiys6gsbvad14" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/06/hbase单机构建笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hbase单机构建笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/06/gradle使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">gradle使用笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>

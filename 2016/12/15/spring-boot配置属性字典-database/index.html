@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring-boot配置属性字典-database | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="datasource
+spring.dao.exceptiontranslation.enabled: 是否开启PersistenceExceptionTranslationPostProcessor，默认为true
+spring.datasource.abandon-when-percentage-full: 设定超时被废弃的连接占到多少比例时要被关闭或上报
+spring.datasource.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot配置属性字典-database">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/spring-boot配置属性字典-database/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="datasource
+spring.dao.exceptiontranslation.enabled: 是否开启PersistenceExceptionTranslationPostProcessor，默认为true
+spring.datasource.abandon-when-percentage-full: 设定超时被废弃的连接占到多少比例时要被关闭或上报
+spring.datasource.">
+<meta property="og:updated_time" content="2016-12-15T05:56:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot配置属性字典-database">
+<meta name="twitter:description" content="datasource
+spring.dao.exceptiontranslation.enabled: 是否开启PersistenceExceptionTranslationPostProcessor，默认为true
+spring.datasource.abandon-when-percentage-full: 设定超时被废弃的连接占到多少比例时要被关闭或上报
+spring.datasource.">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-spring-boot配置属性字典-database" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-database/" class="article-date">
+  <time datetime="2016-12-15T04:22:14.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot配置属性字典-database
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="datasource"><a href="#datasource" class="headerlink" title="datasource"></a>datasource</h3><ul>
+<li>spring.dao.exceptiontranslation.enabled: 是否开启PersistenceExceptionTranslationPostProcessor，默认为true</li>
+<li>spring.datasource.abandon-when-percentage-full: 设定超时被废弃的连接占到多少比例时要被关闭或上报</li>
+<li>spring.datasource.allow-pool-suspension: 使用Hikari pool时，是否允许连接池暂停，默认为: false</li>
+<li>spring.datasource.alternate-username-allowed: 是否允许替代的用户名</li>
+<li>spring.datasource.auto-commit: 指定updates是否自动提交</li>
+<li>spring.datasource.catalog: 指定默认的catalog</li>
+<li>spring.datasource.commit-on-return: 设置当连接被归还时，是否要提交所有还未完成的事务</li>
+<li>spring.datasource.connection-init-sql: 指定连接被创建，再被添加到连接池之前执行的sql</li>
+<li>spring.datasource.connection-init-sqls: 使用DBCP connection pool时，指定初始化时要执行的sql</li>
+<li>spring.datasource.connection-properties.[key]: 在使用DBCP connection pool时指定要配置的属性</li>
+<li>spring.datasource.connection-test-query: 指定校验连接合法性执行的sql语句</li>
+<li>spring.datasource.connection-timeout: 指定连接的超时时间，毫秒单位</li>
+<li>spring.datasource.continue-on-error: 在初始化数据库时，遇到错误是否继续，默认false</li>
+<li>spring.datasource.data: 指定Data (DML)脚本</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>spring.datasource.data-source-class-name指: 定数据源的全限定名</li>
+<li>spring.datasource.data-source-jndi: 指定jndi的地址</li>
+<li>spring.datasource.db-properties: 使用Tomcat connection pool，指定要设置的属性</li>
+<li>spring.datasource.default-catalog: 指定连接默认的catalog</li>
+<li>spring.datasource.default-read-only: 是否设置默认连接只读</li>
+<li>spring.datasource.default-transaction-isolation: 指定连接的事务的默认隔离级别</li>
+<li>spring.datasource.driver-class-name: 指定driver的类名，默认从jdbc url中自动探测</li>
+<li>spring.datasource.fair-queue: 是否采用FIFO返回连接</li>
+<li>spring.datasource.idle-timeout: 指定连接多久没被使用时，被设置为空闲，默认为10ms</li>
+<li>spring.datasource.ignore-exception-on-pre-load: 当初始化连接池时，是否忽略异常</li>
+<li>spring.datasource.init-sql: 当连接创建时，执行的sql</li>
+<li>spring.datasource.initial-size: 指定启动连接池时，初始建立的连接数量</li>
+<li>spring.datasource.initialization-fail-fast: 当创建连接池时，没法创建指定最小连接数量是否抛异常</li>
+<li>spring.datasource.initialize: 指定初始化数据源，是否用data.sql来初始化，默认: true</li>
+<li>spring.datasource.isolate-internal-queries: 指定内部查询是否要被隔离，默认为false</li>
+<li>spring.datasource.jdbc-interceptors: 使用Tomcat connection pool时，指定jdbc拦截器，分号分隔</li>
+<li>spring.datasource.jdbc-url: 指定JDBC URL</li>
+<li>spring.datasource.jmx-enabled: 是否开启JMX，默认为: false</li>
+<li>spring.datasource.jndi-name: 指定jndi的名称</li>
+<li>spring.datasource.login-timeout: 指定连接数据库的超时时间</li>
+<li>spring.datasource.max-active: 指定连接池中最大的活跃连接数</li>
+<li>spring.datasource.max-age: 指定连接池中连接的最大年龄</li>
+<li>spring.datasource.max-idle: 指定连接池最大的空闲连接数量</li>
+<li>spring.datasource.max-lifetime: 指定连接池中连接的最大生存时间，毫秒单位</li>
+<li>spring.datasource.max-open-prepared-statements: 指定最大的打开的prepared statements数量</li>
+<li>spring.datasource.max-wait: 指定连接池等待连接返回的最大等待时间，毫秒单位</li>
+<li>spring.datasource.maximum-pool-size: 指定连接池最大的连接数，包括使用中的和空闲的连接</li>
+<li>spring.datasource.min-evictable-idle-time-millis: 指定一个空闲连接最少空闲多久后可被清除</li>
+<li>spring.datasource.minimum-idle: 指定连接维护的最小空闲连接数，当使用HikariCP时指定</li>
+<li>spring.datasource.name: 指定数据源名</li>
+<li>spring.datasource.num-tests-per-eviction-run: 指定运行每个idle object evictor线程时的对象数量</li>
+<li>spring.datasource.password: 指定数据库密码</li>
+<li>spring.datasource.platform: 指定schema要使用的Platform(schema-${platform}.sql)，默认为: all</li>
+<li>spring.datasource.pool-name: 指定连接池名字</li>
+<li>spring.datasource.pool-prepared-statements: 指定是否池化statements</li>
+<li>spring.datasource.propagate-interrupt-state: 在等待连接时，如果线程被中断，是否传播中断状态</li>
+<li>spring.datasource.remove-abandoned: 指定当连接超过废弃超时时间时，是否立刻删除该连接</li>
+<li>spring.datasource.remove-abandoned-timeout: 指定连接应该被废弃的时间</li>
+<li>spring.datasource.rollback-on-return: 在归还连接时，是否回滚等待中的事务</li>
+<li>spring.datasource.schema: 指定Schema (DDL)脚本</li>
+<li>spring.datasource.separator: 指定初始化脚本的语句分隔符，默认: ;</li>
+<li>spring.datasource.sql-script-encoding: 指定SQL scripts编码</li>
+<li>spring.datasource.suspect-timeout: 指定打印废弃连接前的超时时间</li>
+<li>spring.datasource.test-on-borrow: 当从连接池借用连接时，是否测试该连接</li>
+<li>spring.datasource.test-on-connect: 创建时，是否测试连接</li>
+<li>spring.datasource.test-on-return: 在连接归还到连接池时是否测试该连接</li>
+<li>spring.datasource.test-while-idle: 当连接空闲时，是否执行连接测试</li>
+<li>spring.datasource.time-between-eviction-runs-millis: 指定空闲连接检查、废弃连接清理、空闲连接池大小调整之间的操作时间间隔</li>
+<li>spring.datasource.url: 指定JDBC URL</li>
+<li>spring.datasource.use-disposable-connection-facade: 是否对连接进行包装，防止连接关闭之后被使用</li>
+<li>spring.datasource.use-equals: 比较方法名时是否使用String.equals()替换==</li>
+<li>spring.datasource.use-lock: 是否对连接操作加锁</li>
+<li>spring.datasource.username: 指定数据库名</li>
+<li>spring.datasource.validation-interval: 指定多少ms执行一次连接校验</li>
+<li>spring.datasource.validation-query: 指定获取连接时连接校验的sql查询语句</li>
+<li>spring.datasource.validation-query-timeout: 指定连接校验查询的超时时间</li>
+<li>spring.datasource.validator-class-name: 用来测试查询的validator全限定名</li>
+</ul>
+<h3 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h3><ul>
+<li>spring.jpa.database: 指定目标数据库</li>
+<li>spring.jpa.database-platform: 指定目标数据库的类型</li>
+<li>spring.jpa.generate-ddl: 是否在启动时初始化schema，默认为false</li>
+<li>spring.jpa.hibernate.ddl-auto: 指定DDL mode (none, validate, update, create, create-drop). 当使用内嵌数据库时，默认是create-drop，否则为none</li>
+<li>spring.jpa.hibernate.naming-strategy: 指定命名策略</li>
+<li>spring.jpa.open-in-view: 是否注册OpenEntityManagerInViewInterceptor，绑定JPA EntityManager到请求线程中，默认为: true</li>
+<li>spring.jpa.properties: 添加额外的属性到JPA provider</li>
+<li>spring.jpa.show-sql: 是否开启sql的log，默认为: false</li>
+</ul>
+<h3 id="h2"><a href="#h2" class="headerlink" title="h2"></a>h2</h3><ul>
+<li>spring.h2.console.enabled: 是否开启控制台，默认为false</li>
+<li>spring.h2.console.path: 指定控制台路径，默认为: /h2-console</li>
+</ul>
+<h3 id="JTA"><a href="#JTA" class="headerlink" title="JTA"></a>JTA</h3><ul>
+<li>spring.jta.allow-multiple-lrc: 是否允许 multiple LRC，默认为: false</li>
+<li>spring.jta.asynchronous2-pc: 指定两阶段提交是否可以异步，默认为: false</li>
+<li>spring.jta.background-recovery-interval: 指定多少分钟跑一次recovery process，默认为: 1</li>
+<li>spring.jta.background-recovery-interval-seconds: 指定多久跑一次recovery process，默认: 60</li>
+<li>spring.jta.current-node-only-recovery: 是否过滤掉其他非本JVM的recovery，默认为: true</li>
+<li>spring.jta.debug-zero-resource-transaction: 是否追踪没有使用指定资源的事务，默认为: false</li>
+<li>spring.jta.default-transaction-timeout: 设定默认的事务超时时间，默认为60</li>
+<li>spring.jta.disable-jmx: 是否禁用jmx，默认为false</li>
+<li>spring.jta.enabled: 是否开启JTA support，默认为: true</li>
+<li>spring.jta.exception-analyzer: 设置指定的异常分析类</li>
+<li>spring.jta.jndi-user-transaction-name: 指定在JNDI使用Bitronix Transaction Manager的名称，默认:java:comp/UserTransaction</li>
+<li>spring.jta.log-part1-filename: 指定The journal fragment文件1的名字，默认: btm1.tlog</li>
+<li>spring.jta.log-part2-filename: 指定The journal fragment文件2的名字，默认: btm2.tlog</li>
+<li>spring.jta.max-log-size-in-mb: 指定journal fragments大小的最大值. 默认: 2M</li>
+<li>spring.jta.resource-configuration-filename: 指定Bitronix Transaction Manager配置文件名</li>
+<li>spring.jta.server-id: 指定Bitronix Transaction Manager实例的id</li>
+<li>spring.jta.skip-corrupted-logs: 是否忽略corrupted log files文件，默认为false</li>
+<li>spring.jta.transaction-manager-id: 指定Transaction manager的唯一标识</li>
+</ul>
+<h3 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h3><ul>
+<li>spring.cache.cache-names: 指定要创建的缓存的名称，逗号分隔(若该缓存实现支持的话)</li>
+<li>spring.cache.ehcache.config: 指定初始化EhCache时使用的配置文件的位置指定</li>
+<li>spring.cache.guava.spec: 指定创建缓存要使用的spec，具体详见CacheBuilderSpec</li>
+<li>spring.cache.hazelcast.config: 指定初始化Hazelcast时的配置文件位置</li>
+<li>spring.cache.infinispan.config: 指定初始化Infinispan时的配置文件位置</li>
+<li>spring.cache.jcache.config: 指定jcache的配置文件</li>
+<li>spring.cache.jcache.provider: 指定CachingProvider实现类的全限定名</li>
+<li>spring.cache.type: 指定缓存类型</li>
+</ul>
+<h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><ul>
+<li>spring.redis.database: 指定连接工厂使用的Database index，默认为: 0</li>
+<li>spring.redis.host: 指定Redis server host，默认为: localhost</li>
+<li>spring.redis.password: 指定Redis server的密码</li>
+<li>spring.redis.pool.max-active: 指定连接池最大的活跃连接数，-1表示无限，默认为8</li>
+<li>spring.redis.pool.max-idle: 指定连接池最大的空闲连接数，-1表示无限，默认为8</li>
+<li>spring.redis.pool.max-wait: 指定当连接池耗尽时，新获取连接需要等待的最大时间，以毫秒单位，-1表示无限等待</li>
+<li>spring.redis.pool.min-idle: 指定连接池中空闲连接的最小数量，默认为0</li>
+<li>spring.redis.port: 指定redis服务端端口，默认: 6379</li>
+<li>spring.redis.sentinel.master: 指定redis server的名称</li>
+<li>spring.redis.sentinel.nodes: 指定sentinel节点，逗号分隔，格式为host:port</li>
+<li>spring.redis.timeout: 指定连接超时时间，毫秒单位，默认为0</li>
+</ul>
+<h3 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h3><ul>
+<li>spring.mongodb.embedded.features: 指定要开启的特性，逗号分隔</li>
+<li>spring.mongodb.embedded.version: 指定要使用的版本，默认: 2.6.10</li>
+</ul>
+<h3 id="springdata"><a href="#springdata" class="headerlink" title="springdata"></a>springdata</h3><ul>
+<li>spring.data.elasticsearch.cluster-name: 指定es集群名称，默认: elasticsearch</li>
+<li>spring.data.elasticsearch.cluster-nodes: 指定es的集群，逗号分隔，不指定的话，则启动client node</li>
+<li>spring.data.elasticsearch.properties: 指定要配置的es属性</li>
+<li>spring.data.elasticsearch.repositories.enabled: 是否开启es存储，默认为: true</li>
+<li>spring.data.jpa.repositories.enabled: 是否开启JPA支持，默认为: true</li>
+<li>spring.data.mongodb.authentication-database: 指定鉴权的数据库名</li>
+<li>spring.data.mongodb.database: 指定mongodb数据库名</li>
+<li>spring.data.mongodb.field-naming-strategy: 指定要使用的FieldNamingStrategy</li>
+<li>spring.data.mongodb.grid-fs-database: 指定GridFS database的名称</li>
+<li>spring.data.mongodb.host: 指定Mongo server host</li>
+<li>spring.data.mongodb.password: 指定Mongo server的密码</li>
+<li>spring.data.mongodb.port: 指定Mongo server port</li>
+<li>spring.data.mongodb.repositories.enabled: 是否开启mongodb存储，默认为true</li>
+<li>spring.data.mongodb.uri: 指定Mongo database URI.默认:mongodb://localhost/test</li>
+<li>spring.data.mongodb.username: 指定登陆mongodb的用户名</li>
+<li>spring.data.rest.base-path: 指定暴露资源的基准路径</li>
+<li>spring.data.rest.default-page-size: 指定每页的大小，默认为: 20</li>
+<li>spring.data.rest.limit-param-name: 指定limit的参数名，默认为: size</li>
+<li>spring.data.rest.max-page-size: 指定最大的页数，默认为1000</li>
+<li>spring.data.rest.page-param-name: 指定分页的参数名，默认为: page</li>
+<li>spring.data.rest.return-body-on-create: 当创建完实体之后，是否返回body，默认为false</li>
+<li>spring.data.rest.return-body-on-update: 在更新完实体后，是否返回body，默认为false</li>
+<li>spring.data.rest.sort-param-name: 指定排序使用的key，默认为: sort</li>
+<li>spring.data.solr.host: 指定Solr host，如果有指定了zk的host的话，则忽略。默认为: <a href="http://127.0.0.1:8983/solr" target="_blank" rel="external">http://127.0.0.1:8983/solr</a></li>
+<li>spring.data.solr.repositories.enabled: 是否开启Solr repositories，默认为: true</li>
+<li>spring.data.solr.zk-host: 指定zk的地址，格式为HOST:PORT</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-database/" data-id="cj0xpfd6v001tiys69u7z26qo" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/15/spring-boot配置属性字典-mq/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          spring-boot配置属性字典-mq
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/15/spring-boot配置属性字典-server/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spring-boot配置属性字典-server</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>

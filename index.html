@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Coding Note">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coding Note">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-item2-oh-my-zsh配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/31/item2-oh-my-zsh配置/" class="article-date">
+  <time datetime="2017-03-31T10:43:48.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/命令行/">命令行</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="安装iterm2后，使用以下命令安装oh-my-zsh"><a href="#安装iterm2后，使用以下命令安装oh-my-zsh" class="headerlink" title="安装iterm2后，使用以下命令安装oh my zsh"></a>安装iterm2后，使用以下命令安装oh my zsh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh</div></pre></td></tr></table></figure>
+<h3 id="待确定是否必要"><a href="#待确定是否必要" class="headerlink" title="待确定是否必要"></a>待确定是否必要</h3><p>.bash_profile文件添加以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#enables colorin the terminal bash shell export</div><div class="line">export CLICOLOR=1</div><div class="line">#sets up thecolor scheme for list export</div><div class="line">export LSCOLORS=gxfxcxdxbxegedabagacad</div><div class="line">#sets up theprompt color (currently a green similar to linux terminal)</div><div class="line">export TERM=&apos;xterm-256color&apos;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cj0xpfd6d0017iys6jjs7asm0" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-JVM内存模型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/24/JVM内存模型/" class="article-date">
+  <time datetime="2017-02-24T09:57:09.000Z" itemprop="datePublished">2017-02-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><img src="/2017/02/24/JVM内存模型/jvm内存模型.jpg" alt="这是JVM内存模型" title="这是JVM内存模型">
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>生命周期都与线程相同</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:center">特征</th>
+<th style="text-align:left">作用</th>
+<th style="text-align:left">配置参数</th>
+<th style="text-align:left">异常</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">程序计数器</td>
+<td style="text-align:center">占用内存小，线程私有</td>
+<td style="text-align:left">大致为字节码信号指示器</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">虚拟机栈</td>
+<td style="text-align:center">线程私有，使用连续的内存空间</td>
+<td style="text-align:left">Java方法执行的内存模型，<br>存储局部变量表、操作栈、<br>动态链接、方法出口等信息</td>
+<td style="text-align:left"><code>-Xss</code></td>
+<td style="text-align:left">StackOverflowError<br>OutOfMemoryError</td>
+</tr>
+<tr>
+<td style="text-align:left">堆</td>
+<td style="text-align:center">线程共享，可以不使用连续的内存地址</td>
+<td style="text-align:left">保存对象实例，所有对象实例<br>（包括数组）都要在堆上分配</td>
+<td style="text-align:left"><code>-Xms</code><br><code>-Xsx</code><br><code>-Xmn</code></td>
+<td style="text-align:left">OutOfMemoryError</td>
+</tr>
+<tr>
+<td style="text-align:left">方法区</td>
+<td style="text-align:center">线程共享，可以不使用连续的内存地址</td>
+<td style="text-align:left">存储已被虚拟机加载的<br>类信息、常量、静态变量、<br>编译器即时编译后的代码等数据</td>
+<td style="text-align:left"><code>-XX:PermSize:16M</code><br><code>-XX:MaxPermSize:64M</code></td>
+<td style="text-align:left">OutOfMemoryError</td>
+</tr>
+<tr>
+<td style="text-align:left">本地方法栈</td>
+<td style="text-align:center">线程私有，使用连续的内存空间</td>
+<td style="text-align:left">为虚拟机使用到的Native方法服务</td>
+<td style="text-align:left">无</td>
+<td style="text-align:left">StackOverflowError<br>OutOfMemoryError</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cj0xpfd4w0000iys6qsi5uf65" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-hashmap原理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/22/hashmap原理/" class="article-date">
+  <time datetime="2017-02-22T08:16:00.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/hashmap原理/">hashmap原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>拉链法：数组+链表<br>初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。</p>
+<h3 id="数组中index的算法"><a href="#数组中index的算法" class="headerlink" title="数组中index的算法"></a>数组中index的算法</h3><p>int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。<br/><br>所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。<br/><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tab.length - <span class="number">1</span>) &amp; hash <span class="comment">// 按位取并，作用上相当于取模mod或者取余%</span></div></pre></td></tr></table></figure></p>
+<p>但是即使这样就算我的散列值分布再松散，要是只取最后几位的话，碰撞也会很严重。<br/><br>更要命的是如果散列本身做得不好，分布上成等差数列的漏洞，恰好使最后几个低位呈现规律性重复。这个使用就需要用到下面的一个函数”扰动函数”。<br/></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/22/hashmap原理/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cj0xpfd63000siys64764vmjc" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-jvm原理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/15/jvm原理/" class="article-date">
+  <time datetime="2017-02-15T09:13:58.000Z" itemprop="datePublished">2017-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/15/jvm原理/">jvm原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h3><p>分代收集：根据对象的生命周期分为新生代和老年代。</p>
+<ul>
+<li>新生代 -&gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。</li>
+<li>老年代 -&gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，回收未标记的对象，回收之后将存活的对象移动到同一端（不产生内存碎片）。</li>
+</ul>
+<h3 id="类的加载过程"><a href="#类的加载过程" class="headerlink" title="类的加载过程"></a>类的加载过程</h3><p>7个过程。</p>
+<ul>
+<li>加载：内存中生成java.lang.Class对象，加载到方法区，作为该类的访问入口。</li>
+<li>验证：确保加载类的符合jvm规范，不会危害到jvm虚拟机。</li>
+<li>准备：为静态变量分配内存并分配默认值，在方法区中进行分配。（static int i = 9，这时i的值为0，在初始化时值才为9）</li>
+<li>解析：符号引用替换为直接引用。（String str=”s”，转化为str的地址指向”s”的地址）</li>
+<li>初始化：执行构造函数，静态和非静态代码块。</li>
+<li>使用：对象的属性或方法等调用操作。</li>
+<li>卸载： jvm通过确定对象没有引用后进行gc操作。<br>简述：虚拟机把类从Class文件加载到内存中，并对数据进行校验，解析和初始化，形成虚拟机直接使用的java类型。</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/15/jvm原理/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cj0xpfd6i001ciys6cgeqjqnw" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-服务器端推送笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/10/服务器端推送笔记/" class="article-date">
+  <time datetime="2017-02-10T08:31:03.000Z" itemprop="datePublished">2017-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Server-Sent-Event-SSE"><a href="#Server-Sent-Event-SSE" class="headerlink" title="Server-Sent Event (SSE)"></a>Server-Sent Event (SSE)</h3><h4 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h4><p>浏览器通过HTTP向服务器发送请求，服务器拿到最新的数据，立即返回给客户端，客户端等待3秒后再次发出下一个请求。</p>
+<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><p>每3秒都会按照以下顺序执行<code>onopen -&gt; onmessage -&gt; onerror</code>，每次请求都会执行<code>onerror</code>方法，如果是正常关闭，<code>onerror</code>方法的回调参数readyState=3。</p>
+<h4 id="Headers设置"><a href="#Headers设置" class="headerlink" title="Headers设置"></a>Headers设置</h4><p>ContentType必须设置为<code>text/event-stream</code></p>
+<h4 id="封包内容"><a href="#封包内容" class="headerlink" title="封包内容"></a>封包内容</h4><p>Server端的程序推送给Client端的封包是由以下四部分构成，其格式为<code>字段名称:字段内容,字段名称:字段内容\n\n</code></p>
+<ol>
+<li>event: 事件或识别名称，默认值为message</li>
+<li>data: 要传送给Client端的数据内容</li>
+<li>id: Server端推送到Client端时的事件ID</li>
+<li>retry: 用来定义两次要求之间的间隔时间，以毫秒为单位</li>
+</ol>
+<h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><ul>
+<li>WebSocket可以看成是一种类似TCP/IP的socket技术；</li>
+<li>此socket在Web应用中实现，浏览器和服务器只需要做一个握手的动作[借用http协议]，然后，浏览器和服务器之间就形成了一条快速通道。两者之间就直接可以数据互相传送。</li>
+<li>WebSocket为应用层协议，其定义在TCP/IP协议栈之上。</li>
+<li>WebSocket连接服务器的URI以”ws”[默认TCP端口为80]或者”wss”[默认TCP端口为443]开头。</li>
+</ul>
+<h4 id="运行过程-1"><a href="#运行过程-1" class="headerlink" title="运行过程"></a>运行过程</h4><p>客户端通知WebSockets服务器一个事件，服务器将立即通知消息；当任何新的未读消息来的时候，服务器都将立即返回数据给客户端。</p>
+<h4 id="执行过程-1"><a href="#执行过程-1" class="headerlink" title="执行过程"></a>执行过程</h4><p>连接建立成功时，执行onOpen方法，收到客户端请求时执行onMessage方法，发生错误时执行onError方法，连接关闭时，执行onClose方法</p>
+<h3 id="主要异同点"><a href="#主要异同点" class="headerlink" title="主要异同点"></a>主要异同点</h3><p>SSE：单向 | WebSocket：双向<br>SSE：轮询 | WebSocket：长连接</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h4><p>优点：服务器端开发很简单，服务器端支持已经统一。<br>缺点：浏览器需要不断的向服务器发出请求，然而HTTP request的header是非常长的，里面包含的有用数据可能只是一个很小的值，这样会占用很多的带宽。<br>实时性要求不高的情况下，推荐使用。</p>
+<h4 id="webSocket"><a href="#webSocket" class="headerlink" title="webSocket"></a>webSocket</h4><p>优点：WebSocket协议中，为我们实现即时服务带来了两大好处：互相沟通的Header是很小的-大概只有2Bytes；服务器不再被动的接收到浏览器的request之后才返回数据，而是在有新数据时就主动推送给浏览器。<br>缺点：服务器长期维护长连接需要一定的成本，各个浏览器支持程度不一。<br>实时性要求高大情况下，推荐使用。</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><a href="https://github.com/wanglingfeng/push-server-demo" target="_blank" rel="external">链接</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cj0xpfd76002kiys63x5n6tvu" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-mvc使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/19/spring-mvc使用笔记/" class="article-date">
+  <time datetime="2017-01-19T08:23:37.000Z" itemprop="datePublished">2017-01-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/19/spring-mvc使用笔记/">spring-mvc使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Requestbody使用"><a href="#Requestbody使用" class="headerlink" title="@Requestbody使用"></a><code>@Requestbody</code>使用</h3><p>如果请求中缺少@Requestbody修饰的对象的某个字段，该字段值自动补为null，不会报错。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cj0xpfd720028iys65h3nl5o3" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-boot构成" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot构成/" class="article-date">
+  <time datetime="2016-12-15T05:47:18.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot构成/">spring-boot构成</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="自动配置-auto-configuration"><a href="#自动配置-auto-configuration" class="headerlink" title="自动配置(auto-configuration)"></a>自动配置(auto-configuration)</h3><p>一项简化配置的功能，比如在classpath中发现有spring security的jar包，则自动创建相关的bean等</p>
+<h3 id="starters-简化依赖"><a href="#starters-简化依赖" class="headerlink" title="starters(简化依赖)"></a>starters(简化依赖)</h3><p>这个比较关键，方便spring去集成各类组件，比如redis、mongodb等等。</p>
+<ul>
+<li>core(<code>security</code>、<code>aop</code>)</li>
+<li>web(<code>web</code>、<code>websocket</code>、<code>ws</code>、<code>vaadin</code>、<code>rest</code>、<code>mobile</code>)</li>
+<li>template(<code>freemarker</code>、<code>velocity</code>、<code>groovy templates</code>、<code>thymeleaf</code>)</li>
+<li>data(<code>jdbc</code>、<code>jpa</code>、<code>mongodb</code>、<code>redis</code>、<code>gemfire</code>、<code>solr</code>、<code>elasticsearch</code>)</li>
+<li>database(<code>h2</code>、<code>hsqldb</code>、<code>mysql</code>、<code>postgresql</code>)</li>
+<li>social(<code>facebook</code>、<code>linkedin</code>、<code>twitter</code>)</li>
+<li>io(<code>batch</code>、<code>integration</code>、<code>jms</code>、<code>amqp</code>)</li>
+<li>ops(<code>actuator</code>、<code>remote shell</code>)</li>
+<li>CLI(<code>command-line interface</code>),支持groovy开发</li>
+</ul>
+<h3 id="Actuator-对应用系统本身的自省功能"><a href="#Actuator-对应用系统本身的自省功能" class="headerlink" title="Actuator(对应用系统本身的自省功能)"></a>Actuator(对应用系统本身的自省功能)</h3><p>这个有点devops的味道，使得应用程序本身可以做到自省，比如查看系统运行了多少线程，gc的情况，运行的基本参数等等</p>
+<ul>
+<li>/beans: 这个endpoint列出所有由Spring Boot创建的bean</li>
+<li>/mappings: 这个endpoint显示当前应用支持的URL映射</li>
+<li>/info: 这个endpoint显示应用程序的基本描述</li>
+<li>/health: 这个endpoint提供应用程序的健康状态</li>
+<li>/env: 这个endpoint提供应用程序的环境变量</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cj0xpfd6s001riys6d6044apt" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-boot配置属性字典-others" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-others/" class="article-date">
+  <time datetime="2016-12-15T05:29:24.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-others/">spring-boot配置属性字典-others</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="aop"><a href="#aop" class="headerlink" title="aop"></a>aop</h3><ul>
+<li>spring.aop.auto: 是否支持@EnableAspectJAutoProxy，默认为: true</li>
+<li>spring.aop.proxy-target-class: true为使用CGLIB代理，false为JDK代理，默认为false</li>
+</ul>
+<h3 id="application"><a href="#application" class="headerlink" title="application"></a>application</h3><ul>
+<li>spring.application.admin.enabled: 是否启用admin特性，默认为: false</li>
+<li>spring.application.admin.jmx-name: 指定admin MBean的名称，默认为: org.springframework.boot:type=Admin,name=SpringApplication</li>
+</ul>
+<h3 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h3><ul>
+<li>logging.file: 指定日志输出位置，比如：log/spring.log</li>
+<li>logging.level.[package]：指定package的日志输出级别(ERROR &gt; WARN &gt; INFO &gt; DEBUG)</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/15/spring-boot配置属性字典-others/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-others/" data-id="cj0xpfd6y001yiys696du2aqe" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-boot配置属性字典-security" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-security/" class="article-date">
+  <time datetime="2016-12-15T05:25:00.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-security/">spring-boot配置属性字典-security</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="security"><a href="#security" class="headerlink" title="security"></a>security</h3><ul>
+<li>security.sessions: 指定Session的创建策略(always, never, if_required, stateless)</li>
+<li>security.user.name: 指定默认的用户名，默认为user</li>
+<li>security.user.password: 默认的用户密码</li>
+<li>security.user.role: 默认用户的授权角色</li>
+<li>security.basic.authorize-mode: 要使用权限控制模式.</li>
+<li>security.basic.enabled: 是否开启基本的鉴权，默认为true</li>
+<li>security.basic.path: 需要鉴权的path，多个的话以逗号分隔，默认为[/**]</li>
+<li>security.basic.realm: HTTP basic realm 的名字，默认为Spring</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/15/spring-boot配置属性字典-security/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-security/" data-id="cj0xpfd700023iys6fcqqthp5" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-spring-boot配置属性字典-mq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-mq/" class="article-date">
+  <time datetime="2016-12-15T05:21:29.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-mq/">spring-boot配置属性字典-mq</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="activemq"><a href="#activemq" class="headerlink" title="activemq"></a>activemq</h3><ul>
+<li>spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成</li>
+<li>spring.activemq.in-memory: 是否是内存模式，默认为true</li>
+<li>spring.activemq.password: 指定broker的密码</li>
+<li>spring.activemq.pooled: 是否创建PooledConnectionFactory，而非ConnectionFactory，默认false</li>
+<li>spring.activemq.user: 指定broker的用户</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/15/spring-boot配置属性字典-mq/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/" data-id="cj0xpfd6x001wiys6fmqips1k" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">&raquo;&raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring-boot配置属性字典-mq | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="activemq
+spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成
+spring.activemq.in-memory: 是否是内存模式，默认为true
+spring.activemq.password: 指定broker的密码
+spring.activemq.pooled: 是否创建PooledConnectionFactory，而">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot配置属性字典-mq">
+<meta property="og:url" content="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="activemq
+spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成
+spring.activemq.in-memory: 是否是内存模式，默认为true
+spring.activemq.password: 指定broker的密码
+spring.activemq.pooled: 是否创建PooledConnectionFactory，而">
+<meta property="og:updated_time" content="2016-12-15T05:56:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot配置属性字典-mq">
+<meta name="twitter:description" content="activemq
+spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成
+spring.activemq.in-memory: 是否是内存模式，默认为true
+spring.activemq.password: 指定broker的密码
+spring.activemq.pooled: 是否创建PooledConnectionFactory，而">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-spring-boot配置属性字典-mq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/spring-boot配置属性字典-mq/" class="article-date">
+  <time datetime="2016-12-15T05:21:29.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot配置属性字典-mq
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="activemq"><a href="#activemq" class="headerlink" title="activemq"></a>activemq</h3><ul>
+<li>spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成</li>
+<li>spring.activemq.in-memory: 是否是内存模式，默认为true</li>
+<li>spring.activemq.password: 指定broker的密码</li>
+<li>spring.activemq.pooled: 是否创建PooledConnectionFactory，而非ConnectionFactory，默认false</li>
+<li>spring.activemq.user: 指定broker的用户</li>
+</ul>
+<a id="more"></a>
+<h3 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h3><ul>
+<li>spring.rabbitmq.addresses: 指定client连接到的server的地址，多个以逗号分隔</li>
+<li>spring.rabbitmq.dynamic: 是否创建AmqpAdmin bean. 默认为: true</li>
+<li>spring.rabbitmq.host: 指定RabbitMQ host.默认为: localhost</li>
+<li>spring.rabbitmq.listener.acknowledge-mode: 指定Acknowledge的模式.</li>
+<li>spring.rabbitmq.listener.auto-startup: 是否在启动时就启动mq，默认: true</li>
+<li>spring.rabbitmq.listener.concurrency: 指定最小的消费者数量</li>
+<li>spring.rabbitmq.listener.max-concurrency: 指定最大的消费者数量</li>
+<li>spring.rabbitmq.listener.prefetch: 指定一个请求能处理多少个消息，如果有事务的话，必须大于等于transaction数量</li>
+<li>spring.rabbitmq.listener.transaction-size: 指定一个事务处理的消息数量，最好是小于等于prefetch的数量</li>
+<li>spring.rabbitmq.password: 指定broker的密码</li>
+<li>spring.rabbitmq.port: 指定RabbitMQ 的端口，默认: 5672</li>
+<li>spring.rabbitmq.requested-heartbeat: 指定心跳超时，0为不指定</li>
+<li>spring.rabbitmq.ssl.enabled: 是否开始SSL，默认: false</li>
+<li>spring.rabbitmq.ssl.key-store: 指定持有SSL certificate的key store的路径</li>
+<li>spring.rabbitmq.ssl.key-store-password: 指定访问key store的密码</li>
+<li>spring.rabbitmq.ssl.trust-store指: 定持有SSL certificates的Trust store</li>
+<li>spring.rabbitmq.ssl.trust-store-password: 指定访问trust store的密码</li>
+<li>spring.rabbitmq.username: 指定登陆broker的用户名</li>
+<li>spring.rabbitmq.virtual-host: 指定连接到broker的Virtual host</li>
+</ul>
+<h3 id="jms"><a href="#jms" class="headerlink" title="jms"></a>jms</h3><ul>
+<li>spring.jms.jndi-name: 指定Connection factory JNDI 名称</li>
+<li>spring.jms.listener.acknowledge-mode: 指定ack模式，默认自动ack</li>
+<li>spring.jms.listener.auto-startup: 是否启动时自动启动jms，默认为: true</li>
+<li>spring.jms.listener.concurrency: 指定最小的并发消费者数量</li>
+<li>spring.jms.listener.max-concurrency: 指定最大的并发消费者数量</li>
+<li>spring.jms.pub-sub-domain: 是否使用默认的destination type来支持 publish/subscribe，默认: false</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/" data-id="cj0xpfd6x001wiys6fmqips1k" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/15/spring-boot配置属性字典-security/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          spring-boot配置属性字典-security
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/15/spring-boot配置属性字典-database/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spring-boot配置属性字典-database</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>

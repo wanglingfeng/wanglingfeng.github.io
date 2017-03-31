@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>curl使用笔记 | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用示例(因为post请求改变服务器状态所以需要添加–header，header里的token信息可以在第一条命令执行后返回的结果中看到)1$ curl --insecure --include --cookie-jar cookies https://xxxxxx:xxx/
+1$ curl --insecure --include --cookie cookies --cookie-jar co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="curl使用笔记">
+<meta property="og:url" content="http://yoursite.com/2016/12/05/curl使用笔记/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="使用示例(因为post请求改变服务器状态所以需要添加–header，header里的token信息可以在第一条命令执行后返回的结果中看到)1$ curl --insecure --include --cookie-jar cookies https://xxxxxx:xxx/
+1$ curl --insecure --include --cookie cookies --cookie-jar co">
+<meta property="og:updated_time" content="2016-12-07T04:10:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="curl使用笔记">
+<meta name="twitter:description" content="使用示例(因为post请求改变服务器状态所以需要添加–header，header里的token信息可以在第一条命令执行后返回的结果中看到)1$ curl --insecure --include --cookie-jar cookies https://xxxxxx:xxx/
+1$ curl --insecure --include --cookie cookies --cookie-jar co">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-curl使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/05/curl使用笔记/" class="article-date">
+  <time datetime="2016-12-05T11:04:15.000Z" itemprop="datePublished">2016-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/命令行/">命令行</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      curl使用笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h3><h4 id="因为post请求改变服务器状态所以需要添加–header，header里的token信息可以在第一条命令执行后返回的结果中看到"><a href="#因为post请求改变服务器状态所以需要添加–header，header里的token信息可以在第一条命令执行后返回的结果中看到" class="headerlink" title="(因为post请求改变服务器状态所以需要添加–header，header里的token信息可以在第一条命令执行后返回的结果中看到)"></a>(因为post请求改变服务器状态所以需要添加–header，header里的token信息可以在第一条命令执行后返回的结果中看到)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl --insecure --include --cookie-jar cookies https://xxxxxx:xxx/</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl --insecure --include --cookie cookies --cookie-jar cookies --data <span class="string">"username=xxxxxx"</span> --data <span class="string">"password=xxxxxx"</span> --header <span class="string">"X-XSRF-TOKEN:xxxxxx"</span> https://xxxxxx:xxxx/login</div></pre></td></tr></table></figure>
+<h3 id="项目使用"><a href="#项目使用" class="headerlink" title="项目使用"></a>项目使用</h3><h4 id="对应login地址"><a href="#对应login地址" class="headerlink" title="对应login地址"></a>对应login地址</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl --include --cookie cookies --cookie-jar cookies --header <span class="string">"X-XSRF-TOKEN:dde02e58-1be7-4f24-a11b-5e7ad8ba3ced"</span> --data <span class="string">"username=athena"</span> --data <span class="string">"password=password"</span> http://localhost:8765/login</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="对应sign-up地址"><a href="#对应sign-up地址" class="headerlink" title="对应sign_up地址"></a>对应sign_up地址</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl --include --cookie cookies --cookie-jar cookies --header <span class="string">"X-XSRF-TOKEN:dde02e58-1be7-4f24-a11b-5e7ad8ba3ced"</span> --header <span class="string">"Content-Type:application/json"</span> --data <span class="string">'&#123;"username":"asd","mobile":15021489117,"captcha":"123","password":"password"&#125;'</span> http://localhost:8765/sign-up</div></pre></td></tr></table></figure>
+<h4 id="获取X-XSRF-TOKEN"><a href="#获取X-XSRF-TOKEN" class="headerlink" title="获取X-XSRF-TOKEN"></a>获取X-XSRF-TOKEN</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl --include --cookie cookies --cookie-jar cookies http://localhost:8765/</div></pre></td></tr></table></figure>
+<h3 id="curl命令参数"><a href="#curl命令参数" class="headerlink" title="curl命令参数"></a>curl命令参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div></pre></td><td class="code"><pre><div class="line">-a/--append 上传文件时，附加到目标文件</div><div class="line">-A/--user-agent &lt;string&gt; 设置用户代理发送给服务器</div><div class="line">- anyauth 可以使用“任何”身份验证方法</div><div class="line">-b/--cookie &lt;name=string/file&gt; cookie字符串或文件读取位置</div><div class="line">- basic 使用HTTP基本验证</div><div class="line">-B/--use-ascii 使用ASCII /文本传输</div><div class="line">-c/--cookie-jar &lt;file&gt; 操作结束后把cookie写入到这个文件中</div><div class="line">-C/--continue-at &lt;offset&gt; 断点续转</div><div class="line">-d/--data &lt;data&gt; HTTP POST方式传送数据</div><div class="line">--data-ascii &lt;data&gt; 以ascii的方式post数据</div><div class="line">--data-binary &lt;data&gt; 以二进制的方式post数据</div><div class="line">--negotiate 使用HTTP身份验证</div><div class="line">--digest 使用数字身份验证</div><div class="line">--disable-eprt 禁止使用EPRT或LPRT</div><div class="line">--disable-epsv 禁止使用EPSV</div><div class="line">-D/--dump-header &lt;file&gt; 把header信息写入到该文件中</div><div class="line">--egd-file &lt;file&gt; 为随机数据(SSL)设置EGD socket路径</div><div class="line">--tcp-nodelay 使用TCP_NODELAY选项</div><div class="line">-e/--referer 来源网址</div><div class="line">-E/--cert &lt;cert[:passwd]&gt; 客户端证书文件和密码 (SSL)</div><div class="line">--cert-type &lt;type&gt; 证书文件类型 (DER/PEM/ENG) (SSL)</div><div class="line">--key &lt;key&gt; 私钥文件名 (SSL)</div><div class="line">--key-type &lt;type&gt; 私钥文件类型 (DER/PEM/ENG) (SSL)</div><div class="line">--pass &lt;pass&gt; 私钥密码 (SSL)</div><div class="line">--engine &lt;eng&gt; 加密引擎使用 (SSL). &quot;--engine list&quot; for list</div><div class="line">--cacert &lt;file&gt; CA证书 (SSL)</div><div class="line">--capath &lt;directory&gt; CA目录 (made using c_rehash) to verify peer against (SSL)</div><div class="line">--ciphers &lt;list&gt; SSL密码</div><div class="line">--compressed 要求返回是压缩的形势 (using deflate or gzip)</div><div class="line">--connect-timeout &lt;seconds&gt; 设置最大请求时间</div><div class="line">--create-dirs 建立本地目录的目录层次结构</div><div class="line">--crlf 上传是把LF转变成CRLF</div><div class="line">-f/--fail 连接失败时不显示http错误</div><div class="line">--ftp-create-dirs 如果远程目录不存在，创建远程目录</div><div class="line">--ftp-method [multicwd/nocwd/singlecwd] 控制CWD的使用</div><div class="line">--ftp-pasv 使用 PASV/EPSV 代替端口</div><div class="line">--ftp-skip-pasv-ip 使用PASV的时候,忽略该IP地址</div><div class="line">--ftp-ssl 尝试用 SSL/TLS 来进行ftp数据传输</div><div class="line">--ftp-ssl-reqd 要求用 SSL/TLS 来进行ftp数据传输</div><div class="line">-F/--form &lt;name=content&gt; 模拟http表单提交数据</div><div class="line">-form-string &lt;name=string&gt; 模拟http表单提交数据</div><div class="line">-g/--globoff 禁用网址序列和范围使用&#123;&#125;和[]</div><div class="line">-G/--get 以get的方式来发送数据</div><div class="line">-h/--help 帮助</div><div class="line">-H/--header &lt;line&gt;自定义头信息传递给服务器</div><div class="line">--ignore-content-length 忽略的HTTP头信息的长度</div><div class="line">-i/--include 输出时包括protocol头信息</div><div class="line">-I/--head 只显示文档信息</div><div class="line">从文件中读取-j/--junk-session-cookies忽略会话Cookie</div><div class="line">- 界面&lt;interface&gt;指定网络接口/地址使用</div><div class="line">- krb4 &lt;级别&gt;启用与指定的安全级别krb4</div><div class="line">-j/--junk-session-cookies 读取文件进忽略session cookie</div><div class="line">--interface &lt;interface&gt; 使用指定网络接口/地址</div><div class="line">--krb4 &lt;level&gt; 使用指定安全级别的krb4</div><div class="line">-k/--insecure 允许不使用证书到SSL站点</div><div class="line">-K/--config 指定的配置文件读取</div><div class="line">-l/--list-only 列出ftp目录下的文件名称</div><div class="line">--limit-rate &lt;rate&gt; 设置传输速度</div><div class="line">--local-port&lt;NUM&gt; 强制使用本地端口号</div><div class="line">-m/--max-time &lt;seconds&gt; 设置最大传输时间</div><div class="line">--max-redirs &lt;num&gt; 设置最大读取的目录数</div><div class="line">--max-filesize &lt;bytes&gt; 设置最大下载的文件总量</div><div class="line">-M/--manual 显示全手动</div><div class="line">-n/--netrc 从netrc文件中读取用户名和密码</div><div class="line">--netrc-optional 使用 .netrc 或者 URL来覆盖-n</div><div class="line">--ntlm 使用 HTTP NTLM 身份验证</div><div class="line">-N/--no-buffer 禁用缓冲输出</div><div class="line">-o/--output 把输出写到该文件中</div><div class="line">-O/--remote-name 把输出写到该文件中，保留远程文件的文件名</div><div class="line">-p/--proxytunnel 使用HTTP代理</div><div class="line">--proxy-anyauth 选择任一代理身份验证方法</div><div class="line">--proxy-basic 在代理上使用基本身份验证</div><div class="line">--proxy-digest 在代理上使用数字身份验证</div><div class="line">--proxy-ntlm 在代理上使用ntlm身份验证</div><div class="line">-P/--ftp-port &lt;address&gt; 使用端口地址，而不是使用PASV</div><div class="line">-Q/--quote &lt;cmd&gt;文件传输前，发送命令到服务器</div><div class="line">-r/--range &lt;range&gt;检索来自HTTP/1.1或FTP服务器字节范围</div><div class="line">--range-file 读取（SSL）的随机文件</div><div class="line">-R/--remote-time 在本地生成文件时，保留远程文件时间</div><div class="line">--retry &lt;num&gt; 传输出现问题时，重试的次数</div><div class="line">--retry-delay &lt;seconds&gt; 传输出现问题时，设置重试间隔时间</div><div class="line">--retry-max-time &lt;seconds&gt; 传输出现问题时，设置最大重试时间</div><div class="line">-s/--silent静音模式。不输出任何东西</div><div class="line">-S/--show-error 显示错误</div><div class="line">--socks4 &lt;host[:port]&gt; 用socks4代理给定主机和端口</div><div class="line">--socks5 &lt;host[:port]&gt; 用socks5代理给定主机和端口</div><div class="line">--stderr &lt;file&gt;</div><div class="line">-t/--telnet-option &lt;OPT=val&gt; Telnet选项设置</div><div class="line">--trace &lt;file&gt; 对指定文件进行debug</div><div class="line">--trace-ascii &lt;file&gt; Like --跟踪但没有hex输出</div><div class="line">--trace-time 跟踪/详细输出时，添加时间戳</div><div class="line">-T/--upload-file &lt;file&gt; 上传文件</div><div class="line">--url &lt;URL&gt; Spet URL to work with</div><div class="line">-u/--user &lt;user[:password]&gt;设置服务器的用户和密码</div><div class="line">-U/--proxy-user &lt;user[:password]&gt;设置代理用户名和密码</div><div class="line">-v/--verbose</div><div class="line">-V/--version 显示版本信息</div><div class="line">-w/--write-out [format]什么输出完成后</div><div class="line">-x/--proxy &lt;host[:port]&gt;在给定的端口上使用HTTP代理</div><div class="line">-X/--request &lt;command&gt;指定什么命令</div><div class="line">-y/--speed-time 放弃限速所要的时间。默认为30</div><div class="line">-Y/--speed-limit 停止传输速度的限制，速度时间&apos;秒</div><div class="line">-z/--time-cond 传送时间设置</div><div class="line">-0/--http1.0 使用HTTP 1.0</div><div class="line">-1/--tlsv1 使用TLSv1（SSL）</div><div class="line">-2/--sslv2 使用SSLv2的（SSL）</div><div class="line">-3/--sslv3 使用的SSLv3（SSL）</div><div class="line">--3p-quote like -Q for the source URL for 3rd party transfer</div><div class="line">--3p-url 使用url，进行第三方传送</div><div class="line">--3p-user 使用用户名和密码，进行第三方传送</div><div class="line">-4/--ipv4 使用IP4</div><div class="line">-6/--ipv6 使用IP6</div><div class="line">-#/--progress-bar 用进度条显示当前的传送状态</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/05/curl使用笔记/" data-id="cj0xpfd5d0006iys6ue5a22ye" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/12/05/cygwin使用笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          cygwin使用笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/12/05/consul-agent常用参数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">consul agent常用参数</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/22/hashmap原理/">hashmap原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/15/jvm原理/">jvm原理</a>
+          </li>
+        
+          <li>
+            <a href="/2017/02/10/服务器端推送笔记/">服务器端推送笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>
