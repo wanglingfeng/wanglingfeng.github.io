@@ -58,6 +58,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-基于百度es搭建ELK笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/05/基于百度es搭建ELK笔记/" class="article-date">
+  <time datetime="2017-04-05T04:36:28.000Z" itemprop="datePublished">2017-04-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/ELK/">ELK</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ELK搭建"><a href="#ELK搭建" class="headerlink" title="ELK搭建"></a>ELK搭建</h2><h3 id="logstash-2-4-1"><a href="#logstash-2-4-1" class="headerlink" title="logstash 2.4.1"></a>logstash 2.4.1</h3><h4 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h4><p>使用wget命令通过官网的下载url下载，百度云es必须使用logstash 2.4.1以下版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://download.elastic.co/logstash/logstash/logstash-2.4.1.tar.gz</div></pre></td></tr></table></figure></p>
+<h3 id="配合redis使用"><a href="#配合redis使用" class="headerlink" title="配合redis使用"></a>配合redis使用</h3><p>redis作为input使用<br>data_type为</p>
+<ul>
+<li><code>list</code>时，redis客户端使用rpush或lpush保存数据。</li>
+<li><code>channel</code>时，订阅了redis个某个key，redis客户端使用PUBLISH保存数据。</li>
+<li><code>pattern_channel</code>时，订阅了redis的一组key(可模糊匹配)，redis客户端使用PUBLISH保存数据。</li>
+</ul>
+<h3 id="kibana-4-1-11"><a href="#kibana-4-1-11" class="headerlink" title="kibana 4.1.11"></a>kibana 4.1.11</h3><h4 id="获取-1"><a href="#获取-1" class="headerlink" title="获取"></a>获取</h4><p>使用wget命令通过官网的下载url下载，百度云es必须使用kibana4.1.11以下版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://download.elastic.co/kibana/kibana/kibana-4.1.11-linux-x64.tar.gz</div></pre></td></tr></table></figure></p>
+<h4 id="kibana连接elasticsearch主要配置项"><a href="#kibana连接elasticsearch主要配置项" class="headerlink" title="kibana连接elasticsearch主要配置项"></a>kibana连接elasticsearch主要配置项</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">elasticsearch_url: &quot;[elasticsearch url]”</div><div class="line">kibana_elasticsearch_username: 用户名 (可选)</div><div class="line">kibana_elasticsearch_password: 密码 (可选)</div></pre></td></tr></table></figure>
+<h4 id="kibana遇到no-cached-mapping-for-this-field，解决方案如下"><a href="#kibana遇到no-cached-mapping-for-this-field，解决方案如下" class="headerlink" title="kibana遇到no cached mapping for this field，解决方案如下"></a>kibana遇到no cached mapping for this field，解决方案如下</h4><p>Go to Settings-&gt;Indices, select your index, and click the yellow “refresh” icon.<br>That will get rid of the warning, and perhaps make the field available in your visualization</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/04/05/基于百度es搭建ELK笔记/" data-id="cj14hhh2n002k0ys6ugl45jyq" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-swap配置笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/31/swap配置笔记/" class="article-date">
@@ -99,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/swap配置笔记/" data-id="cj0xqd8an002ksps616lv1wst" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/swap配置笔记/" data-id="cj14hhh2p002p0ys6oh4ypw6z" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -147,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/配置linux并发连接最大连接数/" data-id="cj0xqd8ar002usps6fkm2iqrw" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/配置linux并发连接最大连接数/" data-id="cj14hhh2s002w0ys6hk9zo75k" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -191,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/elasticsearch使用笔记/" data-id="cj0xqd894000csps64u8n7szq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/elasticsearch使用笔记/" data-id="cj14hhh14000c0ys6imkar8qp" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -240,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/screen命令使用笔记/" data-id="cj0xqd8ab001tsps6nguzhcpb" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/screen命令使用笔记/" data-id="cj14hhh2c001v0ys66mshh7q1" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -283,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cj0xqd89y0019sps65rqfvbhz" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cj14hhh1z00170ys6fsrv3sx4" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -374,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cj0xqd8860000sps61fv5ojax" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cj14hhh0500000ys6o4c8dsld" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -422,7 +473,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cj0xqd89k000usps6pqmsyyq1" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cj14hhh1q000x0ys66349utel" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -482,7 +533,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cj0xqd8a2001esps6mudlamt9" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cj14hhh23001h0ys63lwgg3i5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -545,49 +596,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cj0xqd8ar002ssps6eizy786z" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-mvc使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/19/spring-mvc使用笔记/" class="article-date">
-  <time datetime="2017-01-19T08:23:37.000Z" itemprop="datePublished">2017-01-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/19/spring-mvc使用笔记/">spring-mvc使用笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Requestbody使用"><a href="#Requestbody使用" class="headerlink" title="@Requestbody使用"></a><code>@Requestbody</code>使用</h3><p>如果请求中缺少@Requestbody修饰的对象的某个字段，该字段值自动补为null，不会报错。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cj0xqd8aj002dsps6v2gmhtel" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cj14hhh2r002u0ys6p6arpujb" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -612,7 +621,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
     </div>
   </div>
 
@@ -627,7 +636,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -638,6 +647,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
+          </li>
         
           <li>
             <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
@@ -653,10 +666,6 @@
         
           <li>
             <a href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/item2-oh-my-zsh配置/">item2+oh-my-zsh配置</a>
           </li>
         
       </ul>
