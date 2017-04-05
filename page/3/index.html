@@ -297,9 +297,17 @@
       
         <h3 id="安装ssh服务"><a href="#安装ssh服务" class="headerlink" title="安装ssh服务"></a>安装ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
 <h3 id="查看ssh服务是否启动"><a href="#查看ssh服务是否启动" class="headerlink" title="查看ssh服务是否启动"></a>查看ssh服务是否启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ps <span class="_">-e</span> |grep ssh</div></pre></td></tr></table></figure>
-<h3 id="支持root用户登录"><a href="#支持root用户登录" class="headerlink" title="支持root用户登录"></a>支持root用户登录</h3><p>  修改/etc/ssh/sshd_config文件,添加PermitRootLogin yes, 如果存在PermitRootLogin配置项, 将其注释掉</p>
-<h3 id="重启ssh服务"><a href="#重启ssh服务" class="headerlink" title="重启ssh服务"></a>重启ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/ssh restart</div></pre></td></tr></table></figure>
-<h3 id="添加公钥"><a href="#添加公钥" class="headerlink" title="添加公钥"></a>添加公钥</h3><p>  在对应的用户文件夹下的.ssh文件夹内的authorized_keys文件中添加公钥.<br>  如果.ssh文件夹或者authorized_keys文件不存在, 手动添加<br>  (如果是手动添加的文件需要改文件权限, 执行命令: chmod 600  authorized_keys)</p>
+<h3 id="支持root用户登录"><a href="#支持root用户登录" class="headerlink" title="支持root用户登录"></a>支持root用户登录</h3><p>  修改<code>/etc/ssh/sshd_config</code>文件,</p>
+<pre><code>1. 添加`PermitRootLogin yes`
+2. 如果存在`PermitRootLogin`配置项, 将其注释掉
+</code></pre><h3 id="设置禁用密码登陆"><a href="#设置禁用密码登陆" class="headerlink" title="设置禁用密码登陆"></a>设置禁用密码登陆</h3><p>  修改<code>/etc/ssh/sshd_config</code>文件,</p>
+<pre><code>1. `PasswordAuthentication`配置项设置为`no`
+2. 解开`AuthorizedKeysFile      %h/.ssh/authorized_keys`的注释
+</code></pre><h3 id="重启ssh服务"><a href="#重启ssh服务" class="headerlink" title="重启ssh服务"></a>重启ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/ssh restart</div><div class="line">或</div><div class="line">$ service ssh restart</div></pre></td></tr></table></figure>
+<h3 id="添加公钥"><a href="#添加公钥" class="headerlink" title="添加公钥"></a>添加公钥</h3><ul>
+<li>在对应的用户文件夹下的.ssh文件夹内的authorized_keys文件中添加公钥.如果.ssh文件夹或者authorized_keys文件不存在, 手动添加(如果是手动添加的文件需要改文件权限, 执行命令: chmod 600  authorized_keys)</li>
+<li>ssh-copy-id [用户名]@[机器地址]</li>
+</ul>
 
       
     </div>
@@ -315,14 +323,14 @@
 
 
   
-    <article id="post-linux命令笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-linux笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/12/06/linux命令笔记/" class="article-date">
+    <a href="/2016/12/06/linux笔记/" class="article-date">
   <time datetime="2016-12-06T09:52:31.000Z" itemprop="datePublished">2016-12-06</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/命令行/">命令行</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
   </div>
 
   </div>
@@ -333,7 +341,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/linux命令笔记/">linux命令笔记</a>
+      <a class="article-title" href="/2016/12/06/linux笔记/">linux笔记</a>
     </h1>
   
 
@@ -345,11 +353,12 @@
 <h3 id="ssh连接指定端口机器"><a href="#ssh连接指定端口机器" class="headerlink" title="ssh连接指定端口机器"></a>ssh连接指定端口机器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -p &lt;端口号&gt; root@xxx.sample.com</div></pre></td></tr></table></figure>
 <h3 id="本地文件夹复制到机器的指定文件夹中"><a href="#本地文件夹复制到机器的指定文件夹中" class="headerlink" title="本地文件夹复制到机器的指定文件夹中"></a>本地文件夹复制到机器的指定文件夹中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp -r -P 14022 /xxx/d/ssh root@xxx.sample.com:&lt;指定文件夹&gt;</div></pre></td></tr></table></figure>
 <h3 id="查看端口是否被占用"><a href="#查看端口是否被占用" class="headerlink" title="查看端口是否被占用"></a>查看端口是否被占用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ netstat –ntlp |grep &lt;端口号&gt;</div></pre></td></tr></table></figure>
+<h3 id="修改主机名称"><a href="#修改主机名称" class="headerlink" title="修改主机名称"></a>修改主机名称</h3><p>修改<code>/etc/hostname</code>文件</p>
 
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux命令笔记/" data-id="cj14hhh22001e0ys6xu8w8nfc" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cj14i47dd00014is651hbkgsh" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -573,7 +582,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
     </div>
   </div>
 
