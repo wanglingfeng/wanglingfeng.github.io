@@ -349,7 +349,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="ssh连接机器"><a href="#ssh连接机器" class="headerlink" title="ssh连接机器"></a>ssh连接机器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh root@xxx.sample.com &lt;root权限登入&gt;</div></pre></td></tr></table></figure>
+        <h3 id="ssh连接机器（root权限登入）"><a href="#ssh连接机器（root权限登入）" class="headerlink" title="ssh连接机器（root权限登入）"></a>ssh连接机器（root权限登入）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh root@xxx.sample.com</div></pre></td></tr></table></figure>
 <h3 id="ssh连接指定端口机器"><a href="#ssh连接指定端口机器" class="headerlink" title="ssh连接指定端口机器"></a>ssh连接指定端口机器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -p &lt;端口号&gt; root@xxx.sample.com</div></pre></td></tr></table></figure>
 <h3 id="本地文件夹复制到机器的指定文件夹中"><a href="#本地文件夹复制到机器的指定文件夹中" class="headerlink" title="本地文件夹复制到机器的指定文件夹中"></a>本地文件夹复制到机器的指定文件夹中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp -r -P 14022 /xxx/d/ssh root@xxx.sample.com:&lt;指定文件夹&gt;</div></pre></td></tr></table></figure>
 <h3 id="查看端口是否被占用"><a href="#查看端口是否被占用" class="headerlink" title="查看端口是否被占用"></a>查看端口是否被占用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ netstat –ntlp |grep &lt;端口号&gt;</div></pre></td></tr></table></figure>
