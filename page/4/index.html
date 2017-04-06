@@ -58,6 +58,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-harbor构建笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/harbor构建笔记/" class="article-date">
+  <time datetime="2016-12-06T09:29:39.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/harbor/">harbor</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/harbor构建笔记/">harbor构建笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="安装Harbor"><a href="#安装Harbor" class="headerlink" title="安装Harbor"></a>安装Harbor</h1><ol>
+<li><p>安装Python v2.7以上版本，安装docker v1.10以上版本，安装docker-compose v1.6.0以上版本</p>
+</li>
+<li><p>下载在线安装版tar包，解压tar包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf harbor-online-installer-&lt;version&gt;.tgz</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改harbor.cfg文件。hostname必须修改，修改为ip或域名。(一定不能使用localhost或127.0.0.1)<br>ui_url_protocol表示使用http还是https<br>Email settings设置的是密码重置时，发送邮件的smtp邮件服务器<br>harbor_admin_password是初始的管理员用户的用户名/密码</p>
+</li>
+<li><p>执行<code>sudo ./install.sh</code>后，即可通过<a href="http://reg.yourdomain.com访问可视化界面">http://reg.yourdomain.com访问可视化界面</a></p>
+</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/06/harbor构建笔记/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj15teov8000r5es6q2b64bcm" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-gradle使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/06/gradle使用笔记/" class="article-date">
@@ -95,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cj14hhh1h000n0ys6tr28umez" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cj15teov5000m5es6omwf58pt" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -137,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cj14hhh1s000z0ys6hn75wdna" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cj15teov4000k5es67mh3b371" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -183,7 +239,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cj14hhh16000f0ys60fi0tvkc" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cj15teov3000h5es6wnnpxhtf" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -225,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cj14hhh19000i0ys6zfrpagyz" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cj15teov1000g5es63nuqxj6b" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -273,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cj14hhh1d000l0ys60xc8lzce" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cj15teouz000e5es6bcqjdqz5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -319,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux生成ssh公钥私钥/" data-id="cj14i47d400004is6v2y458iq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux生成ssh公钥私钥/" data-id="cj15teovm001b5es61fv9x5hh" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -363,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/erlang使用笔记/" data-id="cj14hhh15000e0ys6353342qp" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/erlang使用笔记/" data-id="cj15teouz000d5es6lbu4186i" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -412,7 +468,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/docker使用笔记/" data-id="cj14hhh12000b0ys6guuo0hqg" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/docker使用笔记/" data-id="cj15teouw000a5es6twiwrf0i" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -457,51 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/docker-registry使用笔记/" data-id="cj14hhh1100090ys69raatlrs" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-cygwin使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/05/cygwin使用笔记/" class="article-date">
-  <time datetime="2016-12-05T11:31:13.000Z" itemprop="datePublished">2016-12-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/机器环境/">机器环境</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/05/cygwin使用笔记/">cygwin使用笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><h4 id="以下命令修改相关权限（否则会报错-ERROR-Problem-with-var-directory-Exiting）："><a href="#以下命令修改相关权限（否则会报错-ERROR-Problem-with-var-directory-Exiting）：" class="headerlink" title="以下命令修改相关权限（否则会报错* ERROR: Problem with /var directory. Exiting）："></a>以下命令修改相关权限（否则会报错<em>*</em> ERROR: Problem with /var directory. Exiting）：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ chown :Users /var</div><div class="line">$ chmod 755 /var</div><div class="line">$ chmod ug<span class="_">-s</span> /var</div><div class="line">$ chmod +t /var</div></pre></td></tr></table></figure>
-<h4 id="以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入"><a href="#以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入" class="headerlink" title="以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入"></a>以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">*** Query: Should StrictModes be used? (yes/no) &lt;strong&gt;no&lt;/strong&gt;</div><div class="line">*** Query: Should privilege separation be used? (yes/no) &lt;strong&gt;yes&lt;/strong&gt;</div><div class="line">*** Query: new local account &apos;sshd&apos;? (yes/no) &lt;strong&gt;yes&lt;/strong&gt;</div><div class="line">*** Query: (Say &quot;no&quot; if it is already installed as a service) (yes/no) &lt;strong&gt;yes&lt;/strong&gt;</div><div class="line">*** Query: Enter the value of CYGWIN for the daemon: []</div><div class="line">*** Query: Do you want to use a different name? (yes/no) &lt;strong&gt;no 输入两次创建用户时的密码&lt;/strong&gt;</div></pre></td></tr></table></figure>
-<h4 id="启动Windows服务CYGWIN-sshd，可设为手动启动"><a href="#启动Windows服务CYGWIN-sshd，可设为手动启动" class="headerlink" title="启动Windows服务CYGWIN sshd，可设为手动启动"></a>启动Windows服务CYGWIN sshd，可设为手动启动</h4><p>(注意：sshd必须要用cyg_server用户登陆的，换成“本地系统账户”是不行的)</p>
-<h3 id="如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd-cygdrive-d-xxxxxx"><a href="#如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd-cygdrive-d-xxxxxx" class="headerlink" title="如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd /cygdrive/d/xxxxxx"></a>如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd /cygdrive/d/xxxxxx</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/cygwin使用笔记/" data-id="cj14hhh0y00080ys6yzpac5yf" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/docker-registry使用笔记/" data-id="cj15teouv00085es6jauytb8n" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -554,6 +566,10 @@
       <ul>
         
           <li>
+            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
           </li>
         
@@ -567,10 +583,6 @@
         
           <li>
             <a href="/2017/03/31/elasticsearch使用笔记/">elasticsearch使用笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
           </li>
         
       </ul>

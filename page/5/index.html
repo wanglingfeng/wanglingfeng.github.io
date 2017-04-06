@@ -58,6 +58,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-cygwin使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/05/cygwin使用笔记/" class="article-date">
+  <time datetime="2016-12-05T11:31:13.000Z" itemprop="datePublished">2016-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/机器环境/">机器环境</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/05/cygwin使用笔记/">cygwin使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><h4 id="以下命令修改相关权限（否则会报错-ERROR-Problem-with-var-directory-Exiting）："><a href="#以下命令修改相关权限（否则会报错-ERROR-Problem-with-var-directory-Exiting）：" class="headerlink" title="以下命令修改相关权限（否则会报错* ERROR: Problem with /var directory. Exiting）："></a>以下命令修改相关权限（否则会报错<em>*</em> ERROR: Problem with /var directory. Exiting）：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ chown :Users /var</div><div class="line">$ chmod 755 /var</div><div class="line">$ chmod ug<span class="_">-s</span> /var</div><div class="line">$ chmod +t /var</div></pre></td></tr></table></figure>
+<h4 id="以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入"><a href="#以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入" class="headerlink" title="以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入"></a>以管理员身份打开Cygwin命令窗口，输入SSH-HOST-CONFIG回车，几个关键地方如下输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">*** Query: Should StrictModes be used? (yes/no) &lt;strong&gt;no&lt;/strong&gt;</div><div class="line">*** Query: Should privilege separation be used? (yes/no) &lt;strong&gt;yes&lt;/strong&gt;</div><div class="line">*** Query: new local account &apos;sshd&apos;? (yes/no) &lt;strong&gt;yes&lt;/strong&gt;</div><div class="line">*** Query: (Say &quot;no&quot; if it is already installed as a service) (yes/no) &lt;strong&gt;yes&lt;/strong&gt;</div><div class="line">*** Query: Enter the value of CYGWIN for the daemon: []</div><div class="line">*** Query: Do you want to use a different name? (yes/no) &lt;strong&gt;no 输入两次创建用户时的密码&lt;/strong&gt;</div></pre></td></tr></table></figure>
+<h4 id="启动Windows服务CYGWIN-sshd，可设为手动启动"><a href="#启动Windows服务CYGWIN-sshd，可设为手动启动" class="headerlink" title="启动Windows服务CYGWIN sshd，可设为手动启动"></a>启动Windows服务CYGWIN sshd，可设为手动启动</h4><p>(注意：sshd必须要用cyg_server用户登陆的，换成“本地系统账户”是不行的)</p>
+<h3 id="如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd-cygdrive-d-xxxxxx"><a href="#如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd-cygdrive-d-xxxxxx" class="headerlink" title="如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd /cygdrive/d/xxxxxx"></a>如果在sygwin控制台中，要查看D盘中的文件，使用如下命令cd /cygdrive/d/xxxxxx</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/05/cygwin使用笔记/" data-id="cj15teouu00075es6zd95c3at" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-curl使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/05/curl使用笔记/" class="article-date">
@@ -95,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/curl使用笔记/" data-id="cj14hhh0t00060ys6me6f8yu6" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/curl使用笔记/" data-id="cj15teouj00055es6gqhc88yq" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -137,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/consul-agent常用参数/" data-id="cj14hhh0i00040ys6oxd9rtnv" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/consul-agent常用参数/" data-id="cj15teou900015es6crbeg0me" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -182,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/consul使用笔记/" data-id="cj14hhh0s00050ys6bmv419f7" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/consul使用笔记/" data-id="cj15teoue00035es610eqnwrm" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -225,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/chrome支持读取本地json文件/" data-id="cj14hhh0d00020ys68onfmhwb" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/chrome支持读取本地json文件/" data-id="cj15teouh00045es6uhvci6f2" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -272,7 +316,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/redis使用笔记/" data-id="cj14hhh27001o0ys6u9zywzw7" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/redis使用笔记/" data-id="cj15teovx001q5es6lfhudyi5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -315,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/rabbitmq使用笔记/" data-id="cj14hhh28001r0ys67ly5phxf" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/rabbitmq使用笔记/" data-id="cj15teovu001n5es6eilwi06r" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -363,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/hexo-build/" data-id="cj14hhh1v00120ys6tr8iaqcs" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/hexo-build/" data-id="cj15teovc000y5es6yhkp0cdq" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -413,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/hello-world/" data-id="cj14hhh1m000u0ys6dh5a8ncp" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/hello-world/" data-id="cj15teova000w5es6x7mzmehj" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -466,6 +510,10 @@
       <ul>
         
           <li>
+            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
           </li>
         
@@ -479,10 +527,6 @@
         
           <li>
             <a href="/2017/03/31/elasticsearch使用笔记/">elasticsearch使用笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
           </li>
         
       </ul>

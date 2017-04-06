@@ -58,6 +58,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-断路器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/断路器模式/" class="article-date">
+  <time datetime="2016-12-06T10:10:16.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/文章/">文章</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/断路器模式/">断路器模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是常见的软件系统以使软件在不同的进程中运行，有可能在网络上不同的机器上调用。<br/><br>内存调用和远程调用之间的一个巨大差异是远程调用可能会失败，或者加载一个没有反应，直到达到一定的超时限制。<br/><br>更糟糕的是，如果你有一个无响应的供应商很多请求，那么你就会运行光关键资源造成多个系统间的级联故障的。<br/><br>在他的优秀著作Release It，Michael Nygard推广断路器模式以防止这种灾难性的级联。<br/><br><br/><br>断路器背后的基本思想非常简单。你在一个断路器对象中封装一个protected方法调用，它监视故障保护功能调用。<br/><br>一旦故障达到一定阈值时，断路器跳闸，并且所有进一步的调用到达断路器后返回一个错误，没有保护的调用将继续执行。<br/><br>通常你还需要某种形式的监控警报如果断路器跳闸了。<br/><br>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/06/断路器模式/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/断路器模式/" data-id="cj15teowd002r5es6mswvdai7" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-window命令笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/06/window命令笔记/" class="article-date">
@@ -90,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/window命令笔记/" data-id="cj14hhh2n002n0ys6y9226bxx" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/window命令笔记/" data-id="cj15teowc002o5es6vbrhfbwt" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -133,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/squirrel-sql笔记/" data-id="cj14hhh2k002d0ys66nssy0df" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/squirrel-sql笔记/" data-id="cj15teow9002h5es6zejs9y4i" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -216,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/spring-security笔记/" data-id="cj14hhh2m002i0ys6ickyyfeh" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/spring-security笔记/" data-id="cj15teowa002j5es6cr668o4l" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -258,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/pageable对象传入笔记/" data-id="cj14hhh26001m0ys63v2rrydq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/pageable对象传入笔记/" data-id="cj15teow1001u5es6o41e5vjo" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -312,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux配置ssh笔记/" data-id="cj14hhh26001j0ys6wrscuzh7" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux配置ssh笔记/" data-id="cj15teovt001l5es637mpvov1" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -358,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cj14i47dd00014is651hbkgsh" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cj15teovo001d5es6m7gk0lik" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -401,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cj14hhh21001c0ys6c5ot7kq8" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cj15teovl00185es6godec5gy" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -444,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cj14hhh2000190ys65ggwvh0v" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cj15teovg00135es6m1ryrfpd" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -501,63 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cj14hhh1k000s0ys6xp3ko69y" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-harbor构建笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/harbor构建笔记/" class="article-date">
-  <time datetime="2016-12-06T09:29:39.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/harbor/">harbor</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/harbor构建笔记/">harbor构建笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="安装Harbor"><a href="#安装Harbor" class="headerlink" title="安装Harbor"></a>安装Harbor</h1><ol>
-<li><p>安装Python v2.7以上版本，安装docker v1.10以上版本，安装docker-compose v1.6.0以上版本</p>
-</li>
-<li><p>下载在线安装版tar包，解压tar包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf harbor-online-installer-&lt;version&gt;.tgz</div></pre></td></tr></table></figure>
-</li>
-<li><p>修改harbor.cfg文件。hostname必须修改，修改为ip或域名。(一定不能使用localhost或127.0.0.1)<br>ui_url_protocol表示使用http还是https<br>Email settings设置的是密码重置时，发送邮件的smtp邮件服务器<br>harbor_admin_password是初始的管理员用户的用户名/密码</p>
-</li>
-<li><p>执行<code>sudo ./install.sh</code>后，即可通过<a href="http://reg.yourdomain.com访问可视化界面">http://reg.yourdomain.com访问可视化界面</a></p>
-</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/06/harbor构建笔记/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj14hhh1j000q0ys6ofv0w22n" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cj15teov9000u5es684z954tt" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -610,6 +600,10 @@
       <ul>
         
           <li>
+            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
           </li>
         
@@ -623,10 +617,6 @@
         
           <li>
             <a href="/2017/03/31/elasticsearch使用笔记/">elasticsearch使用笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
           </li>
         
       </ul>
