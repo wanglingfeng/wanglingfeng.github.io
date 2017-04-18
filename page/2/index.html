@@ -58,6 +58,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hashmap原理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/22/hashmap原理/" class="article-date">
+  <time datetime="2017-02-22T08:16:00.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/hashmap原理/">hashmap原理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>拉链法：数组+链表<br>初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。</p>
+<h3 id="数组中index的算法"><a href="#数组中index的算法" class="headerlink" title="数组中index的算法"></a>数组中index的算法</h3><p>int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。<br/><br>所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。<br/><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tab.length - <span class="number">1</span>) &amp; hash <span class="comment">// 按位取并，作用上相当于取模mod或者取余%</span></div></pre></td></tr></table></figure></p>
+<p>但是即使这样就算我的散列值分布再松散，要是只取最后几位的话，碰撞也会很严重。<br/><br>更要命的是如果散列本身做得不好，分布上成等差数列的漏洞，恰好使最后几个低位呈现规律性重复。这个使用就需要用到下面的一个函数”扰动函数”。<br/></p>
+        
+          <p class="article-more-link">
+            <a href="/2017/02/22/hashmap原理/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cj1n7ob1v000nghs6we1gcctn" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-jvm原理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/02/15/jvm原理/" class="article-date">
@@ -107,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cj1g7c5yy001hzzs6nko4u8jk" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cj1n7ob28001bghs6mvot9egp" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -170,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cj1g7c5zw002zzzs6btrjc3g6" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cj1n7ob3a002tghs64sl1j40m" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -212,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cj1g7c5zm002izzs6s9vzf16h" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cj1n7ob2y0029ghs612zhnrng" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -274,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cj1g7c5ze001yzzs6n02xbj7e" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cj1n7ob2s001sghs6rgnffm9j" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -331,7 +379,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-others/" data-id="cj1g7c5zj0028zzs6x3coqz8p" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-others/" data-id="cj1n7ob32002hghs6g8bkol80" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -386,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-security/" data-id="cj1g7c5zk002dzzs6ucyb6t9x" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-security/" data-id="cj1n7ob2w0024ghs6gk5ekr23" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -438,7 +486,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/" data-id="cj1g7c5zh0025zzs6bfmtri1z" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/" data-id="cj1n7ob2u001zghs63utx35f2" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -499,7 +547,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-database/" data-id="cj1g7c5zj002azzs6hc4a5usu" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-database/" data-id="cj1n7ob2x0027ghs6ya38igod" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -559,64 +607,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-server/" data-id="cj1g7c5zl002fzzs69ots1x6c" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-boot配置属性字典-mvc" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/spring-boot配置属性字典-mvc/" class="article-date">
-  <time datetime="2016-12-15T04:02:23.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-mvc/">spring-boot配置属性字典-mvc</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="multipart"><a href="#multipart" class="headerlink" title="multipart"></a>multipart</h3><ul>
-<li>multipart.enabled: 是否开启文件上传支持，默认为true</li>
-<li>multipart.file-size-threshold: 设定文件写入磁盘的阈值，单位为MB或KB，默认为0</li>
-<li>multipart.location: 指定文件上传路径</li>
-<li>multipart.max-file-size: 指定文件大小最大值，默认1MB</li>
-<li>multipart.max-request-size: 指定每次请求的最大值，默认为10MB</li>
-</ul>
-<h3 id="messages"><a href="#messages" class="headerlink" title="messages"></a>messages</h3><ul>
-<li>spring.messages.basename: 指定message的basename，多个以逗号分隔，如果不加包名的话，默认从classpath路径开始，默认: messages</li>
-<li>spring.messages.cache-seconds: 设定加载的资源文件缓存失效时间，-1的话为永不过期，默认为-1</li>
-<li>spring.messages.encoding: 设定Message bundles的编码，默认: UTF-8</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/15/spring-boot配置属性字典-mvc/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mvc/" data-id="cj1g7c5zg0023zzs66euarez9" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-server/" data-id="cj1n7ob2z002cghs6eszrqf7x" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -630,7 +621,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo;&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">&raquo;&raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo;&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">&raquo;&raquo;</a>
   </nav>
 
 </section>
@@ -669,6 +660,10 @@
       <ul>
         
           <li>
+            <a href="/2017/04/18/ubuntu安装java8-tomcat8/">ubuntu安装java8+tomcat8</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
@@ -682,10 +677,6 @@
         
           <li>
             <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
           </li>
         
       </ul>

@@ -17,7 +17,7 @@ ssh连接指定端口机器1$ ssh -p &amp;lt;端口号&amp;gt; root@xxx.sample.c
 ssh连接指定端口机器1$ ssh -p &amp;lt;端口号&amp;gt; root@xxx.sample.com
 本地文件夹复制到机器的指定文件夹中1$ scp -r -P 14022 /xxx/d/ssh root@xxx.sample.com:&amp;lt;指定文件夹&amp;gt;
 查看端口是否被占用1$ netstat –n">
-<meta property="og:updated_time" content="2017-04-05T06:48:42.000Z">
+<meta property="og:updated_time" content="2017-04-18T06:38:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux笔记">
 <meta name="twitter:description" content="ssh连接机器（root权限登入）1$ ssh root@xxx.sample.com
@@ -100,11 +100,12 @@ ssh连接指定端口机器1$ ssh -p &amp;lt;端口号&amp;gt; root@xxx.sample.c
 <h3 id="本地文件夹复制到机器的指定文件夹中"><a href="#本地文件夹复制到机器的指定文件夹中" class="headerlink" title="本地文件夹复制到机器的指定文件夹中"></a>本地文件夹复制到机器的指定文件夹中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp -r -P 14022 /xxx/d/ssh root@xxx.sample.com:&lt;指定文件夹&gt;</div></pre></td></tr></table></figure>
 <h3 id="查看端口是否被占用"><a href="#查看端口是否被占用" class="headerlink" title="查看端口是否被占用"></a>查看端口是否被占用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ netstat –ntlp |grep &lt;端口号&gt;</div></pre></td></tr></table></figure>
 <h3 id="修改主机名称"><a href="#修改主机名称" class="headerlink" title="修改主机名称"></a>修改主机名称</h3><p>修改<code>/etc/hostname</code>文件</p>
+<h3 id="查看文件大小"><a href="#查看文件大小" class="headerlink" title="查看文件大小"></a>查看文件大小</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ du -sh *</div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cj1g7c5yz001jzzs6q7qyyoz2" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cj1n7ob29001dghs6u3abui2q" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -170,6 +171,10 @@ ssh连接指定端口机器1$ ssh -p &amp;lt;端口号&amp;gt; root@xxx.sample.c
       <ul>
         
           <li>
+            <a href="/2017/04/18/ubuntu安装java8-tomcat8/">ubuntu安装java8+tomcat8</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
@@ -183,10 +188,6 @@ ssh连接指定端口机器1$ ssh -p &amp;lt;端口号&amp;gt; root@xxx.sample.c
         
           <li>
             <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
           </li>
         
       </ul>

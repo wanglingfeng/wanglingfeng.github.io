@@ -6,39 +6,30 @@
   <title>Tsung使用笔记 | Coding Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="安装
-安装erlang
-1agt-get install erlang
+安装tsung及其依赖
+1agt-get install tsung
 
-安装Tsung1.6
-1wget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gz
-
-
-启动Tsung简单执行Tsuing：tsung -f [配置文件地址] startTsung执行结束后，依然运行dashboard：tsung -f [配置文件地址] -k">
+基于已安装的tsung安装Tsung1.6
+123456789apt-get remove tsungwget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gztar xvf tsung-1.6.0.tar.gz -C /usr/localcd /usr/l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tsung使用笔记">
 <meta property="og:url" content="http://yoursite.com/2017/04/13/Tsung使用笔记/index.html">
 <meta property="og:site_name" content="Coding Note">
 <meta property="og:description" content="安装
-安装erlang
-1agt-get install erlang
+安装tsung及其依赖
+1agt-get install tsung
 
-安装Tsung1.6
-1wget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gz
-
-
-启动Tsung简单执行Tsuing：tsung -f [配置文件地址] startTsung执行结束后，依然运行dashboard：tsung -f [配置文件地址] -k">
-<meta property="og:updated_time" content="2017-04-13T09:42:37.000Z">
+基于已安装的tsung安装Tsung1.6
+123456789apt-get remove tsungwget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gztar xvf tsung-1.6.0.tar.gz -C /usr/localcd /usr/l">
+<meta property="og:updated_time" content="2017-04-17T02:43:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tsung使用笔记">
 <meta name="twitter:description" content="安装
-安装erlang
-1agt-get install erlang
+安装tsung及其依赖
+1agt-get install tsung
 
-安装Tsung1.6
-1wget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gz
-
-
-启动Tsung简单执行Tsuing：tsung -f [配置文件地址] startTsung执行结束后，依然运行dashboard：tsung -f [配置文件地址] -k">
+基于已安装的tsung安装Tsung1.6
+123456789apt-get remove tsungwget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gztar xvf tsung-1.6.0.tar.gz -C /usr/localcd /usr/l">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -111,11 +102,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li><p>安装erlang</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">agt-get install erlang</div></pre></td></tr></table></figure>
+<li><p>安装tsung及其依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">agt-get install tsung</div></pre></td></tr></table></figure>
 </li>
-<li><p>安装Tsung1.6</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gz</div></pre></td></tr></table></figure>
+<li><p>基于已安装的tsung安装Tsung1.6</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">apt-get remove tsung</div><div class="line"></div><div class="line">wget http://tsung.erlang-projects.org/dist/tsung-1.6.0.tar.gz</div><div class="line"></div><div class="line">tar xvf tsung-1.6.0.tar.gz -C /usr/<span class="built_in">local</span></div><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/tsung-1.6.0</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="启动Tsung"><a href="#启动Tsung" class="headerlink" title="启动Tsung"></a>启动Tsung</h2><p>简单执行Tsuing：<code>tsung -f [配置文件地址] start</code><br>Tsung执行结束后，依然运行dashboard：<code>tsung -f [配置文件地址] -k start</code><br>dashboard地址：<code>http://[机器ip]:8091</code></p>
@@ -125,7 +116,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/04/13/Tsung使用笔记/" data-id="cj1g7c5xp0002zzs605wlxh2c" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/04/13/Tsung使用笔记/" data-id="cj1n7ob190005ghs6wkp10q7p" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -133,6 +124,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/04/18/ubuntu安装java8-tomcat8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ubuntu安装java8+tomcat8
+        
+      </div>
+    </a>
   
   
     <a href="/2017/04/06/macos配置mysql/" id="article-nav-older" class="article-nav-link-wrap">
@@ -182,6 +182,10 @@
       <ul>
         
           <li>
+            <a href="/2017/04/18/ubuntu安装java8-tomcat8/">ubuntu安装java8+tomcat8</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
@@ -195,10 +199,6 @@
         
           <li>
             <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
           </li>
         
       </ul>

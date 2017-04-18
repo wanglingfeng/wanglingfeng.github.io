@@ -58,6 +58,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hibernate使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/hibernate使用笔记/" class="article-date">
+  <time datetime="2016-12-06T09:47:51.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/存储/">存储</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/hibernate使用笔记/">hibernate使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="hibernate-hbm2ddl设置"><a href="#hibernate-hbm2ddl设置" class="headerlink" title="hibernate.hbm2ddl设置"></a>hibernate.hbm2ddl设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">create：</div><div class="line">    每次加载hibernate时都会删除上一次的生成的表，然后根据你的model类再重新来生成新表，</div><div class="line">    哪怕两次没有任何改变也要这样执行，这就是导致数据库表数据丢失的一个重要原因。</div><div class="line">create-drop ：</div><div class="line">    每次加载hibernate时根据model类生成表，但是sessionFactory一关闭,表就自动删除。</div><div class="line">update：</div><div class="line">    最常用的属性，第一次加载hibernate时根据model类会自动建立起表的结构（前提是先建立好数据库），</div><div class="line">    以后加载hibernate时根据 model类自动更新表结构，即使表结构改变了但表中的行仍然存在不会删除以前的行。</div><div class="line">    要注意的是当部署到服务器后，表结构是不会被马上建立起来的，是要等 应用第一次运行起来后才会。</div><div class="line">validate ：</div><div class="line">    每次加载hibernate时，验证创建数据库表结构，只会和数据库中的表进行比较，不会创建新表，但是会插入新值。</div></pre></td></tr></table></figure>
+<h2 id="GeneratedValue——注解声明了主键的生成策略。该注解有如下属性"><a href="#GeneratedValue——注解声明了主键的生成策略。该注解有如下属性" class="headerlink" title="@GeneratedValue——注解声明了主键的生成策略。该注解有如下属性"></a>@GeneratedValue——注解声明了主键的生成策略。该注解有如下属性</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># strategy 指定生成的策略（JPA定义的），这是一个GenerationType。默认是GenerationType. AUTO    </div><div class="line">  * GenerationType.AUTO 主键由程序控制    </div><div class="line">  * GenerationType.TABLE 使用一个特定的数据库表格来保存主键    </div><div class="line">  * GenerationType.IDENTITY 主键由数据库自动生成（主要是自动增长类型）</div><div class="line">  * GenerationType.SEQUENCE 根据底层数据库的序列来生成主键，条件是数据库支持序列。（这个值要与generator一起使用）</div><div class="line"># generator 指定生成主键使用的生成器（可能是orcale中的序列）。</div><div class="line">  * @SequenceGenerator —— 注解声明了一个数据库序列。该注解有如下属性</div><div class="line">  * name 表示该表主键生成策略名称，它被引用在@GeneratedValue中设置的“gernerator”值中</div><div class="line">  * sequenceName 表示生成策略用到的数据库序列名称。</div><div class="line">  * initialValue 表示主键初始值，默认为0.</div><div class="line">  * allocationSize 每次主键值增加的大小，例如设置成1，则表示每次创建新记录后自动加1，默认为50</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cj1n7ob220012ghs63bjyy5mn" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hbase单机构建笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/06/hbase单机构建笔记/" class="article-date">
@@ -104,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cj1g7c5yn000xzzs6c5esyiip" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cj1n7ob1w000qghs67ybawwps" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -160,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj1g7c5yj000szzs6n7zp7p9u" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj1n7ob1t000ighs614ze7w7y" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -208,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cj1g7c5yh000nzzs61dn9vwr2" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cj1n7ob1q000fghs6xlshrwgh" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -250,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cj1g7c5yi000qzzs6ga3z0q6x" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cj1n7ob1s000hghs68c52zk84" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -296,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cj1g7c5yg000lzzs6tw8h9i0n" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cj1n7ob260016ghs64ky8qtl8" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -338,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cj1g7c5ye000izzs64lz990c8" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cj1n7ob260018ghs6n61mzjbk" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -386,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cj1g7c5yd000hzzs6h3nulx33" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cj1n7ob1p000eghs69b3j4aoh" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -432,7 +475,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux生成ssh公钥私钥/" data-id="cj1g7c5yv001ezzs6ybfxndn1" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux生成ssh公钥私钥/" data-id="cj1n7ob2a001gghs6w3pydsjy" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -476,56 +519,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/erlang使用笔记/" data-id="cj1g7c5yc000fzzs66ws77b5r" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-docker使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/docker使用笔记/" class="article-date">
-  <time datetime="2016-12-06T08:29:52.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/docker/">docker</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/docker使用笔记/">docker使用笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>第一次打开时，执行start.sh通过docker-machine.exe在Oracle VM VirtualBox中创建虚拟机；<br>以后每次打开，都是执行start.sh通过docker-machine.exe启动该虚拟机。</p>
-<h3 id="基础应用："><a href="#基础应用：" class="headerlink" title="基础应用："></a>基础应用：</h3><h4 id="查看本机的image列表"><a href="#查看本机的image列表" class="headerlink" title="查看本机的image列表"></a>查看本机的image列表</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker images</div></pre></td></tr></table></figure>
-<h4 id="查看正在运行中的container"><a href="#查看正在运行中的container" class="headerlink" title="查看正在运行中的container"></a>查看正在运行中的container</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps</div></pre></td></tr></table></figure>
-<h4 id="查看全部的container"><a href="#查看全部的container" class="headerlink" title="查看全部的container"></a>查看全部的container</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ docker ps <span class="_">-a</span></div></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/06/docker使用笔记/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/docker使用笔记/" data-id="cj1g7c5ya000ezzs69e6hy1xh" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/erlang使用笔记/" data-id="cj1n7ob1x000sghs693yb7htz" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -539,7 +533,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">&raquo;&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo;&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">&raquo;&raquo;</a>
   </nav>
 
 </section>
@@ -578,6 +572,10 @@
       <ul>
         
           <li>
+            <a href="/2017/04/18/ubuntu安装java8-tomcat8/">ubuntu安装java8+tomcat8</a>
+          </li>
+        
+          <li>
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
@@ -591,10 +589,6 @@
         
           <li>
             <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/配置linux并发连接最大连接数/">配置linux并发连接最大连接数</a>
           </li>
         
       </ul>

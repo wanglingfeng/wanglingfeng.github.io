@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu安装java8+tomcat8 | Coding Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="安装java8从官网下载tar包到机器上解压tar包到/usr/local目录下1tar xvf jdk-8u121-linux-x64.tar.gz -C /usr/local
+设置环境变量/etc/profile文件, 添加如下内容1234export JAVA_HOME=/usr/local/jdk1.8.0_121export JRE_HOME=$JAVA_HOME/jreexport C">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu安装java8+tomcat8">
+<meta property="og:url" content="http://yoursite.com/2017/04/18/ubuntu安装java8-tomcat8/index.html">
+<meta property="og:site_name" content="Coding Note">
+<meta property="og:description" content="安装java8从官网下载tar包到机器上解压tar包到/usr/local目录下1tar xvf jdk-8u121-linux-x64.tar.gz -C /usr/local
+设置环境变量/etc/profile文件, 添加如下内容1234export JAVA_HOME=/usr/local/jdk1.8.0_121export JRE_HOME=$JAVA_HOME/jreexport C">
+<meta property="og:updated_time" content="2017-04-18T07:12:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu安装java8+tomcat8">
+<meta name="twitter:description" content="安装java8从官网下载tar包到机器上解压tar包到/usr/local目录下1tar xvf jdk-8u121-linux-x64.tar.gz -C /usr/local
+设置环境变量/etc/profile文件, 添加如下内容1234export JAVA_HOME=/usr/local/jdk1.8.0_121export JRE_HOME=$JAVA_HOME/jreexport C">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Coding Note</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ubuntu安装java8-tomcat8" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/18/ubuntu安装java8-tomcat8/" class="article-date">
+  <time datetime="2017-04-18T06:39:50.000Z" itemprop="datePublished">2017-04-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu安装java8+tomcat8
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装java8"><a href="#安装java8" class="headerlink" title="安装java8"></a>安装java8</h2><h3 id="从官网下载tar包到机器上"><a href="#从官网下载tar包到机器上" class="headerlink" title="从官网下载tar包到机器上"></a>从官网下载tar包到机器上</h3><h3 id="解压tar包到-usr-local目录下"><a href="#解压tar包到-usr-local目录下" class="headerlink" title="解压tar包到/usr/local目录下"></a>解压tar包到/usr/local目录下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf jdk-8u121-linux-x64.tar.gz -C /usr/<span class="built_in">local</span></div></pre></td></tr></table></figure>
+<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p><code>/etc/profile</code>文件, 添加如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/usr/local/jdk1.8.0_121</div><div class="line">export JRE_HOME=$JAVA_HOME/jre</div><div class="line">export CLASSPAHT=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</div><div class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH:</div></pre></td></tr></table></figure></p>
+<p>执行<code>source /etc/profile</code></p>
+<h2 id="安装tomcat8"><a href="#安装tomcat8" class="headerlink" title="安装tomcat8"></a>安装tomcat8</h2><h3 id="从官网下载tar包到机器上-1"><a href="#从官网下载tar包到机器上-1" class="headerlink" title="从官网下载tar包到机器上"></a>从官网下载tar包到机器上</h3><h3 id="解压tar包到-usr-local目录下-1"><a href="#解压tar包到-usr-local目录下-1" class="headerlink" title="解压tar包到/usr/local目录下"></a>解压tar包到/usr/local目录下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar xvf apache-tomcat-8.5.12.tar.gz -C /usr/<span class="built_in">local</span></div></pre></td></tr></table></figure>
+<h3 id="修改bin目录下可执行文件权限"><a href="#修改bin目录下可执行文件权限" class="headerlink" title="修改bin目录下可执行文件权限"></a>修改bin目录下可执行文件权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/apache-tomcat-8.5.12/bin</div><div class="line">$ chmod +x *.sh</div></pre></td></tr></table></figure>
+<h3 id="指定startup-sh后，要等待很长时间才能将各个模块启动的解决方案"><a href="#指定startup-sh后，要等待很长时间才能将各个模块启动的解决方案" class="headerlink" title="指定startup.sh后，要等待很长时间才能将各个模块启动的解决方案"></a>指定startup.sh后，要等待很长时间才能将各个模块启动的解决方案</h3><p><code>$JAVA_HOME/jre/lib/security/java.security</code>文件中的<code>securerandom.source=file:/dev/urandom</code>替换为<code>securerandom.source=file:/dev/./urandom</code></p>
+<h3 id="并发设置"><a href="#并发设置" class="headerlink" title="并发设置"></a>并发设置</h3><p><code>catalina.sh</code>文件中添添加如下内容<br>Java 8时<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">JAVA_OPTS=&quot;-server -Xms2048m -Xmx3072m -XX:MetaspaceSize=512m -XX:MaxMetaspaceSize=512m&quot;</div></pre></td></tr></table></figure></p>
+<p>Java 8之前的版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">JAVA_OPTS=&quot;-server -Xms2048m -Xmx3072m -XX:PermSize=512m -XX:MaxPermSize=512m&quot;</div></pre></td></tr></table></figure></p>
+<p><code>server.xml</code>文件需要配置的关键内容<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Executor</span> <span class="attr">name</span>=<span class="string">"tomcatThreadPool"</span> <span class="attr">namePrefix</span>=<span class="string">"catalina-exec-"</span></span></div><div class="line">    <span class="attr">maxThreads</span>=<span class="string">"2000"</span> <span class="attr">minSpareThreads</span>=<span class="string">"100"</span> <span class="attr">prestartminSpareThreads</span>=<span class="string">"true"</span> <span class="attr">maxQueueSize</span>=<span class="string">"2000"</span> /&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">           <span class="attr">executor</span>=<span class="string">"tomcatThreadPool"</span> <span class="attr">acceptCount</span>=<span class="string">"2000"</span></div><div class="line">           <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span></div><div class="line">           <span class="attr">compression</span>=<span class="string">"on"</span></div><div class="line">           <span class="attr">compressionMinSize</span>=<span class="string">"2048"</span></div><div class="line">           <span class="attr">compressableMimeType</span>=<span class="string">"text/html,text/xml,text/javascript,text/css,text/plain,application/javascript,image/gif,image/jpeg,image/jpg"</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/04/18/ubuntu安装java8-tomcat8/" data-id="cj1n7ob3e0030ghs6is7el6k2" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/04/13/Tsung使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Tsung使用笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/18/ubuntu安装java8-tomcat8/">ubuntu安装java8+tomcat8</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Joseph Wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+<!-- 返回顶部 -->
+<div id="toTop">
+	<a href="#">▲</a>
+	<a href="#footer">▼</a>
+</div>
+
+<!-- fancybox -->
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+  </div>
+</body>
+</html>
