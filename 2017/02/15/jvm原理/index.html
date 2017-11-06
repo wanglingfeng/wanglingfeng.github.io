@@ -19,7 +19,7 @@
 老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
 <meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/2.jpg">
-<meta property="og:updated_time" content="2017-02-15T09:43:56.000Z">
+<meta property="og:updated_time" content="2017-11-06T10:34:06.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm原理">
 <meta name="twitter:description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。
@@ -123,10 +123,10 @@
 <h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><img src="/2017/02/15/jvm原理/2.jpg" alt="This is execute result" title="This is execute result">
 <h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>获取类的二进制字节流的代码块叫做类的加载器。<br>4类。</p>
 <ol>
-<li>启动类加载器(Bootstrap ClassLoader)：用来加载java核心类库，无法被java程序直接引用。</li>
-<li>扩展类加载器(Extension ClassLoader)：用来加载java扩展库，包括$JAVA_HOME/jre/lib/*.jar。</li>
+<li>启动类加载器(Bootstrap ClassLoader)：用来加载java核心类库，包括$JAVA_HOME/jre/lib/*.jar。</li>
+<li>扩展类加载器(Extension ClassLoader)：用来加载java扩展库，包括$JAVA_HOME/jre/lib/ext/*.jar。</li>
 <li>系统类加载器(App ClassLoader)：用来加载classpath中的java类及class文件。</li>
-<li>自定义加载器(Custom ClassLoader)：应用程序根据自身需要定义的ClassLoader，tomat等都会根据j2ee规范自行实现。</li>
+<li>自定义加载器(Custom ClassLoader)：应用程序根据自身需要定义的ClassLoader，通过java.lang.ClassLoader的子类自定义的加载类。</li>
 </ol>
 <p>4 -&gt; 1 检查类是否被加载,某个加载器已加载就视为类已加载，保证所有加载器只执行一次；1 -&gt; 4 尝试加载类</p>
 
