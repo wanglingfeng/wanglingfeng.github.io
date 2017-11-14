@@ -58,6 +58,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-NIO学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/14/NIO学习笔记/" class="article-date">
+  <time datetime="2017-11-14T10:47:41.000Z" itemprop="datePublished">2017-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/14/NIO学习笔记/">NIO学习笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="NIO最重要的3个概念"><a href="#NIO最重要的3个概念" class="headerlink" title="NIO最重要的3个概念"></a>NIO最重要的3个概念</h3><ul>
+<li>Channel 通道</li>
+<li>Buffer 缓冲区</li>
+<li>Selector 选择器</li>
+</ul>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>其中Channel对应以前的流，Buffer不是什么新东西，Selector是因为nio可以使用异步的非堵塞模式才加入的东西。<br><br>以前的流总是堵塞的，一个线程只要对它进行操作，其它操作就会被堵塞，也就相当于水管没有阀门，你伸手接水的时候，<br><br>不管水到了没有，你就都只能耗在接水（流）上。<br><br>nio的Channel的加入，相当于增加了水龙头（有阀门），虽然一个时刻也只能接一个水管的水，但依赖轮换策略，在水量<br><br>不大的时候，各个水管里流出来的水，都可以得到妥善接纳，这个关键之处就是增加了一个接水工，也就是Selector，他负<br><br>责协调，也就是看哪根水管有水了的话，在当前水管的水接到一定程度的时候，就切换一下：临时关上当前水龙头，试着打开<br><br>另一个水龙头（看看有没有水）。<br><br>当其他人需要用水的时候，不是直接去接水，而是事前提了一个水桶给接水工，这个水桶就是Buffer。也就是，其他人虽然也<br><br>可能要等，但不会在现场等，而是回家等，可以做其它事去，水接满了，接水工会通知他们。<br><br>这其实也是非常接近当前社会分工细化的现实，也是统分利用现有资源达到并发效果的一种很经济的手段，而不是动不动就来个<br><br>并行处理，虽然那样是最简单的，但也是最浪费资源的方式。<br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/11/14/NIO学习笔记/" data-id="cj9zhymlv0002e2s6ipvpi15h" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ubuntu安装java8-tomcat8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/04/18/ubuntu安装java8-tomcat8/" class="article-date">
@@ -103,7 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/04/18/ubuntu安装java8-tomcat8/" data-id="cj9gjpk40002p2rs659ajd2c7" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/04/18/ubuntu安装java8-tomcat8/" data-id="cj9zhymo9002xe2s6n5sv26l8" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -157,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/04/13/Tsung使用笔记/" data-id="cj9gjpk1q00022rs6pdtlwd38" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/04/13/Tsung使用笔记/" data-id="cj9zhymm00004e2s64nkwd4q4" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -203,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/04/06/macos配置mysql/" data-id="cj9gjpk3f001t2rs6p4lymjzf" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/04/06/macos配置mysql/" data-id="cj9zhymnk001re2s61z4nykg4" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -254,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/04/05/基于百度es搭建ELK笔记/" data-id="cj9gjpk46002w2rs6w51tao65" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/04/05/基于百度es搭建ELK笔记/" data-id="cj9zhymoa002ze2s68s537x3y" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -306,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/swap配置笔记/" data-id="cj9gjpk45002u2rs6yklzj5tt" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/swap配置笔记/" data-id="cj9zhymo7002se2s6xrnpu7o5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -354,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/配置linux并发连接最大连接数/" data-id="cj9gjpk4h00342rs6rym7tmy4" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/配置linux并发连接最大连接数/" data-id="cj9zhymoh0036e2s6grnakoeu" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -398,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/elasticsearch使用笔记/" data-id="cj9gjpk2c000e2rs6gzu5ch75" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/elasticsearch使用笔记/" data-id="cj9zhymml000fe2s6srt4xlcb" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -447,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/screen命令使用笔记/" data-id="cj9gjpk3i001y2rs65yawvybj" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/screen命令使用笔记/" data-id="cj9zhymns0020e2s6knc39ilq" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -490,98 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cj9gjpk3200172rs6piahs3dt" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-JVM内存模型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/02/24/JVM内存模型/" class="article-date">
-  <time datetime="2017-02-24T09:57:09.000Z" itemprop="datePublished">2017-02-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/JAVA/">JAVA</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/24/JVM内存模型/">JVM内存模型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><img src="/2017/02/24/JVM内存模型/jvm内存模型.jpg" alt="这是JVM内存模型" title="这是JVM内存模型">
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>生命周期都与线程相同</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">名称</th>
-<th style="text-align:center">特征</th>
-<th style="text-align:left">作用</th>
-<th style="text-align:left">配置参数</th>
-<th style="text-align:left">异常</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">程序计数器</td>
-<td style="text-align:center">占用内存小，线程私有</td>
-<td style="text-align:left">大致为字节码信号指示器</td>
-<td style="text-align:left">无</td>
-<td style="text-align:left">无</td>
-</tr>
-<tr>
-<td style="text-align:left">虚拟机栈</td>
-<td style="text-align:center">线程私有，使用连续的内存空间</td>
-<td style="text-align:left">Java方法执行的内存模型，<br>存储局部变量表、操作栈、<br>动态链接、方法出口等信息</td>
-<td style="text-align:left"><code>-Xss</code></td>
-<td style="text-align:left">StackOverflowError<br>OutOfMemoryError</td>
-</tr>
-<tr>
-<td style="text-align:left">堆</td>
-<td style="text-align:center">线程共享，可以不使用连续的内存地址</td>
-<td style="text-align:left">保存对象实例，所有对象实例<br>（包括数组）都要在堆上分配</td>
-<td style="text-align:left"><code>-Xms</code><br><code>-Xsx</code><br><code>-Xmn</code></td>
-<td style="text-align:left">OutOfMemoryError</td>
-</tr>
-<tr>
-<td style="text-align:left">方法区</td>
-<td style="text-align:center">线程共享，可以不使用连续的内存地址</td>
-<td style="text-align:left">存储已被虚拟机加载的<br>类信息、常量、静态变量、<br>编译器即时编译后的代码等数据</td>
-<td style="text-align:left"><code>-XX:PermSize:16M</code><br><code>-XX:MaxPermSize:64M</code></td>
-<td style="text-align:left">OutOfMemoryError</td>
-</tr>
-<tr>
-<td style="text-align:left">本地方法栈</td>
-<td style="text-align:center">线程私有，使用连续的内存空间</td>
-<td style="text-align:left">为虚拟机使用到的Native方法服务</td>
-<td style="text-align:left">无</td>
-<td style="text-align:left">StackOverflowError<br>OutOfMemoryError</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cj9gjpk1m00012rs6yp1qn0fe" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cj9zhymnb001ce2s6033p5yj2" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -621,7 +577,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -632,6 +588,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/14/NIO学习笔记/">NIO学习笔记</a>
+          </li>
         
           <li>
             <a href="/2017/04/18/ubuntu安装java8-tomcat8/">ubuntu安装java8+tomcat8</a>
@@ -647,10 +607,6 @@
         
           <li>
             <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
           </li>
         
       </ul>

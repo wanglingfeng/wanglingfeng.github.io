@@ -58,6 +58,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo-build" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/05/hexo-build/" class="article-date">
+  <time datetime="2016-12-05T10:35:20.000Z" itemprop="datePublished">2016-12-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/05/hexo-build/">搭建hexo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="下载安装nodejs-内置npm"><a href="#下载安装nodejs-内置npm" class="headerlink" title="下载安装nodejs(内置npm)"></a>下载安装nodejs(内置npm)</h3><h3 id="通过npm安装hexo"><a href="#通过npm安装hexo" class="headerlink" title="通过npm安装hexo"></a>通过npm安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo</div></pre></td></tr></table></figure>
+<h3 id="在希望的文件夹下-比如C-hexo-初始化hexo"><a href="#在希望的文件夹下-比如C-hexo-初始化hexo" class="headerlink" title="在希望的文件夹下(比如C:\hexo)初始化hexo"></a>在希望的文件夹下(比如C:\hexo)初始化hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init</div></pre></td></tr></table></figure>
+<h3 id="安装hexo依赖包"><a href="#安装hexo依赖包" class="headerlink" title="安装hexo依赖包"></a>安装hexo依赖包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install</div></pre></td></tr></table></figure>
+<h3 id="安装git插件"><a href="#安装git插件" class="headerlink" title="安装git插件"></a>安装git插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
+<h3 id="修改hexo初始化文件夹下的-config-yml文件使之与自己的github关联，修改内容如下"><a href="#修改hexo初始化文件夹下的-config-yml文件使之与自己的github关联，修改内容如下" class="headerlink" title="修改hexo初始化文件夹下的_config.yml文件使之与自己的github关联，修改内容如下"></a>修改hexo初始化文件夹下的_config.yml文件使之与自己的github关联，修改内容如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https://github.com/xxxxxx/xxxxxx.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<h3 id="构建hexo"><a href="#构建hexo" class="headerlink" title="构建hexo"></a>构建hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo g</div></pre></td></tr></table></figure>
+<h3 id="发布hexo"><a href="#发布hexo" class="headerlink" title="发布hexo"></a>发布hexo</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/05/hexo-build/" data-id="cj9zhymn40014e2s6qzf4epg1" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/05/hello-world/" class="article-date">
@@ -97,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/05/hello-world/" data-id="cj9gjpk2x000z2rs68rnypdr0" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/05/hello-world/" data-id="cj9zhymn20012e2s6b218yhtt" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -137,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -148,6 +196,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/14/NIO学习笔记/">NIO学习笔记</a>
+          </li>
         
           <li>
             <a href="/2017/04/18/ubuntu安装java8-tomcat8/">ubuntu安装java8+tomcat8</a>
@@ -163,10 +215,6 @@
         
           <li>
             <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/31/swap配置笔记/">swap配置笔记</a>
           </li>
         
       </ul>
