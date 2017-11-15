@@ -58,6 +58,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-linux笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/linux笔记/" class="article-date">
+  <time datetime="2016-12-06T09:52:31.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/linux笔记/">linux笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ssh连接机器（root权限登入）"><a href="#ssh连接机器（root权限登入）" class="headerlink" title="ssh连接机器（root权限登入）"></a>ssh连接机器（root权限登入）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh root@xxx.sample.com</div></pre></td></tr></table></figure>
+<h3 id="ssh连接指定端口机器"><a href="#ssh连接指定端口机器" class="headerlink" title="ssh连接指定端口机器"></a>ssh连接指定端口机器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -p &lt;端口号&gt; root@xxx.sample.com</div></pre></td></tr></table></figure>
+<h3 id="本地文件夹复制到机器的指定文件夹中"><a href="#本地文件夹复制到机器的指定文件夹中" class="headerlink" title="本地文件夹复制到机器的指定文件夹中"></a>本地文件夹复制到机器的指定文件夹中</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ scp -r -P 14022 /xxx/d/ssh root@xxx.sample.com:&lt;指定文件夹&gt;</div></pre></td></tr></table></figure>
+<h3 id="查看端口是否被占用"><a href="#查看端口是否被占用" class="headerlink" title="查看端口是否被占用"></a>查看端口是否被占用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ netstat –ntlp |grep &lt;端口号&gt;</div></pre></td></tr></table></figure>
+<h3 id="修改主机名称"><a href="#修改主机名称" class="headerlink" title="修改主机名称"></a>修改主机名称</h3><p>修改<code>/etc/hostname</code>文件</p>
+<h3 id="查看文件大小"><a href="#查看文件大小" class="headerlink" title="查看文件大小"></a>查看文件大小</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ du -sh *</div></pre></td></tr></table></figure>
+<h3 id="添加全局环境变量位置"><a href="#添加全局环境变量位置" class="headerlink" title="添加全局环境变量位置"></a>添加全局环境变量位置</h3><p>执行<code>echo $SHELL</code></p>
+<ul>
+<li>结果是<code>/bin/bash</code>的情况，在<code>/etc/bashrc</code>文件中添加环境变量</li>
+<li>结果是<code>/bin/zsh</code>的情况，在<code>/etc/zshrc</code>文件中添加环境变量</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cja0ovsy6001nzls6zpzumey6" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-java使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/06/java使用笔记/" class="article-date">
@@ -90,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cj9zhymnc001ee2s6akn7mga6" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cja0ovsy1001gzls6jvqigfo0" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -133,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cj9zhymn90019e2s6b1luetna" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cja0ovsxy001bzls6c3v9qr2g" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -190,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cj9zhymn00010e2s6fcil40if" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cja0ovsxj000zzls6n5n7mf67" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -246,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cj9zhymmx000ve2s6j2awghi0" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cja0ovsxe000uzls6oz3o0s41" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -294,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cj9zhymmu000qe2s60rho8cqi" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cja0ovsxd000szls6e0ye4i6n" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -336,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cj9zhymmv000se2s6ip6w5jzw" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cja0ovsxh000xzls6kgpyngw5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -382,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cj9zhymmt000ne2s6c36gyo29" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cja0ovsxa000qzls6ounn1cre" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -424,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cj9zhymms000le2s6673pym7w" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cja0ovsx9000nzls6h7wrx249" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -472,53 +524,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cj9zhymmq000ie2s66x9sbo39" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-linux生成ssh公钥私钥" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/linux生成ssh公钥私钥/" class="article-date">
-  <time datetime="2016-12-06T08:58:09.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/linux生成ssh公钥私钥/">linux生成ssh公钥私钥</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="In-Git-Bash-paste-the-text-below-substituting-in-your-GitHub-email-address-在Git-Bash中输入，生成公钥私钥"><a href="#In-Git-Bash-paste-the-text-below-substituting-in-your-GitHub-email-address-在Git-Bash中输入，生成公钥私钥" class="headerlink" title="In Git Bash, paste the text below, substituting in your GitHub email address(在Git Bash中输入，生成公钥私钥)"></a>In Git Bash, paste the text below, substituting in your GitHub email address(在Git Bash中输入，生成公钥私钥)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -b 4096 -C <span class="string">"your_email@example.com"</span></div></pre></td></tr></table></figure>
-<p>[-t：密钥类型，包括 RSA 和 DSA 两种密钥；-b ：  指定密钥长度，默认2048；-C：提供一个新注释]</p>
-<h3 id="If-you-are-using-Git-Bash-turn-on-ssh-agent-启动ssh-agent，生成Bourne-shell-风格的命令输出"><a href="#If-you-are-using-Git-Bash-turn-on-ssh-agent-启动ssh-agent，生成Bourne-shell-风格的命令输出" class="headerlink" title="If you are using Git Bash, turn on ssh-agent(启动ssh-agent，生成Bourne shell 风格的命令输出)"></a>If you are using Git Bash, turn on ssh-agent(启动ssh-agent，生成Bourne shell 风格的命令输出)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></div></pre></td></tr></table></figure>
-<h3 id="Add-your-SSH-key-to-the-ssh-agent-把秘钥添加到高速缓存秘钥管理器中-ssh-agent"><a href="#Add-your-SSH-key-to-the-ssh-agent-把秘钥添加到高速缓存秘钥管理器中-ssh-agent" class="headerlink" title="Add your SSH key to the ssh-agent(把秘钥添加到高速缓存秘钥管理器中[ssh-agent])"></a>Add your SSH key to the ssh-agent(把秘钥添加到高速缓存秘钥管理器中[ssh-agent])</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
-<h3 id="Copy-the-SSH-key-to-your-clipboard-将公钥添加到黏贴板"><a href="#Copy-the-SSH-key-to-your-clipboard-将公钥添加到黏贴板" class="headerlink" title="Copy the SSH key to your clipboard(将公钥添加到黏贴板)"></a>Copy the SSH key to your clipboard(将公钥添加到黏贴板)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ clip &lt; ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux生成ssh公钥私钥/" data-id="cj9zhymni001me2s6rlft1w1t" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cja0ovsx8000lzls67bkooii3" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -543,7 +549,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/消息队列/">消息队列</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
     </div>
   </div>
 
@@ -571,6 +577,10 @@
       <ul>
         
           <li>
+            <a href="/2017/11/15/HTTPS原理/">HTTPS原理</a>
+          </li>
+        
+          <li>
             <a href="/2017/11/14/NIO学习笔记/">NIO学习笔记</a>
           </li>
         
@@ -584,10 +594,6 @@
         
           <li>
             <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/05/基于百度es搭建ELK笔记/">基于百度es搭建ELK笔记</a>
           </li>
         
       </ul>
