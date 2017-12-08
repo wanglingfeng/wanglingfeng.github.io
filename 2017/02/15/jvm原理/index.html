@@ -17,16 +17,16 @@
 
 新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。
 老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
-<meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/2.jpg">
-<meta property="og:updated_time" content="2017-11-06T10:34:06.786Z">
+<meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/a.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/b.jpg">
+<meta property="og:updated_time" content="2017-12-08T03:11:21.463Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm原理">
 <meta name="twitter:description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。
 
 新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。
 老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
-<meta name="twitter:image" content="http://yoursite.com/2017/02/15/jvm原理/1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/15/jvm原理/a.jpg">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -119,8 +119,8 @@
 <li>调用类的静态的成员、代码块和方法，如果有父类递归初始化父类。</li>
 <li>调用非静态的成员、代码块和方法，然后调用构造方法，如果有父类递归初始化父类。</li>
 </ul>
-<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><img src="/2017/02/15/jvm原理/1.jpg" alt="This is sample code" title="This is sample code">
-<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><img src="/2017/02/15/jvm原理/2.jpg" alt="This is execute result" title="This is execute result">
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><img src="/2017/02/15/jvm原理/a.jpg" alt="This is sample code" title="This is sample code">
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><img src="/2017/02/15/jvm原理/b.jpg" alt="This is execute result" title="This is execute result">
 <h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>获取类的二进制字节流的代码块叫做类的加载器。<br>4类。</p>
 <ol>
 <li>启动类加载器(Bootstrap ClassLoader)：用来加载java核心类库，包括$JAVA_HOME/jre/lib/*.jar。</li>
