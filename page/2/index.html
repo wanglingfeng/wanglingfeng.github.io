@@ -9,6 +9,7 @@
 <meta property="og:title" content="Coding Note">
 <meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Coding Note">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Coding Note">
   
@@ -49,7 +50,7 @@
         <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
     </div>
   </div>
@@ -57,6 +58,55 @@
 
       <div class="outer">
         <section id="main">
+  
+    <article id="post-screen命令使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/31/screen命令使用笔记/" class="article-date">
+  <time datetime="2017-03-31T10:55:25.000Z" itemprop="datePublished">2017-03-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/应用/">应用</a>►<a class="article-category-link" href="/categories/技术/应用/linux/">linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/31/screen命令使用笔记/">screen命令使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="screen使用"><a href="#screen使用" class="headerlink" title="screen使用"></a>screen使用</h3><p>新建会话: screen<br>显示全部会话：screen -ls<br>通过screen列表中的pid重新登陆到分离的screen：screen -r [pid]</p>
+<p>处于screen中，按Ctrl + a后,接</p>
+<ul>
+<li>d: 退出当前screen</li>
+<li>w: 左下角显示有哪些会话</li>
+<li>c: 新建会话</li>
+<li>n: 移到下一个窗口</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2017/03/31/screen命令使用笔记/" data-id="cjf1d8ifs001ol0qvm2eq81fd" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
   
     <article id="post-item2-oh-my-zsh配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -90,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cja0ovsy0001dzls6ae4s56p0" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/03/31/item2-oh-my-zsh配置/" data-id="cjf1d8ifg0012l0qv7ku3dz9p" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -127,7 +177,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><img src="/2017/02/24/JVM内存模型/jvm.jpg" alt="这是JVM内存模型" title="这是JVM内存模型">
+        <h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><img src="/2017/02/24/JVM内存模型/jvm.jpg" title="这是JVM内存模型">
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>生命周期都与线程相同</p>
 <table>
 <thead>
@@ -182,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cja0ovswb0002zls6r0km9kdc" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cjf1d8ieo0002l0qvj8llkvdb" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -220,8 +270,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>拉链法：数组+链表<br>初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。</p>
-<h3 id="数组中index的算法"><a href="#数组中index的算法" class="headerlink" title="数组中index的算法"></a>数组中index的算法</h3><p>使用了高位算法和取模算法。<br/><br>int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。<br/><br>所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。<br/><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tab.length - <span class="number">1</span>) &amp; hash <span class="comment">// 按位取并，作用上相当于取模mod或者取余%</span></div></pre></td></tr></table></figure></p>
-<p>但是即使这样就算我的散列值分布再松散，要是只取最后几位的话，碰撞也会很严重。<br/><br>更要命的是如果散列本身做得不好，分布上成等差数列的漏洞，恰好使最后几个低位呈现规律性重复。这个使用就需要用到下面的一个函数”扰动函数”。<br/></p>
+<h3 id="数组中index的算法"><a href="#数组中index的算法" class="headerlink" title="数组中index的算法"></a>数组中index的算法</h3><p>使用了高位算法和取模算法。<br><br>int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。<br><br>所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。<br><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(tab.length - <span class="number">1</span>) &amp; hash <span class="comment">// 按位取并，作用上相当于取模mod或者取余%</span></div></pre></td></tr></table></figure></p>
+<p>但是即使这样就算我的散列值分布再松散，要是只取最后几位的话，碰撞也会很严重。<br><br>更要命的是如果散列本身做得不好，分布上成等差数列的漏洞，恰好使最后几个低位呈现规律性重复。这个使用就需要用到下面的一个函数”扰动函数”。<br></p>
         
           <p class="article-more-link">
             <a href="/2017/02/22/hashmap原理/#more">Read More</a>
@@ -230,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cja0ovsxm0012zls67bqgw49v" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cjf1d8if8000tl0qv0375r35x" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -290,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cja0ovsy4001lzls6awk11jw2" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cjf1d8ifk0016l0qvbrhthinx" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -348,12 +398,12 @@
 <h3 id="主要异同点"><a href="#主要异同点" class="headerlink" title="主要异同点"></a>主要异同点</h3><p>SSE：单向 | WebSocket：双向<br>SSE：轮询 | WebSocket：长连接</p>
 <h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h4><p>优点：服务器端开发很简单，服务器端支持已经统一。<br>缺点：浏览器需要不断的向服务器发出请求，然而HTTP request的header是非常长的，里面包含的有用数据可能只是一个很小的值，这样会占用很多的带宽。<br>实时性要求不高的情况下，推荐使用。</p>
 <h4 id="webSocket"><a href="#webSocket" class="headerlink" title="webSocket"></a>webSocket</h4><p>优点：WebSocket协议中，为我们实现即时服务带来了两大好处：互相沟通的Header是很小的-大概只有2Bytes；服务器不再被动的接收到浏览器的request之后才返回数据，而是在有新数据时就主动推送给浏览器。<br>缺点：服务器长期维护长连接需要一定的成本，各个浏览器支持程度不一。<br>实时性要求高大情况下，推荐使用。</p>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><a href="https://github.com/wanglingfeng/push-server-demo" target="_blank" rel="external">链接</a></p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><a href="https://github.com/wanglingfeng/push-server-demo" target="_blank" rel="noopener">链接</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cja0ovsz30038zls6zqe9lbq5" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cjf1d8ig8002rl0qvo8qq0pfo" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -395,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cja0ovsyo002jzls6wbnhdyca" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/01/19/spring-mvc使用笔记/" data-id="cjf1d8ig0002al0qv8wxtfugx" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -457,7 +507,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cja0ovsyl0029zls6okx9vtxk" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot构成/" data-id="cjf1d8ift001ql0qv2a3qaye3" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -514,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-others/" data-id="cja0ovsyn002ezls68uyvlpjy" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-others/" data-id="cjf1d8ifw0020l0qvhbo162v4" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -569,59 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-security/" data-id="cja0ovsyo002hzls6cj38c83z" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-spring-boot配置属性字典-mq" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/15/spring-boot配置属性字典-mq/" class="article-date">
-  <time datetime="2016-12-15T05:21:29.000Z" itemprop="datePublished">2016-12-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/应用/">应用</a>►<a class="article-category-link" href="/categories/技术/应用/Spring/">Spring</a>►<a class="article-category-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/15/spring-boot配置属性字典-mq/">spring-boot配置属性字典-mq</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="activemq"><a href="#activemq" class="headerlink" title="activemq"></a>activemq</h3><ul>
-<li>spring.activemq.broker-url: 指定ActiveMQ broker的URL，默认自动生成</li>
-<li>spring.activemq.in-memory: 是否是内存模式，默认为true</li>
-<li>spring.activemq.password: 指定broker的密码</li>
-<li>spring.activemq.pooled: 是否创建PooledConnectionFactory，而非ConnectionFactory，默认false</li>
-<li>spring.activemq.user: 指定broker的用户</li>
-</ul>
-        
-          <p class="article-more-link">
-            <a href="/2016/12/15/spring-boot配置属性字典-mq/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-mq/" data-id="cja0ovsyh0024zls6tcf8sncg" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/15/spring-boot配置属性字典-security/" data-id="cjf1d8ify0022l0qvdtkotz6w" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -646,7 +644,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
     </div>
   </div>
 
@@ -661,7 +659,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -672,6 +670,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/22/love-story/">love-story</a>
+          </li>
         
           <li>
             <a href="/2017/11/15/HTTPS原理/">HTTPS原理</a>
@@ -689,10 +691,6 @@
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
-          <li>
-            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -705,7 +703,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Joseph Wang<br>
+      &copy; 2018 Joseph Wang<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

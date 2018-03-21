@@ -5,27 +5,19 @@
   
   <title>jvm原理 | Coding Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。
-
-新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。
-老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
+  <meta name="description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。  新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。 老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jvm原理">
 <meta property="og:url" content="http://yoursite.com/2017/02/15/jvm原理/index.html">
 <meta property="og:site_name" content="Coding Note">
-<meta property="og:description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。
-
-新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。
-老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
+<meta property="og:description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。  新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。 老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/a.jpg">
 <meta property="og:image" content="http://yoursite.com/2017/02/15/jvm原理/b.jpg">
-<meta property="og:updated_time" content="2017-12-08T03:15:31.698Z">
+<meta property="og:updated_time" content="2017-12-08T03:15:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jvm原理">
-<meta name="twitter:description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。
-
-新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。
-老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
+<meta name="twitter:description" content="垃圾收集分代收集：根据对象的生命周期分为新生代和老年代。  新生代 -&amp;gt; 由于对象生命周期短，使用复制算法。新生代中分为Eden区和Survivor区，每次优先使用Eden区，如果Eden区满，将Eden区中存活的对象复制到Survivor区；如果Survivor区满，将Survivor区中存活的对象复制到老年代。 老年代 -&amp;gt; 由于对象存活率高，使用标记-整理算法。扫描出存活的对象，">
 <meta name="twitter:image" content="http://yoursite.com/2017/02/15/jvm原理/a.jpg">
   
   
@@ -65,7 +57,7 @@
         <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
     </div>
   </div>
@@ -119,8 +111,8 @@
 <li>调用类的静态的成员、代码块和方法，如果有父类递归初始化父类。</li>
 <li>调用非静态的成员、代码块和方法，然后调用构造方法，如果有父类递归初始化父类。</li>
 </ul>
-<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><img src="/2017/02/15/jvm原理/a.jpg" alt="This is sample code" title="This is sample code">
-<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><img src="/2017/02/15/jvm原理/b.jpg" alt="This is execute result" title="This is execute result">
+<h4 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h4><img src="/2017/02/15/jvm原理/a.jpg" title="This is sample code">
+<h4 id="执行结果"><a href="#执行结果" class="headerlink" title="执行结果"></a>执行结果</h4><img src="/2017/02/15/jvm原理/b.jpg" title="This is execute result">
 <h3 id="类加载器"><a href="#类加载器" class="headerlink" title="类加载器"></a>类加载器</h3><p>获取类的二进制字节流的代码块叫做类的加载器。<br>4类。</p>
 <ol>
 <li>启动类加载器(Bootstrap ClassLoader)：用来加载java核心类库，包括$JAVA_HOME/jre/lib/*.jar。</li>
@@ -133,7 +125,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cja0ovsy4001lzls6awk11jw2" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/15/jvm原理/" data-id="cjf1d8ifk0016l0qvbrhthinx" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -171,7 +163,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
     </div>
   </div>
 
@@ -186,7 +178,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -197,6 +189,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/22/love-story/">love-story</a>
+          </li>
         
           <li>
             <a href="/2017/11/15/HTTPS原理/">HTTPS原理</a>
@@ -214,10 +210,6 @@
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
-          <li>
-            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -230,7 +222,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Joseph Wang<br>
+      &copy; 2018 Joseph Wang<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -5,20 +5,18 @@
   
   <title>hashmap原理 | Coding Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实现原理拉链法：数组+链表初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。
-数组中index的算法使用了高位算法和取模算法。int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。1(tab.leng">
+  <meta name="description" content="实现原理拉链法：数组+链表初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。 数组中index的算法使用了高位算法和取模算法。int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。1(tab.leng">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hashmap原理">
 <meta property="og:url" content="http://yoursite.com/2017/02/22/hashmap原理/index.html">
 <meta property="og:site_name" content="Coding Note">
-<meta property="og:description" content="实现原理拉链法：数组+链表初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。
-数组中index的算法使用了高位算法和取模算法。int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。1(tab.leng">
+<meta property="og:description" content="实现原理拉链法：数组+链表初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。 数组中index的算法使用了高位算法和取模算法。int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。1(tab.leng">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/02/22/hashmap原理/perturbation-function.jpg">
-<meta property="og:updated_time" content="2017-12-08T03:20:54.888Z">
+<meta property="og:updated_time" content="2017-12-08T03:20:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hashmap原理">
-<meta name="twitter:description" content="实现原理拉链法：数组+链表初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。
-数组中index的算法使用了高位算法和取模算法。int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。1(tab.leng">
+<meta name="twitter:description" content="实现原理拉链法：数组+链表初始化根据初始容量创建对应数量的数组，每个元素储存的是一个链表的头结点。 数组中index的算法使用了高位算法和取模算法。int表值范围从-2147483648到2147483648。前后加起来大概40亿的映射空间。HashMap扩容之前的数组初始大小才16。所以散列值不能直接拿来用，用之前还要先做对数组的长度取模运算，得到的余数才能用来访问数组下标。1(tab.leng">
 <meta name="twitter:image" content="http://yoursite.com/2017/02/22/hashmap原理/perturbation-function.jpg">
   
   
@@ -58,7 +56,7 @@
         <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
     </div>
   </div>
@@ -97,7 +95,7 @@
 <a id="more"></a>
 <p>扰动函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> h;</div><div class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>代码了些设么：右位移16位，正好是32bit(int是32bit)的一半，自己的高半区和低半区做异或。<br>作用：混合原始哈希码的高位和低位，以此来加大低位的随机性。</p>
-<h4 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h4><img src="/2017/02/22/hashmap原理/perturbation-function.jpg" alt="This is perturbation function" title="This is perturbation function">
+<h4 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h4><img src="/2017/02/22/hashmap原理/perturbation-function.jpg" title="This is perturbation function">
 <h3 id="put"><a href="#put" class="headerlink" title="put"></a>put</h3><h4 id="执行内容"><a href="#执行内容" class="headerlink" title="执行内容"></a>执行内容</h4><ol>
 <li>如果存储数组是null或空，通过resize方法创建存储数组。</li>
 <li>如果在存储数组中通过index取出的节点是null，在对应index位置创建数组。</li>
@@ -131,7 +129,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cja0ovsxm0012zls67bqgw49v" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/22/hashmap原理/" data-id="cjf1d8if8000tl0qv0375r35x" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -169,7 +167,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
     </div>
   </div>
 
@@ -184,7 +182,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -195,6 +193,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/22/love-story/">love-story</a>
+          </li>
         
           <li>
             <a href="/2017/11/15/HTTPS原理/">HTTPS原理</a>
@@ -212,10 +214,6 @@
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
-          <li>
-            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -228,7 +226,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Joseph Wang<br>
+      &copy; 2018 Joseph Wang<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

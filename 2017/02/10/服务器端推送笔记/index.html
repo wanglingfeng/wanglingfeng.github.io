@@ -5,22 +5,17 @@
   
   <title>服务器端推送笔记 | Coding Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Server-Sent Event (SSE)运行过程浏览器通过HTTP向服务器发送请求，服务器拿到最新的数据，立即返回给客户端，客户端等待3秒后再次发出下一个请求。
-执行过程每3秒都会按照以下顺序执行onopen -&amp;gt; onmessage -&amp;gt; onerror，每次请求都会执行onerror方法，如果是正常关闭，onerror方法的回调参数readyState=3。
-Headers设">
+  <meta name="description" content="Server-Sent Event (SSE)运行过程浏览器通过HTTP向服务器发送请求，服务器拿到最新的数据，立即返回给客户端，客户端等待3秒后再次发出下一个请求。 执行过程每3秒都会按照以下顺序执行onopen -&amp;gt; onmessage -&amp;gt; onerror，每次请求都会执行onerror方法，如果是正常关闭，onerror方法的回调参数readyState=3。 Headers设">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务器端推送笔记">
 <meta property="og:url" content="http://yoursite.com/2017/02/10/服务器端推送笔记/index.html">
 <meta property="og:site_name" content="Coding Note">
-<meta property="og:description" content="Server-Sent Event (SSE)运行过程浏览器通过HTTP向服务器发送请求，服务器拿到最新的数据，立即返回给客户端，客户端等待3秒后再次发出下一个请求。
-执行过程每3秒都会按照以下顺序执行onopen -&amp;gt; onmessage -&amp;gt; onerror，每次请求都会执行onerror方法，如果是正常关闭，onerror方法的回调参数readyState=3。
-Headers设">
-<meta property="og:updated_time" content="2017-12-08T03:34:37.226Z">
+<meta property="og:description" content="Server-Sent Event (SSE)运行过程浏览器通过HTTP向服务器发送请求，服务器拿到最新的数据，立即返回给客户端，客户端等待3秒后再次发出下一个请求。 执行过程每3秒都会按照以下顺序执行onopen -&amp;gt; onmessage -&amp;gt; onerror，每次请求都会执行onerror方法，如果是正常关闭，onerror方法的回调参数readyState=3。 Headers设">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-08T03:34:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器端推送笔记">
-<meta name="twitter:description" content="Server-Sent Event (SSE)运行过程浏览器通过HTTP向服务器发送请求，服务器拿到最新的数据，立即返回给客户端，客户端等待3秒后再次发出下一个请求。
-执行过程每3秒都会按照以下顺序执行onopen -&amp;gt; onmessage -&amp;gt; onerror，每次请求都会执行onerror方法，如果是正常关闭，onerror方法的回调参数readyState=3。
-Headers设">
+<meta name="twitter:description" content="Server-Sent Event (SSE)运行过程浏览器通过HTTP向服务器发送请求，服务器拿到最新的数据，立即返回给客户端，客户端等待3秒后再次发出下一个请求。 执行过程每3秒都会按照以下顺序执行onopen -&amp;gt; onmessage -&amp;gt; onerror，每次请求都会执行onerror方法，如果是正常关闭，onerror方法的回调参数readyState=3。 Headers设">
   
   
     <link rel="icon" href="/img/favicon.ico">
@@ -59,7 +54,7 @@ Headers设">
         <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
     </div>
   </div>
@@ -113,12 +108,12 @@ Headers设">
 <h3 id="主要异同点"><a href="#主要异同点" class="headerlink" title="主要异同点"></a>主要异同点</h3><p>SSE：单向 | WebSocket：双向<br>SSE：轮询 | WebSocket：长连接</p>
 <h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="SSE"><a href="#SSE" class="headerlink" title="SSE"></a>SSE</h4><p>优点：服务器端开发很简单，服务器端支持已经统一。<br>缺点：浏览器需要不断的向服务器发出请求，然而HTTP request的header是非常长的，里面包含的有用数据可能只是一个很小的值，这样会占用很多的带宽。<br>实时性要求不高的情况下，推荐使用。</p>
 <h4 id="webSocket"><a href="#webSocket" class="headerlink" title="webSocket"></a>webSocket</h4><p>优点：WebSocket协议中，为我们实现即时服务带来了两大好处：互相沟通的Header是很小的-大概只有2Bytes；服务器不再被动的接收到浏览器的request之后才返回数据，而是在有新数据时就主动推送给浏览器。<br>缺点：服务器长期维护长连接需要一定的成本，各个浏览器支持程度不一。<br>实时性要求高大情况下，推荐使用。</p>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><a href="https://github.com/wanglingfeng/push-server-demo" target="_blank" rel="external">链接</a></p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><a href="https://github.com/wanglingfeng/push-server-demo" target="_blank" rel="noopener">链接</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cja0ovsz30038zls6zqe9lbq5" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/10/服务器端推送笔记/" data-id="cjf1d8ig8002rl0qvo8qq0pfo" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -156,7 +151,7 @@ Headers设">
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
     </div>
   </div>
 
@@ -171,7 +166,7 @@ Headers设">
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -182,6 +177,10 @@ Headers设">
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/22/love-story/">love-story</a>
+          </li>
         
           <li>
             <a href="/2017/11/15/HTTPS原理/">HTTPS原理</a>
@@ -199,10 +198,6 @@ Headers设">
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
-          <li>
-            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -215,7 +210,7 @@ Headers设">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Joseph Wang<br>
+      &copy; 2018 Joseph Wang<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -5,107 +5,18 @@
   
   <title>JVM内存模型 | Coding Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="图解
-说明生命周期都与线程相同
-
-
-
-名称
-特征
-作用
-配置参数
-异常
-
-
-
-
-程序计数器
-占用内存小，线程私有
-大致为字节码信号指示器
-无
-无
-
-
-虚拟机栈
-线程私有，使用连续的内存空间
-Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息
--Xss
-StackOverflowErrorOutOfMemoryError
-
-
-堆
-线程共享，可以不使用连续的内存地址
-保存对象">
+  <meta name="description" content="图解 说明生命周期都与线程相同    名称 特征 作用 配置参数 异常     程序计数器 占用内存小，线程私有 大致为字节码信号指示器 无 无   虚拟机栈 线程私有，使用连续的内存空间 Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息 -Xss StackOverflowErrorOutOfMemoryError   堆 线程共享，可以不使用连续的内存地址 保存对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM内存模型">
 <meta property="og:url" content="http://yoursite.com/2017/02/24/JVM内存模型/index.html">
 <meta property="og:site_name" content="Coding Note">
-<meta property="og:description" content="图解
-说明生命周期都与线程相同
-
-
-
-名称
-特征
-作用
-配置参数
-异常
-
-
-
-
-程序计数器
-占用内存小，线程私有
-大致为字节码信号指示器
-无
-无
-
-
-虚拟机栈
-线程私有，使用连续的内存空间
-Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息
--Xss
-StackOverflowErrorOutOfMemoryError
-
-
-堆
-线程共享，可以不使用连续的内存地址
-保存对象">
+<meta property="og:description" content="图解 说明生命周期都与线程相同    名称 特征 作用 配置参数 异常     程序计数器 占用内存小，线程私有 大致为字节码信号指示器 无 无   虚拟机栈 线程私有，使用连续的内存空间 Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息 -Xss StackOverflowErrorOutOfMemoryError   堆 线程共享，可以不使用连续的内存地址 保存对象">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2017/02/24/JVM内存模型/jvm.jpg">
-<meta property="og:updated_time" content="2017-12-08T03:15:38.365Z">
+<meta property="og:updated_time" content="2017-12-08T03:15:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JVM内存模型">
-<meta name="twitter:description" content="图解
-说明生命周期都与线程相同
-
-
-
-名称
-特征
-作用
-配置参数
-异常
-
-
-
-
-程序计数器
-占用内存小，线程私有
-大致为字节码信号指示器
-无
-无
-
-
-虚拟机栈
-线程私有，使用连续的内存空间
-Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息
--Xss
-StackOverflowErrorOutOfMemoryError
-
-
-堆
-线程共享，可以不使用连续的内存地址
-保存对象">
+<meta name="twitter:description" content="图解 说明生命周期都与线程相同    名称 特征 作用 配置参数 异常     程序计数器 占用内存小，线程私有 大致为字节码信号指示器 无 无   虚拟机栈 线程私有，使用连续的内存空间 Java方法执行的内存模型，存储局部变量表、操作栈、动态链接、方法出口等信息 -Xss StackOverflowErrorOutOfMemoryError   堆 线程共享，可以不使用连续的内存地址 保存对象">
 <meta name="twitter:image" content="http://yoursite.com/2017/02/24/JVM内存模型/jvm.jpg">
   
   
@@ -145,7 +56,7 @@ StackOverflowErrorOutOfMemoryError
         <!--<a id="nav-search-btn" class="nav-icon" title="搜索"></a>-->
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
       </div>
     </div>
   </div>
@@ -178,7 +89,7 @@ StackOverflowErrorOutOfMemoryError
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><img src="/2017/02/24/JVM内存模型/jvm.jpg" alt="这是JVM内存模型" title="这是JVM内存模型">
+        <h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><img src="/2017/02/24/JVM内存模型/jvm.jpg" title="这是JVM内存模型">
 <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>生命周期都与线程相同</p>
 <table>
 <thead>
@@ -233,7 +144,7 @@ StackOverflowErrorOutOfMemoryError
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cja0ovswb0002zls6r0km9kdc" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2017/02/24/JVM内存模型/" data-id="cjf1d8ieo0002l0qvj8llkvdb" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -271,7 +182,7 @@ StackOverflowErrorOutOfMemoryError
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
     </div>
   </div>
 
@@ -286,7 +197,7 @@ StackOverflowErrorOutOfMemoryError
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -297,6 +208,10 @@ StackOverflowErrorOutOfMemoryError
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/03/22/love-story/">love-story</a>
+          </li>
         
           <li>
             <a href="/2017/11/15/HTTPS原理/">HTTPS原理</a>
@@ -314,10 +229,6 @@ StackOverflowErrorOutOfMemoryError
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
           </li>
         
-          <li>
-            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -330,7 +241,7 @@ StackOverflowErrorOutOfMemoryError
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 Joseph Wang<br>
+      &copy; 2018 Joseph Wang<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
