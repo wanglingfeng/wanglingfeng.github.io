@@ -59,60 +59,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-linux配置ssh笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/06/linux配置ssh笔记/" class="article-date">
-  <time datetime="2016-12-06T09:53:54.000Z" itemprop="datePublished">2016-12-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/应用/">应用</a>►<a class="article-category-link" href="/categories/技术/应用/linux/">linux</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/06/linux配置ssh笔记/">linux配置ssh笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="安装ssh服务"><a href="#安装ssh服务" class="headerlink" title="安装ssh服务"></a>安装ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo apt-get update</div><div class="line">$ sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
-<h3 id="查看ssh服务是否启动"><a href="#查看ssh服务是否启动" class="headerlink" title="查看ssh服务是否启动"></a>查看ssh服务是否启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo ps <span class="_">-e</span> |grep ssh</div></pre></td></tr></table></figure>
-<h3 id="支持root用户登录"><a href="#支持root用户登录" class="headerlink" title="支持root用户登录"></a>支持root用户登录</h3><p>  修改<code>/etc/ssh/sshd_config</code>文件,</p>
-<pre><code>1. 添加`PermitRootLogin yes`
-2. 如果存在`PermitRootLogin`配置项, 将其注释掉
-</code></pre><h3 id="设置禁用密码登陆"><a href="#设置禁用密码登陆" class="headerlink" title="设置禁用密码登陆"></a>设置禁用密码登陆</h3><p>  修改<code>/etc/ssh/sshd_config</code>文件,</p>
-<pre><code>1. `PasswordAuthentication`配置项设置为`no`
-2. 解开`AuthorizedKeysFile      %h/.ssh/authorized_keys`的注释
-</code></pre><h3 id="重启ssh服务"><a href="#重启ssh服务" class="headerlink" title="重启ssh服务"></a>重启ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ /etc/init.d/ssh restart</div><div class="line">或</div><div class="line">$ service ssh restart</div></pre></td></tr></table></figure>
-<h3 id="添加公钥"><a href="#添加公钥" class="headerlink" title="添加公钥"></a>添加公钥</h3><ul>
-<li>在对应的用户文件夹下的.ssh文件夹内的authorized_keys文件中添加公钥.如果.ssh文件夹或者authorized_keys文件不存在, 手动添加(如果是手动添加的文件需要改文件权限, 执行命令: chmod 600  authorized_keys)</li>
-<li>ssh-copy-id [用户名]@[机器地址]</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux配置ssh笔记/" data-id="cjf1d8ifm0019l0qvz71iv7ed" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-linux笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/06/linux笔记/" class="article-date">
@@ -154,7 +100,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cjf1d8ifj0015l0qv033542t0" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/linux笔记/" data-id="cjf1ee4o70018uvqvwi4yffjs" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -196,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cjf1d8ifh0013l0qvow9bs53z" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/java使用笔记/" data-id="cjf1ee4o20012uvqvb3swoay8" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -239,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cjf1d8iff0010l0qvemhek6eu" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hibernate使用笔记/" data-id="cjf1ee4nz0010uvqvk1jl1b5q" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -296,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cjf1d8if9000ul0qvidkle2ly" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/hbase单机构建笔记/" data-id="cjf1ee4nv000uuvqv3k6mp9n8" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -352,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cjf1d8if7000rl0qvulk1xnn2" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/harbor构建笔记/" data-id="cjf1ee4ns000ruvqvrww6tyuf" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -400,7 +346,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cjf1d8if5000ol0qv8gvfwfk5" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle使用笔记/" data-id="cjf1ee4no000nuvqv7y4s225w" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -442,7 +388,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cjf1d8if6000ql0qvrgw8b4pp" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/gradle插件本地docker配置片段/" data-id="cjf1ee4nq000quvqvm6jj4muz" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -488,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cjf1d8if4000nl0qvuxstgorw" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git异常解决/" data-id="cjf1ee4np000ouvqv9tl2v02w" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -530,7 +476,55 @@
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cjf1d8if3000ll0qvkobnjn3i" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://yoursite.com/2016/12/06/git基础配置/" data-id="cjf1ee4nm000luvqvpukrxwgm" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-git使用笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/06/git使用笔记/" class="article-date">
+  <time datetime="2016-12-06T09:01:08.000Z" itemprop="datePublished">2016-12-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>►<a class="article-category-link" href="/categories/技术/应用/">应用</a>►<a class="article-category-link" href="/categories/技术/应用/git/">git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/06/git使用笔记/">git使用笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="分支："><a href="#分支：" class="headerlink" title="分支："></a>分支：</h3><h4 id="创建新本地分支"><a href="#创建新本地分支" class="headerlink" title="创建新本地分支"></a>创建新本地分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git branch &lt;新分支名称&gt;</div></pre></td></tr></table></figure>
+<h4 id="切换到新分支"><a href="#切换到新分支" class="headerlink" title="切换到新分支"></a>切换到新分支</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout &lt;新分支名称&gt;</div></pre></td></tr></table></figure>
+<h4 id="新分支推送到远程服务器："><a href="#新分支推送到远程服务器：" class="headerlink" title="新分支推送到远程服务器："></a>新分支推送到远程服务器：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push --set-upstream &lt;远程机器名称(一般默认为origin)&gt; &lt;远程新分支名称&gt;</div></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2016/12/06/git使用笔记/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://yoursite.com/2016/12/06/git使用笔记/" data-id="cjf1ee4nl000kuvqv2yortfos" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -555,7 +549,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/生活/">生活</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/">原理</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/HTTP/">HTTP</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/JAVA/">JAVA</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/原理/推送/">推送</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/">应用</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/ELK/">ELK</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/">JAVA</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/JAVA/对象使用/">对象使用</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/">Spring</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/Spring/spring-boot/">spring-boot</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/docker/">docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/elasticsearch/">elasticsearch</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/erlang/">erlang</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/gradle/">gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/harbor/">harbor</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/linux/">linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/macos/">macos</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/windows/">windows</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/压力测试/">压力测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/命令行/">命令行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/">存储</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/存储/可视化工具/">可视化工具</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/服务发现/">服务发现</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/机器环境/">机器环境</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/应用/消息队列/">消息队列</a></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/文章/">文章</a></li></ul>
     </div>
   </div>
 
@@ -570,7 +564,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">四月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a></li></ul>
     </div>
   </div>
 
@@ -581,10 +575,6 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2018/03/22/love-story/">love-story</a>
-          </li>
         
           <li>
             <a href="/2017/11/15/HTTPS原理/">HTTPS原理</a>
@@ -600,6 +590,10 @@
         
           <li>
             <a href="/2017/04/13/Tsung使用笔记/">Tsung使用笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2017/04/06/macos配置mysql/">macos配置mysql</a>
           </li>
         
       </ul>
